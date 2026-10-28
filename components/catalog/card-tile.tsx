@@ -13,6 +13,25 @@ interface CardTileProps {
 }
 
 // Issuer accent styling
+function formatBonusUnit(unit: string): string {
+  if (!unit) return "pts"
+  if (unit.includes("Chase UR") || unit.includes("UR")) return "UR"
+  if (unit.includes("Amex MR") || unit.includes("MR")) return "MR"
+  if (unit.includes("C1") || unit.includes("Capital One")) return "C1 Miles"
+  if (unit.includes("Citi TYP") || unit.includes("TYP")) return "TYP"
+  if (unit.includes("SkyMiles")) return "SkyMiles"
+  if (unit.includes("AAdvantage")) return "AA Miles"
+  if (unit.includes("MileagePlus")) return "UA Miles"
+  if (unit.includes("Southwest")) return "SW pts"
+  if (unit.includes("Hyatt")) return "Hyatt pts"
+  if (unit.includes("Bonvoy") || unit.includes("Marriott")) return "Bonvoy pts"
+  if (unit.includes("Hilton")) return "Hilton pts"
+  if (unit.includes("IHG")) return "IHG pts"
+  if (unit.includes("Bilt")) return "Bilt pts"
+  if (unit.includes("cash") || unit.includes("Cash")) return "Cash Back"
+  return unit
+}
+
 function getIssuerStyle(issuer: string) {
   const norm = issuer.toLowerCase()
   if (norm.includes("chase")) {
@@ -212,8 +231,7 @@ export function CardTile({ card, onSelect }: CardTileProps) {
               <div className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
                 <Gift className="size-3.5 shrink-0 text-primary" />
                 <span className="line-clamp-1">
-                  {card.signupBonus.amount}{" "}
-                  {card.signupBonus.unit.split(" ")[0]}
+                  {card.signupBonus.amount} {formatBonusUnit(card.signupBonus.unit)}
                 </span>
               </div>
               <Badge

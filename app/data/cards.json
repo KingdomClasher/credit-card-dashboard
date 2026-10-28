@@ -17,7 +17,7 @@
     "recommended": true,
     "signupBonus": {
       "amount": "100,000",
-      "unit": "Ultimate Rewards points",
+      "unit": "Chase UR points",
       "spendRequirement": 6000,
       "timeframeMonths": 3,
       "estimatedValueUsd": 1600,
@@ -102,7 +102,7 @@
       "Visa Infinite Concierge & Luxury Hotel Collection benefits"
     ],
     "rewardProgram": {
-      "name": "Chase Ultimate Rewards",
+      "name": "Chase Ultimate Rewards (UR)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -155,12 +155,12 @@
     "recommended": true,
     "signupBonus": {
       "amount": "175,000",
-      "unit": "Membership Rewards points",
+      "unit": "Amex MR points",
       "spendRequirement": 12000,
       "timeframeMonths": 6,
       "estimatedValueUsd": 2800,
       "historicalHigh": "175,000 points",
-      "description": "Earn up to 175,000 Membership Rewards points after you spend $12,000 on eligible purchases within the first 6 months."
+      "description": "Earn up to 175,000 Amex MR points after you spend $12,000 on eligible purchases within the first 6 months."
     },
     "multipliers": {
       "flights": "5x on flights booked directly with airlines or via Amex Travel (up to $500,000/yr)",
@@ -256,7 +256,7 @@
       "Amex Offers: high-value targeted merchant discounts"
     ],
     "rewardProgram": {
-      "name": "American Express Membership Rewards",
+      "name": "Amex Membership Rewards (MR)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -312,7 +312,7 @@
     "recommended": true,
     "signupBonus": {
       "amount": "75,000",
-      "unit": "Capital One Miles",
+      "unit": "C1 Miles",
       "spendRequirement": 4000,
       "timeframeMonths": 3,
       "estimatedValueUsd": 1200,
@@ -372,7 +372,7 @@
       "Capital One Travel Price Drop Protection and Best Price Guarantee"
     ],
     "rewardProgram": {
-      "name": "Capital One Miles",
+      "name": "Capital One (C1) Miles",
       "currency": "miles",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -477,7 +477,7 @@
       "Visa Infinite Concierge and Luxury Hotel Collection perks"
     ],
     "rewardProgram": {
-      "name": "U.S. Bank Altitude Rewards",
+      "name": "U.S. Bank Altitude Rewards (USB)",
       "currency": "points",
       "transferable": false,
       "estimatedCpp": 1.5,
@@ -520,7 +520,7 @@
     "recommended": true,
     "signupBonus": {
       "amount": "75,000",
-      "unit": "Ultimate Rewards points",
+      "unit": "Chase UR points",
       "spendRequirement": 5000,
       "timeframeMonths": 3,
       "estimatedValueUsd": 1200,
@@ -571,7 +571,7 @@
       "DoorDash DashPass complimentary subscription"
     ],
     "rewardProgram": {
-      "name": "Chase Ultimate Rewards",
+      "name": "Chase Ultimate Rewards (UR)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -624,7 +624,7 @@
     "recommended": false,
     "signupBonus": {
       "amount": "75,000",
-      "unit": "Capital One Miles",
+      "unit": "C1 Miles",
       "spendRequirement": 4000,
       "timeframeMonths": 3,
       "estimatedValueUsd": 1500,
@@ -667,7 +667,7 @@
       "Travel Accident Insurance & Extended Warranty"
     ],
     "rewardProgram": {
-      "name": "Capital One Miles",
+      "name": "Capital One (C1) Miles",
       "currency": "miles",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -716,12 +716,12 @@
     "recommended": true,
     "signupBonus": {
       "amount": "60,000",
-      "unit": "ThankYou Points",
+      "unit": "Citi TYP points",
       "spendRequirement": 4000,
       "timeframeMonths": 3,
       "estimatedValueUsd": 960,
       "historicalHigh": "80,000 points",
-      "description": "Earn 60,000 ThankYou Points after spending $4,000 in the first 3 months from account opening."
+      "description": "Earn 60,000 Citi TYP points after spending $4,000 in the first 3 months from account opening."
     },
     "multipliers": {
       "travel_portal": "10x on hotels, car rentals, and attractions booked through Citi Travel",
@@ -758,7 +758,7 @@
       "Mastercard ID Theft Protection & World Elite Travel Privileges"
     ],
     "rewardProgram": {
-      "name": "Citi ThankYou Rewards",
+      "name": "Citi ThankYou Rewards (TYP)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -855,7 +855,7 @@
       "Auto Rental Collision Damage Waiver"
     ],
     "rewardProgram": {
-      "name": "Wells Fargo Rewards",
+      "name": "Wells Fargo Rewards (WF)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -902,12 +902,12 @@
     "recommended": true,
     "signupBonus": {
       "amount": "90,000",
-      "unit": "Membership Rewards points",
+      "unit": "Amex MR points",
       "spendRequirement": 6000,
       "timeframeMonths": 6,
       "estimatedValueUsd": 1440,
       "historicalHigh": "100,000 points",
-      "description": "Earn 90,000 Membership Rewards points after spending $6,000 on eligible purchases in your first 6 months."
+      "description": "Earn 90,000 Amex MR points after spending $6,000 on eligible purchases in your first 6 months."
     },
     "multipliers": {
       "dining": "4x at restaurants worldwide (up to $50,000/yr, then 1x)",
@@ -964,7 +964,7 @@
       "Up to 5 additional cards for $0 annual fee"
     ],
     "rewardProgram": {
-      "name": "American Express Membership Rewards",
+      "name": "Amex Membership Rewards (MR)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -1044,13 +1044,13 @@
     },
     "credits": [],
     "perks": [
-      "Convert cash back rewards directly to Capital One Miles (1:1 ratio) when paired with a Venture or Venture X card!",
+      "Convert cash back rewards directly to C1 Miles (1:1 ratio) when paired with a Venture or Venture X card!",
       "0% foreign transaction fees on a $0 annual fee card",
       "Access to Capital One Entertainment premium pre-sales and dining experiences",
       "Extended Warranty and Price Protection benefits"
     ],
     "rewardProgram": {
-      "name": "Capital One Cash Back / Miles",
+      "name": "Capital One (C1) Miles / Cash Back",
       "currency": "cash_back",
       "transferable": true,
       "estimatedCpp": 1.0,
@@ -1129,7 +1129,7 @@
       "Points never expire and redeem for cash back or statement credit at 1.0 cpp"
     ],
     "rewardProgram": {
-      "name": "U.S. Bank Altitude Rewards",
+      "name": "U.S. Bank Altitude Rewards (USB)",
       "currency": "points",
       "transferable": false,
       "estimatedCpp": 1.0,
@@ -1169,7 +1169,7 @@
     "recommended": true,
     "signupBonus": {
       "amount": "200",
-      "unit": "USD (20,000 UR points)",
+      "unit": "USD (20k Chase UR points)",
       "spendRequirement": 500,
       "timeframeMonths": 3,
       "estimatedValueUsd": 320,
@@ -1196,14 +1196,14 @@
     },
     "credits": [],
     "perks": [
-      "Points are earned as Ultimate Rewards and can be pooled with Sapphire Preferred or Reserve for full airline/hotel partner transfers (boosting effective 5% return to 8%+!)",
+      "Points are earned as Chase UR and can be pooled with Sapphire Preferred or Reserve for full airline/hotel partner transfers (boosting effective 5% return to 8%+!)",
       "Cell Phone Protection: up to $800 per claim ($50 deductible, 2 claims/yr)",
       "Trip Cancellation & Interruption Insurance",
       "Purchase Protection & Extended Warranty",
       "0% Foreign Transaction Fee (removed in late 2026 update!)"
     ],
     "rewardProgram": {
-      "name": "Chase Ultimate Rewards",
+      "name": "Chase Ultimate Rewards (UR)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -1214,7 +1214,7 @@
       "Chase 5/24 Rule applies."
     ],
     "summary": "A powerhouse rewards card combining 5% rotating quarterly categories (grocery, gas, Amazon, wholesale clubs) with permanent 3% dining, 3% drugstores, and 5% Chase Travel. Essential pillar of the Chase Trifecta.",
-    "bestFor": "Maximizers looking to optimize everyday spend and boost their Ultimate Rewards stash alongside a Sapphire card.",
+    "bestFor": "Maximizers looking to optimize everyday spend and boost their Chase UR stash alongside a Sapphire card.",
     "pros": [
       "5% rotating quarterly categories (up to $1,500/quarter) generate up to 30,000 UR points per year",
       "Permanent 3% on dining and drugstores with $0 annual fee",
@@ -1244,7 +1244,7 @@
     "recommended": true,
     "signupBonus": {
       "amount": "200",
-      "unit": "USD (20,000 UR points)",
+      "unit": "USD (20k Chase UR points)",
       "spendRequirement": 500,
       "timeframeMonths": 3,
       "estimatedValueUsd": 320,
@@ -1270,12 +1270,12 @@
     },
     "credits": [],
     "perks": [
-      "Earns transferable Ultimate Rewards points when paired with Sapphire Preferred or Reserve (yielding an effective 2.4% return on all catch-all spend!)",
+      "Earns transferable Chase UR points when paired with Sapphire Preferred or Reserve (yielding an effective 2.4% return on all catch-all spend!)",
       "Purchase Protection & Extended Warranty",
       "Auto Rental Collision Damage Waiver (secondary)"
     ],
     "rewardProgram": {
-      "name": "Chase Ultimate Rewards",
+      "name": "Chase Ultimate Rewards (UR)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -1316,12 +1316,12 @@
     "recommended": true,
     "signupBonus": {
       "amount": "200",
-      "unit": "USD (20,000 TYP)",
+      "unit": "USD (20k Citi TYP points)",
       "spendRequirement": 1500,
       "timeframeMonths": 6,
       "estimatedValueUsd": 320,
       "historicalHigh": "$200",
-      "description": "Earn $200 cash back (20,000 ThankYou Points) after you spend $1,500 on purchases in the first 6 months."
+      "description": "Earn $200 cash back (20,000 Citi TYP points) after you spend $1,500 on purchases in the first 6 months."
     },
     "multipliers": {
       "base": "2% cash back on all purchases (1% when you buy, 1% when you pay)",
@@ -1340,12 +1340,12 @@
     },
     "credits": [],
     "perks": [
-      "Rewards are awarded as ThankYou Points (TYP), which can be converted to 1:1 airline miles when paired with Citi Strata Premier",
+      "Rewards are awarded as Citi TYP points (TYP), which can be converted to 1:1 airline miles when paired with Citi Strata Premier",
       "No category tracking or spend caps",
       "0% intro APR on balance transfers for 18 months"
     ],
     "rewardProgram": {
-      "name": "Citi ThankYou Rewards",
+      "name": "Citi ThankYou Rewards (TYP)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -1355,7 +1355,7 @@
     "rules": [
       "Citi 8/65 Rule applies."
     ],
-    "summary": "The card that defined the flat 2% cash back standard. Earn 1% when you buy and 1% as you pay for purchases. When paired with Citi Strata Premier, this transforms into an unlimited 2x transferable ThankYou Points generator.",
+    "summary": "The card that defined the flat 2% cash back standard. Earn 1% when you buy and 1% as you pay for purchases. When paired with Citi Strata Premier, this transforms into an unlimited 2x transferable Citi TYP points generator.",
     "bestFor": "Anyone seeking clean, hassle-free 2% cash back on all purchases, or Citi ecosystem users needing an unbonused spend powerhouse.",
     "pros": [
       "Clean 2% cash back on every purchase with no caps and no rotating categories",
@@ -1385,12 +1385,12 @@
     "recommended": true,
     "signupBonus": {
       "amount": "200",
-      "unit": "USD (20,000 TYP)",
+      "unit": "USD (20k Citi TYP points)",
       "spendRequirement": 1500,
       "timeframeMonths": 6,
       "estimatedValueUsd": 320,
       "historicalHigh": "$300 (30,000 TYP)",
-      "description": "Earn $200 cash back (20,000 ThankYou Points) after you spend $1,500 on purchases in the first 6 months."
+      "description": "Earn $200 cash back (20,000 Citi TYP points) after you spend $1,500 on purchases in the first 6 months."
     },
     "multipliers": {
       "top_category": "5% cash back on your highest eligible spend category each billing cycle (up to $500 spend, then 1%)",
@@ -1411,10 +1411,10 @@
     "perks": [
       "Automatically adapts each billing cycle to your highest spending category among: Restaurants, Gas Stations, Grocery Stores, Select Travel, Select Transit, Select Streaming, Drugstores, Home Improvement, Fitness Clubs, Live Entertainment",
       "No quarterly category enrollment required",
-      "Earns ThankYou Points redeemable for direct cash or transferable to airline partners via Citi Strata Premier"
+      "Earns Citi TYP points redeemable for direct cash or transferable to airline partners via Citi Strata Premier"
     ],
     "rewardProgram": {
-      "name": "Citi ThankYou Rewards",
+      "name": "Citi ThankYou Rewards (TYP)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
@@ -1483,7 +1483,7 @@
       "0% intro APR on purchases and balance transfers for 15 months"
     ],
     "rewardProgram": {
-      "name": "Wells Fargo Rewards",
+      "name": "Wells Fargo Rewards (WF)",
       "currency": "cash_back",
       "transferable": false,
       "estimatedCpp": 1.0,
@@ -1558,7 +1558,7 @@
       "Auto Rental Collision Damage Waiver"
     ],
     "rewardProgram": {
-      "name": "Wells Fargo Rewards",
+      "name": "Wells Fargo Rewards (WF)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.0,
@@ -1874,7 +1874,7 @@
       "No foreign transaction fee"
     ],
     "rewardProgram": {
-      "name": "Bilt Rewards",
+      "name": "Bilt Rewards (Bilt)",
       "currency": "points",
       "transferable": true,
       "estimatedCpp": 1.6,
