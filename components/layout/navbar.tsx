@@ -12,6 +12,7 @@ import {
   Menu,
   X,
   Calculator,
+  Bot,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -31,6 +32,7 @@ export function Navbar() {
   const pathname = usePathname()
   const isCatalog = pathname === "/"
   const isCalculator = pathname.startsWith("/calculator")
+  const isAdvisor = pathname.startsWith("/advisor")
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
@@ -107,6 +109,26 @@ export function Navbar() {
             <span>Calculator</span>
             <span className="py-0.2 rounded bg-primary/10 px-1.5 text-[9px] font-bold tracking-wider text-primary uppercase">
               Live
+            </span>
+          </Link>
+          <Link
+            href="/advisor"
+            className={cn(
+              "flex items-center gap-1.5 rounded-md px-3 py-1.5 transition-colors",
+              isAdvisor
+                ? "bg-secondary/80 font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
+          >
+            <Bot
+              className={cn(
+                "size-3.5",
+                isAdvisor ? "text-primary" : "text-muted-foreground"
+              )}
+            />
+            <span>AI Advisor</span>
+            <span className="py-0.2 rounded bg-primary/10 px-1.5 text-[9px] font-bold tracking-wider text-primary uppercase">
+              AI
             </span>
           </Link>
           <Link
@@ -210,6 +232,29 @@ export function Navbar() {
             </span>
             <Badge variant="default" className="text-xs">
               Live
+            </Badge>
+          </Link>
+          <Link
+            href="/advisor"
+            onClick={() => setMobileMenuOpen(false)}
+            className={cn(
+              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isAdvisor
+                ? "bg-secondary font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
+          >
+            <span className="flex items-center gap-2">
+              <Bot
+                className={cn(
+                  "size-4",
+                  isAdvisor ? "text-primary" : "text-muted-foreground"
+                )}
+              />
+              AI Advisor
+            </span>
+            <Badge variant="default" className="text-xs">
+              AI
             </Badge>
           </Link>
           <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground">
