@@ -12,6 +12,7 @@ import {
   Menu,
   X,
   Calculator,
+  Wallet,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -31,6 +32,7 @@ export function Navbar() {
   const pathname = usePathname()
   const isCatalog = pathname === "/"
   const isCalculator = pathname.startsWith("/calculator")
+  const isWallet = pathname.startsWith("/wallet")
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
@@ -110,15 +112,23 @@ export function Navbar() {
             </span>
           </Link>
           <Link
-            href="#wallet"
-            onClick={(e) => {
-              e.preventDefault()
-            }}
-            className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+            href="/wallet"
+            className={cn(
+              "flex items-center gap-1.5 rounded-md px-3 py-1.5 transition-colors",
+              isWallet
+                ? "bg-secondary/80 font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
           >
-            <span>Wallet</span>
-            <span className="py-0.2 rounded bg-muted px-1.5 text-[9px] tracking-wider text-muted-foreground uppercase">
-              Beta
+            <Wallet
+              className={cn(
+                "size-3.5",
+                isWallet ? "text-primary" : "text-muted-foreground"
+              )}
+            />
+            <span>My Wallet</span>
+            <span className="py-0.2 rounded bg-primary/10 px-1.5 text-[9px] font-bold tracking-wider text-primary uppercase">
+              New
             </span>
           </Link>
         </nav>
@@ -212,10 +222,32 @@ export function Navbar() {
               Live
             </Badge>
           </Link>
-          <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground">
-            <span>Wallet</span>
-            <span className="text-xs text-muted-foreground">Beta</span>
-          </div>
+          <Link
+            href="/wallet"
+            onClick={() => setMobileMenuOpen(false)}
+            className={cn(
+              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isWallet
+                ? "bg-secondary font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
+          >
+            <span className="flex items-center gap-2">
+              <Wallet
+                className={cn(
+                  "size-4",
+                  isWallet ? "text-primary" : "text-muted-foreground"
+                )}
+              />
+              My Wallet
+            </span>
+            <Badge
+              variant={isWallet ? "default" : "outline"}
+              className="text-xs"
+            >
+              New
+            </Badge>
+          </Link>
         </div>
       )}
     </header>
