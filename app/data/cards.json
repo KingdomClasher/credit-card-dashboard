@@ -1,0 +1,2992 @@
+[
+  {
+    "id": "chase-sapphire-reserve",
+    "name": "Chase Sapphire Reserve®",
+    "issuer": "Chase",
+    "network": "Visa Infinite",
+    "tier": "Top Tier Travel",
+    "category": "travel_premium",
+    "annualFee": 795,
+    "authorizedUserFee": 195,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Excellent (720+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "100,000",
+      "unit": "Ultimate Rewards points",
+      "spendRequirement": 6000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1600,
+      "historicalHigh": "150,000 points",
+      "description": "Earn 100,000 bonus points after spending $6,000 on purchases in the first 3 months from account opening."
+    },
+    "multipliers": {
+      "travel_portal": "8x on Chase Travel purchases",
+      "flights": "4x on flights booked direct with airlines",
+      "hotels": "4x on hotels booked direct",
+      "dining": "3x on dining at restaurants, takeout & delivery",
+      "general_travel": "3x on other travel purchases",
+      "grocery": "1x",
+      "gas": "1x",
+      "transit": "3x",
+      "streaming": "1x",
+      "base": "1x on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 1.0,
+      "flights": 4.0,
+      "hotels": 4.0,
+      "travel_portal": 8.0,
+      "gas": 1.0,
+      "transit": 3.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Travel Credit",
+        "amount": 300,
+        "frequency": "annual",
+        "description": "$300 annual statement credit automatically reimbursed for all travel purchases."
+      },
+      {
+        "name": "The Edit Luxury Hotel Credit",
+        "amount": 500,
+        "frequency": "annual",
+        "description": "Two $250 credits per year for prepaid luxury stays booked through The Edit on Chase Travel (2-night minimum)."
+      },
+      {
+        "name": "Exclusive Tables Dining Credit",
+        "amount": 300,
+        "frequency": "semi-annual",
+        "description": "$150 semi-annually ($300/yr) for dining at Sapphire Reserve Exclusive Tables via OpenTable."
+      },
+      {
+        "name": "StubHub / viagogo Credit",
+        "amount": 300,
+        "frequency": "semi-annual",
+        "description": "$150 semi-annually ($300/yr) for StubHub and viagogo event ticketing purchases (valid through 2027)."
+      },
+      {
+        "name": "Apple Services Credit",
+        "amount": 324,
+        "frequency": "annual",
+        "description": "Complimentary Apple TV+ and Apple Music subscription credit ($288-$324 value)."
+      },
+      {
+        "name": "DoorDash Statement Credit & DashPass",
+        "amount": 420,
+        "frequency": "monthly",
+        "description": "Complimentary DashPass plus $35/mo in credits ($15 restaurant order + two $10 non-restaurant orders)."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 120,
+        "frequency": "every_4_years",
+        "description": "Up to $120 statement credit every 4 years for Global Entry, TSA PreCheck, or NEXUS fee."
+      }
+    ],
+    "perks": [
+      "Complimentary access to Chase Sapphire Lounges by The Club",
+      "Priority Pass Select membership with unlimited visits + 2 guests",
+      "Points Boost: redeem UR points on Chase Travel up to 2.0 cpp for select flights & hotels (1.0 cpp default)",
+      "Primary Auto Rental Collision Damage Waiver (CDW)",
+      "Trip Cancellation & Interruption Insurance (up to $10,000/person, $20,000/trip)",
+      "Trip Delay Reimbursement ($500 per ticket after 6 hours)",
+      "Lost & Delayed Luggage Reimbursement",
+      "Visa Infinite Concierge & Luxury Hotel Collection benefits"
+    ],
+    "rewardProgram": {
+      "name": "Chase Ultimate Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "World of Hyatt",
+        "United MileagePlus",
+        "Air Canada Aeroplan",
+        "British Airways Executive Club",
+        "Air France / KLM Flying Blue",
+        "Singapore Airlines KrisFlyer",
+        "Southwest Rapid Rewards",
+        "Virgin Atlantic Flying Club"
+      ]
+    },
+    "rules": [
+      "Chase 5/24 Rule: Applications denied if 5+ personal cards opened across any bank in past 24 months.",
+      "Sapphire 48-Month Rule: Cannot receive welcome bonus if you received a bonus for any Sapphire card in past 48 months.",
+      "Single Sapphire Policy: Can only hold one personal Sapphire card (Preferred or Reserve) at a time."
+    ],
+    "summary": "Chase's flagship luxury travel card was revamped with a higher $795 fee, unmatched lifestyle and entertainment credits totaling over $2,100, and enhanced 8x portal and 4x direct flight/hotel multipliers.",
+    "bestFor": "Frequent travelers, luxury hotel guests, and city foodies who easily utilize travel, dining, and DoorDash credits.",
+    "pros": [
+      "Super-easy $300 travel credit automatically reimburses any travel purchase",
+      "4x direct booking multiplier on flights and hotels without requiring portal booking",
+      "Chase Sapphire Lounges are among the highest-rated airport lounges in the US",
+      "Industry-leading primary car rental CDW and travel delay protections",
+      "1:1 transfers to World of Hyatt provide outsized redemption value (2.0+ cpp)"
+    ],
+    "cons": [
+      "Hefty $795 upfront annual fee ($195 per AU)",
+      "Substantial credit fragmentation (The Edit, StubHub, DoorDash require ongoing tracking)"
+    ]
+  },
+  {
+    "id": "amex-platinum",
+    "name": "The Platinum Card® from American Express",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Top Tier Travel",
+    "category": "travel_premium",
+    "annualFee": 895,
+    "authorizedUserFee": 195,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Excellent (720+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "175,000",
+      "unit": "Membership Rewards points",
+      "spendRequirement": 12000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 2800,
+      "historicalHigh": "175,000 points",
+      "description": "Earn up to 175,000 Membership Rewards points after you spend $12,000 on eligible purchases within the first 6 months."
+    },
+    "multipliers": {
+      "flights": "5x on flights booked directly with airlines or via Amex Travel (up to $500,000/yr)",
+      "hotels": "5x on prepaid hotels booked on amextravel.com",
+      "dining": "1x",
+      "grocery": "1x",
+      "gas": "1x",
+      "transit": "1x",
+      "streaming": "1x",
+      "base": "1x on all other eligible purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 1.0,
+      "flights": 5.0,
+      "hotels": 5.0,
+      "travel_portal": 5.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Lodging Credit (FHR / THC / Airbnb Luxe)",
+        "amount": 600,
+        "frequency": "semi-annual",
+        "description": "$300 semi-annually ($600/yr) on prepaid bookings through FHR, The Hotel Collection, or Airbnb Luxe."
+      },
+      {
+        "name": "Resy Dining Credit",
+        "amount": 400,
+        "frequency": "quarterly",
+        "description": "$100 per quarter ($400/yr) for eligible purchases at Resy-partnered restaurants."
+      },
+      {
+        "name": "Digital Entertainment Credit",
+        "amount": 300,
+        "frequency": "monthly",
+        "description": "$25/mo ($300/yr) for Disney+, Hulu, ESPN+, Peacock, The New York Times, WSJ, and YouTube Premium."
+      },
+      {
+        "name": "Lululemon Credit",
+        "amount": 300,
+        "frequency": "quarterly",
+        "description": "$75 per quarter ($300/yr) at US Lululemon retail stores and online."
+      },
+      {
+        "name": "Airline Incidental Fee Credit",
+        "amount": 200,
+        "frequency": "calendar_year",
+        "description": "$200 per calendar year for incidental fees (checked bags, seat selection) on a selected airline."
+      },
+      {
+        "name": "Uber Cash & Uber One",
+        "amount": 320,
+        "frequency": "monthly",
+        "description": "$200 annual Uber Cash ($15/mo, $35 in Dec) plus $120 annual Uber One membership credit."
+      },
+      {
+        "name": "CLEAR Plus Credit",
+        "amount": 209,
+        "frequency": "annual",
+        "description": "$209 annual statement credit covering CLEAR Plus expedited airport security membership."
+      },
+      {
+        "name": "Walmart+ Credit",
+        "amount": 155,
+        "frequency": "monthly",
+        "description": "$12.95/mo statement credit covering full Walmart+ membership."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 120,
+        "frequency": "every_4_years",
+        "description": "Up to $120 credit every 4 years for Global Entry or $85 for TSA PreCheck."
+      },
+      {
+        "name": "Oura Ring Credit",
+        "amount": 200,
+        "frequency": "annual",
+        "description": "$200 statement credit per calendar year towards an Oura Ring purchase on ouraring.com."
+      }
+    ],
+    "perks": [
+      "The American Express Global Lounge Collection: Centurion Lounges, Delta Sky Clubs (6 visits/yr), Priority Pass Select, Escape Lounges, Plaza Premium",
+      "Fine Hotels & Resorts (FHR) program with room upgrades, $100 property credit, daily breakfast for two, guaranteed 4pm late checkout",
+      "Complimentary Marriott Bonvoy Gold Elite Status",
+      "Complimentary Hilton Honors Gold Status",
+      "Rental car elite status with Hertz President's Circle, Avis Preferred Plus, and National Emerald Club Executive",
+      "Platinum Concierge 24/7 service",
+      "$800 Cell Phone Protection ($50 deductible, 2 claims/yr)",
+      "Amex Offers: high-value targeted merchant discounts"
+    ],
+    "rewardProgram": {
+      "name": "American Express Membership Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 0.6,
+      "topPartners": [
+        "Delta SkyMiles",
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Air Canada Aeroplan",
+        "ANA Mileage Club",
+        "Singapore Airlines KrisFlyer",
+        "Virgin Atlantic Flying Club",
+        "Hilton Honors (1:2)",
+        "Marriott Bonvoy (1:1)"
+      ]
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule: Welcome offer eligibility restricted if you have ever had this card before.",
+      "Family Language Rule: Receiving the Platinum welcome offer may disqualify you from welcome offers on Gold or Green cards.",
+      "Amex 5 Credit Card Limit: Max 5 personal and business credit cards (charge cards like Platinum usually exempt).",
+      "Amex Pop-Up Jail: Amex will notify you during application if you are ineligible for the bonus before a hard credit pull."
+    ],
+    "summary": "The quintessential luxury lifestyle and airport lounge card. Packed with over $2,800 in total credits, elite hotel and rental car status, and unparalleled airport lounge access across Centurion and partner networks.",
+    "bestFor": "Frequent air travelers and luxury hotel guests who can naturalize the extensive suite of quarterly and monthly lifestyle credits.",
+    "pros": [
+      "Broadest airport lounge access network of any consumer card in the world",
+      "5x points on flights booked directly with airlines (not locked to portal)",
+      "Instant Marriott Gold and Hilton Gold hotel status without hotel stays",
+      "Premium FHR benefits (guaranteed 4pm late checkout, breakfast, $100 property credit)",
+      "Massive 175k point welcome bonus offer"
+    ],
+    "cons": [
+      "$895 annual fee is the highest among mainstream cards",
+      "Extensive 'coupon book' format demands active quarterly/monthly tracking",
+      "Weak 1x multiplier on general dining and everyday non-travel spending"
+    ]
+  },
+  {
+    "id": "capital-one-venture-x",
+    "name": "Capital One Venture X Rewards Credit Card",
+    "issuer": "Capital One",
+    "network": "Visa Infinite",
+    "tier": "Top Tier Travel",
+    "category": "travel_premium",
+    "annualFee": 395,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Excellent (720+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "75,000",
+      "unit": "Capital One Miles",
+      "spendRequirement": 4000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1200,
+      "historicalHigh": "100,000 miles",
+      "description": "Earn 75,000 bonus miles once you spend $4,000 on purchases within the first 3 months from account opening."
+    },
+    "multipliers": {
+      "hotels": "10x on hotels and rental cars booked through Capital One Travel",
+      "travel_portal": "10x on hotels/cars, 5x on flights via Capital One Travel",
+      "flights": "5x on flights booked through Capital One Travel",
+      "dining": "2x",
+      "grocery": "2x",
+      "gas": "2x",
+      "transit": "2x",
+      "streaming": "2x",
+      "base": "2x on all other purchases (flat 2x everywhere)"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 2.0,
+      "flights": 5.0,
+      "hotels": 10.0,
+      "travel_portal": 10.0,
+      "gas": 2.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 2.0
+    },
+    "credits": [
+      {
+        "name": "Capital One Travel Credit",
+        "amount": 300,
+        "frequency": "annual",
+        "description": "$300 annual credit for bookings through Capital One Travel."
+      },
+      {
+        "name": "Anniversary Bonus Miles",
+        "amount": 100,
+        "frequency": "annual",
+        "description": "10,000 bonus miles every year starting on your first anniversary (worth $100 toward travel, $160+ transferred)."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 120,
+        "frequency": "every_4_years",
+        "description": "Up to $120 credit for Global Entry or TSA PreCheck application fee every 4 years."
+      }
+    ],
+    "perks": [
+      "Complimentary access to Capital One Lounges and landing spaces",
+      "Priority Pass Select membership with complimentary guest access",
+      "Complimentary Plaza Premium Lounge access",
+      "Up to 4 authorized users for $0 fee (each gets their own lounge access!)",
+      "Hertz President's Circle elite car rental status",
+      "Primary Auto Rental Collision Damage Waiver",
+      "Cell Phone Protection: up to $800 per claim ($50 deductible)",
+      "Capital One Travel Price Drop Protection and Best Price Guarantee"
+    ],
+    "rewardProgram": {
+      "name": "Capital One Miles",
+      "currency": "miles",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "Air Canada Aeroplan",
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Singapore Airlines KrisFlyer",
+        "Avianca LifeMiles",
+        "Turkish Airlines Miles&Smiles",
+        "Virgin Red",
+        "Wyndham Rewards (1:1)",
+        "Choice Privileges (1:1)"
+      ]
+    },
+    "rules": [
+      "Capital One 1/6 Rule: Generally at most one Capital One card approval every 6 months.",
+      "Capital One 2-Card Limit: Max 2 personal Capital One consumer cards (excludes co-branded cards).",
+      "High sensitivity to overall open accounts and inquiries on consumer bureau profiles."
+    ],
+    "summary": "The undisputed value king of luxury travel cards. A modest $395 fee that is completely neutralized by a $300 travel credit and 10,000 anniversary bonus miles, effectively giving you premium lounge access and flat 2x catch-all earnings for negative $5/year.",
+    "bestFor": "Every traveler seeking premium airport lounge benefits, easy credits, and effortless flat 2x rewards on every purchase.",
+    "pros": [
+      "Net negative effective annual fee ($395 fee minus $300 travel credit minus $100 anniversary miles = -$5)",
+      "Unrestricted flat 2x miles on every single purchase makes it an unbeatable catch-all card",
+      "Authorized users are completely free ($0) and receive their own Priority Pass card",
+      "Capital One Travel features real-time price match guarantee and automated price drop refunds",
+      "Excellent Capital One Lounges (DFW, IAD, DEN, JFK)"
+    ],
+    "cons": [
+      "$300 travel credit must be booked through the Capital One Travel portal",
+      "Capital One pulls all three credit bureaus (Equifax, Experian, TransUnion) upon application",
+      "Lacks domestic US airline 1:1 transfer partners (relies on alliances like BA/Avios for AA, Flying Blue for Delta)"
+    ]
+  },
+  {
+    "id": "us-bank-altitude-reserve",
+    "name": "U.S. Bank Altitude® Reserve Visa Infinite® Card",
+    "issuer": "U.S. Bank",
+    "network": "Visa Infinite",
+    "tier": "Top Tier Travel",
+    "category": "travel_premium",
+    "annualFee": 400,
+    "authorizedUserFee": 75,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Excellent (720+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "50,000",
+      "unit": "points",
+      "spendRequirement": 4500,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 750,
+      "historicalHigh": "50,000 points",
+      "description": "Earn 50,000 bonus points after spending $4,500 in the first 90 days from account opening ($750 toward travel)."
+    },
+    "multipliers": {
+      "mobile_wallet": "3x on mobile wallet purchases (Apple Pay, Google Pay, Samsung Pay)",
+      "travel": "3x on travel purchases made directly with airlines, hotels, car rentals, passenger trains, cruise lines",
+      "hotels": "5x on prepaid hotels and car rentals booked in the Altitude Rewards Center",
+      "dining": "1x",
+      "grocery": "1x (3x if paid via Apple Pay / Google Pay)",
+      "gas": "1x (3x if paid via Apple Pay / Google Pay)",
+      "transit": "3x",
+      "streaming": "1x",
+      "base": "1x on all other purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 1.0,
+      "flights": 3.0,
+      "hotels": 5.0,
+      "travel_portal": 5.0,
+      "gas": 1.0,
+      "transit": 3.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Travel & Dining Credit",
+        "amount": 325,
+        "frequency": "annual",
+        "description": "$325 automatic statement credit per cardmember year covering direct travel and dining/takeout purchases."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 100,
+        "frequency": "every_4_years",
+        "description": "Up to $100 credit for Global Entry or TSA PreCheck application fee every 4 years."
+      }
+    ],
+    "perks": [
+      "Real-Time Rewards: Redeem points via text message at 1.5 cents/point toward direct travel purchases (yielding an effective 4.5% return on all mobile wallet spend!)",
+      "Priority Pass Select membership: 8 complimentary lounge and airport restaurant visits per year",
+      "Primary Auto Rental Collision Damage Waiver",
+      "Visa Infinite Concierge and Luxury Hotel Collection perks"
+    ],
+    "rewardProgram": {
+      "name": "U.S. Bank Altitude Rewards",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 1.5,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "U.S. Bank Relationship: While no longer strictly mandatory, having an existing U.S. Bank deposit or loan account significantly improves approval odds.",
+      "High sensitivity to recent credit inquiries and newly opened accounts in the past 6-12 months (0/6 or 1/12 recommended)."
+    ],
+    "summary": "A cult-favorite premium card that offers an unbeatable 4.5% effective cash-back equivalent on all Apple Pay / Google Pay purchases through Real-Time Rewards. An effortless $325 dining/travel credit drops the effective annual fee to just $75.",
+    "bestFor": "Cardholders who pay with their smartphone everywhere (groceries, retail, dining) and desire 4.5% effective travel rewards without managing transfer partners.",
+    "pros": [
+      "3x on all mobile wallet spend (Apple Pay, Google Pay) equates to 4.5% return via Real-Time Rewards",
+      "$325 travel/dining credit applies automatically to regular restaurant and flight charges, cutting effective AF to $75",
+      "No need to search for award availability—book travel directly and erase charges with points at 1.5 cpp",
+      "Priority Pass includes participating airport restaurants (rare among premium cards)",
+      "Top-tier Visa Infinite primary rental car insurance"
+    ],
+    "cons": [
+      "Points cannot be transferred to partner airline frequent flyer programs",
+      "Strict U.S. Bank underwriting requirements regarding recent inquiries"
+    ]
+  },
+  {
+    "id": "chase-sapphire-preferred",
+    "name": "Chase Sapphire Preferred® Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Mid Tier Travel",
+    "category": "travel_mid",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "75,000",
+      "unit": "Ultimate Rewards points",
+      "spendRequirement": 5000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1200,
+      "historicalHigh": "100,000 points",
+      "description": "Earn 75,000 bonus points after you spend $5,000 on purchases in the first 3 months from account opening."
+    },
+    "multipliers": {
+      "travel_portal": "5x on travel purchased through Chase Travel",
+      "dining": "3x on dining, takeout, and eligible delivery services",
+      "online_grocery": "3x on online groceries (excluding Target, Walmart, wholesale clubs)",
+      "streaming": "3x on select streaming services",
+      "gas": "3x on gas stations and EV charging",
+      "vacation_rentals": "3x on vacation homes (Airbnb, Vrbo)",
+      "general_travel": "2x on all other travel purchases",
+      "base": "1x on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 3.0,
+      "flights": 2.0,
+      "hotels": 2.0,
+      "travel_portal": 5.0,
+      "gas": 3.0,
+      "transit": 2.0,
+      "streaming": 3.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Chase Travel Hotel Credit",
+        "amount": 50,
+        "frequency": "annual",
+        "description": "$50 annual statement credit for hotel stays purchased through Chase Travel."
+      },
+      {
+        "name": "10% Anniversary Points Boost",
+        "amount": 10,
+        "frequency": "annual",
+        "description": "Each anniversary year, receive 10% bonus points on your total dollar spend from the previous year."
+      }
+    ],
+    "perks": [
+      "1:1 point transfers to Chase's premier airline and hotel partner programs",
+      "25% point redemption boost when booking travel through Chase Travel (1.25 cpp value)",
+      "Primary Auto Rental Collision Damage Waiver",
+      "Trip Cancellation & Interruption Insurance ($10,000/person, $20,000/trip)",
+      "Baggage Delay Insurance ($100/day for up to 5 days after 6 hours)",
+      "DoorDash DashPass complimentary subscription"
+    ],
+    "rewardProgram": {
+      "name": "Chase Ultimate Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "World of Hyatt",
+        "United MileagePlus",
+        "Air Canada Aeroplan",
+        "British Airways Executive Club",
+        "Air France / KLM Flying Blue",
+        "Singapore Airlines KrisFlyer",
+        "Southwest Rapid Rewards",
+        "Virgin Atlantic Flying Club"
+      ]
+    },
+    "rules": [
+      "Chase 5/24 Rule: Must be under 5 new accounts in the past 24 months across all banks.",
+      "Sapphire 48-Month Rule: Ineligible if you received a bonus on any Sapphire card within the last 48 months.",
+      "Can hold only one personal Sapphire card at a time."
+    ],
+    "summary": "The gold standard starter travel rewards card. For a low $95 annual fee (effectively $45 after the hotel credit), it unlocks full 1:1 transfer partner access to World of Hyatt and United, rich 3x dining/grocery/gas multipliers, and top-tier primary rental car insurance.",
+    "bestFor": "Anyone entering the world of travel points who wants elite hotel/airline transfers and primary travel insurance without paying a high annual fee.",
+    "pros": [
+      "Unlocks 1:1 transfers to World of Hyatt, United, and international airline programs for all UR points",
+      "Comprehensive 3x categories including dining, online groceries, streaming, gas/EV, and Airbnb/Vrbo",
+      "Primary rental car insurance included on a sub-$100 card",
+      "10% anniversary point bonus rewards overall annual spending",
+      "Can combine points from no-fee cards (Freedom Flex, Freedom Unlimited)"
+    ],
+    "cons": [
+      "$50 hotel credit requires booking through the Chase portal",
+      "No complimentary airport lounge access"
+    ]
+  },
+  {
+    "id": "capital-one-venture",
+    "name": "Capital One Venture Rewards Credit Card",
+    "issuer": "Capital One",
+    "network": "Visa Signature",
+    "tier": "Mid Tier Travel",
+    "category": "travel_mid",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.4,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "75,000",
+      "unit": "Capital One Miles",
+      "spendRequirement": 4000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1500,
+      "historicalHigh": "100,000 miles",
+      "description": "Earn 75,000 bonus miles plus a $300 Capital One Travel credit in your first year once you spend $4,000 in the first 3 months."
+    },
+    "multipliers": {
+      "travel_portal": "5x on hotels, vacation rentals, and rental cars booked through Capital One Travel",
+      "dining": "2x",
+      "grocery": "2x",
+      "gas": "2x",
+      "transit": "2x",
+      "streaming": "2x",
+      "base": "2x on all other purchases (flat 2x everywhere)"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 2.0,
+      "flights": 2.0,
+      "hotels": 5.0,
+      "travel_portal": 5.0,
+      "gas": 2.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 2.0
+    },
+    "credits": [
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 120,
+        "frequency": "every_4_years",
+        "description": "Up to $120 statement credit for Global Entry or TSA PreCheck application fee every 4 years."
+      }
+    ],
+    "perks": [
+      "Unlimited 2x miles on every purchase with no categories to track",
+      "1:1 transfers to leading international airline and hotel partners",
+      "Hertz Five Star elite car rental status",
+      "Auto Rental Collision Damage Waiver (secondary in US, primary abroad)",
+      "Travel Accident Insurance & Extended Warranty"
+    ],
+    "rewardProgram": {
+      "name": "Capital One Miles",
+      "currency": "miles",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "Air Canada Aeroplan",
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Singapore Airlines KrisFlyer",
+        "Avianca LifeMiles",
+        "Turkish Airlines Miles&Smiles",
+        "Wyndham Rewards (1:1)"
+      ]
+    },
+    "rules": [
+      "Capital One 1/6 Rule: 1 card approval per 6 months.",
+      "Capital One 2-Card consumer limit."
+    ],
+    "summary": "A straightforward travel card offering flat 2x miles on everything with transfer partner access and a generous introductory bonus with a $300 travel credit.",
+    "bestFor": "Simple travelers who want flat 2x miles on every purchase and flexible travel statement credit redemptions.",
+    "pros": [
+      "Lucrative welcome offer that includes $300 travel credit + 75k miles in year one",
+      "Effortless 2x catch-all earning rate on every dollar spent",
+      "Includes up to $120 Global Entry / TSA PreCheck fee credit"
+    ],
+    "cons": [
+      "$95 annual fee has fewer ongoing offsetting credits compared to Venture X",
+      "For just $300 more upfront, the Venture X provides $300 travel credit + 10k miles + lounge access, making the Venture X mathematically superior for most"
+    ]
+  },
+  {
+    "id": "citi-strata-premier",
+    "name": "Citi Strata Premier℠ Card",
+    "issuer": "Citi",
+    "network": "Mastercard",
+    "tier": "Mid Tier Travel",
+    "category": "travel_mid",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "60,000",
+      "unit": "ThankYou Points",
+      "spendRequirement": 4000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 960,
+      "historicalHigh": "80,000 points",
+      "description": "Earn 60,000 ThankYou Points after spending $4,000 in the first 3 months from account opening."
+    },
+    "multipliers": {
+      "travel_portal": "10x on hotels, car rentals, and attractions booked through Citi Travel",
+      "dining": "3x on restaurants (including takeout and delivery)",
+      "grocery": "3x at supermarkets",
+      "gas": "3x at gas stations and EV charging stations",
+      "flights": "3x on air travel",
+      "hotels": "3x on hotels booked direct",
+      "base": "1x on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 3.0,
+      "flights": 3.0,
+      "hotels": 3.0,
+      "travel_portal": 10.0,
+      "gas": 3.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Hotel Savings Benefit",
+        "amount": 100,
+        "frequency": "annual",
+        "description": "$100 annual discount off a single hotel stay of $500 or more (excluding taxes and fees) booked through cititravel.com."
+      }
+    ],
+    "perks": [
+      "1:1 transfers to premier airline partners including American Airlines AAdvantage, EVA Air, and Flying Blue",
+      "1:2 transfer ratio to Choice Privileges (1,000 TYP = 2,000 Choice points)",
+      "Redeem TYP for cash back at a clean 1.0 cent per point floor",
+      "Mastercard ID Theft Protection & World Elite Travel Privileges"
+    ],
+    "rewardProgram": {
+      "name": "Citi ThankYou Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "American Airlines AAdvantage",
+        "Air France / KLM Flying Blue",
+        "Virgin Atlantic Flying Club",
+        "Avianca LifeMiles",
+        "EVA Air Infinity MileageLands",
+        "Singapore Airlines KrisFlyer",
+        "Turkish Airlines Miles&Smiles",
+        "Choice Privileges (1:2)",
+        "Wyndham Rewards (1:1)"
+      ]
+    },
+    "rules": [
+      "Citi 8/65 Rule: At most 1 Citi card application per 8 days, and at most 2 Citi applications per 65 days.",
+      "Citi 1/48 Rule: Bonus not available if you received a bonus for Citi Strata Premier or Citi Premier in the past 48 months."
+    ],
+    "summary": "Citi's flagship mid-tier card boasts the broadest and most practical 3x bonus coverage in the industry: 3x dining, 3x supermarkets, 3x gas/EV, and 3x flights/hotels, coupled with rare 1:1 transfers to American Airlines AAdvantage.",
+    "bestFor": "Cardholders who want high 3x returns across multiple daily life categories with one card, and flyers looking to accumulate American Airlines miles.",
+    "pros": [
+      "Unrivaled everyday 3x categories: Dining, Supermarkets, Gas/EV, Flights, Hotels",
+      "Transfers 1:1 to American Airlines AAdvantage and 1:2 to Choice Privileges",
+      "Direct 1.0 cpp cash redemption floor prevents points from ever becoming devalued",
+      "No foreign transaction fee"
+    ],
+    "cons": [
+      "$100 hotel benefit has a strict $500 single-stay minimum requirement",
+      "Travel delay and cancellation insurance benefits are more limited than Chase Sapphire"
+    ]
+  },
+  {
+    "id": "wells-fargo-autograph-journey",
+    "name": "Wells Fargo Autograph Journey℠ Card",
+    "issuer": "Wells Fargo",
+    "network": "Visa Signature",
+    "tier": "Mid Tier Travel",
+    "category": "travel_mid",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.5,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "60,000",
+      "unit": "points",
+      "spendRequirement": 4000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 960,
+      "historicalHigh": "60,000 points",
+      "description": "Earn 60,000 bonus points after spending $4,000 in purchases in the first 3 months ($600 cash value or $960+ transferred)."
+    },
+    "multipliers": {
+      "hotels": "5x on hotels",
+      "flights": "4x on airlines",
+      "general_travel": "3x on other travel",
+      "dining": "3x on dining",
+      "grocery": "1x",
+      "gas": "1x",
+      "transit": "3x",
+      "streaming": "1x",
+      "base": "1x on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 1.0,
+      "flights": 4.0,
+      "hotels": 5.0,
+      "travel_portal": 5.0,
+      "gas": 1.0,
+      "transit": 3.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Airline Statement Credit",
+        "amount": 50,
+        "frequency": "annual",
+        "description": "$50 annual statement credit for airfare purchases made directly with airlines."
+      }
+    ],
+    "perks": [
+      "Direct 5x on hotels and 4x on flights without needing a portal",
+      "1:1 transfers to airline programs (Aer Lingus, British Airways, Flying Blue, Avianca, Iberia) and 1:2 to Choice Privileges",
+      "Cell Phone Protection: up to $1,000 per claim ($25 deductible)",
+      "Trip Cancellation & Interruption Protection ($15,000/trip)",
+      "Auto Rental Collision Damage Waiver"
+    ],
+    "rewardProgram": {
+      "name": "Wells Fargo Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Aer Lingus AerClub",
+        "Iberia Plus",
+        "Avianca LifeMiles",
+        "Choice Privileges (1:2)"
+      ]
+    },
+    "rules": [
+      "Wells Fargo 1/6 Rule: Bonus eligibility is limited to one introductory bonus every 6-16 months across Wells Fargo cards."
+    ],
+    "summary": "A powerful travel card offering standout 5x on direct hotel bookings and 4x on direct flight bookings. The $50 airline credit reduces the annual fee to an effective $45.",
+    "bestFor": "Travelers who book flights and hotels directly with brands rather than using bank travel portals.",
+    "pros": [
+      "5x hotels and 4x flights apply to direct bookings (no portal required)",
+      "Simple $50 airfare credit that triggers on any direct airline ticket purchase",
+      "$1,000 cell phone protection coverage"
+    ],
+    "cons": [
+      "Transfer partner network is newer and smaller than Chase, Amex, or Citi",
+      "Lacks grocery and gas bonus accelerators"
+    ]
+  },
+  {
+    "id": "amex-gold",
+    "name": "American Express® Gold Card",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Dining & Groceries",
+    "category": "dining_grocery",
+    "annualFee": 325,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "90,000",
+      "unit": "Membership Rewards points",
+      "spendRequirement": 6000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 1440,
+      "historicalHigh": "100,000 points",
+      "description": "Earn 90,000 Membership Rewards points after spending $6,000 on eligible purchases in your first 6 months."
+    },
+    "multipliers": {
+      "dining": "4x at restaurants worldwide (up to $50,000/yr, then 1x)",
+      "grocery": "4x at US supermarkets (up to $25,000/yr, then 1x)",
+      "flights": "3x on flights booked directly with airlines or on amextravel.com",
+      "hotels": "2x on prepaid hotels booked on amextravel.com",
+      "gas": "1x",
+      "transit": "1x",
+      "streaming": "1x",
+      "base": "1x on all other purchases"
+    },
+    "rates": {
+      "dining": 4.0,
+      "groceries": 4.0,
+      "flights": 3.0,
+      "hotels": 2.0,
+      "travel_portal": 2.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Dining Statement Credit",
+        "amount": 120,
+        "frequency": "monthly",
+        "description": "$10/mo statement credit at Grubhub, The Cheesecake Factory, Goldbelly, Wine.com, and Five Guys."
+      },
+      {
+        "name": "Uber Cash",
+        "amount": 120,
+        "frequency": "monthly",
+        "description": "$10/mo in Uber Cash for Uber Eats orders or Uber rides in the US."
+      },
+      {
+        "name": "Resy Credit",
+        "amount": 100,
+        "frequency": "semi-annual",
+        "description": "$50 semi-annually ($100/yr) for dining at Resy-partnered restaurants."
+      },
+      {
+        "name": "Dunkin' Credit",
+        "amount": 84,
+        "frequency": "monthly",
+        "description": "$7/mo statement credit at Dunkin' locations."
+      }
+    ],
+    "perks": [
+      "The Hotel Collection: $100 experience credit and room upgrade on 2+ night prepaid stays",
+      "Baggage Insurance Plan & Car Rental Loss and Damage Insurance",
+      "Amex Offers: Targeted statement credits across thousands of merchants",
+      "No pre-set spending limit (charge card flexibility)",
+      "Up to 5 additional cards for $0 annual fee"
+    ],
+    "rewardProgram": {
+      "name": "American Express Membership Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 0.6,
+      "topPartners": [
+        "Delta SkyMiles",
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Air Canada Aeroplan",
+        "ANA Mileage Club",
+        "Singapore Airlines KrisFlyer",
+        "Virgin Atlantic Flying Club",
+        "Hilton Honors (1:2)"
+      ]
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies to the welcome bonus.",
+      "Family Rule: If you currently or previously held an Amex Platinum card, Amex may restrict bonus eligibility for the Gold card."
+    ],
+    "summary": "The premier food card in the United States. Delivering an unbeatable 4x points on restaurants and US supermarkets, backed by $424 in annual food and dining credits that easily offset its $325 annual fee.",
+    "bestFor": "Food lovers, frequent diners, grocery shoppers, and families seeking maximum point generation on food spending.",
+    "pros": [
+      "4x points on dining ($50k cap) and 4x US supermarkets ($25k cap) produces massive rewards",
+      "Total annual credits of $424 outvalue the $325 annual fee",
+      "Access to the high-value Amex Membership Rewards transfer partner network",
+      "No foreign transaction fee"
+    ],
+    "cons": [
+      "Annual fee was increased to $325",
+      "Monthly coupon credits require regular enrollment and usage (Grubhub, Uber, Dunkin')"
+    ]
+  },
+  {
+    "id": "capital-one-savor",
+    "name": "Capital One Savor Cash Rewards Credit Card",
+    "issuer": "Capital One",
+    "network": "Mastercard",
+    "tier": "Dining & Groceries",
+    "category": "dining_grocery",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD cash back",
+      "spendRequirement": 500,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 200,
+      "historicalHigh": "$250",
+      "description": "Earn a $200 cash bonus once you spend $500 on purchases within the first 3 months from account opening."
+    },
+    "multipliers": {
+      "dining": "3% cash back on dining (restaurants, bars, takeout, delivery)",
+      "grocery": "3% cash back at grocery stores",
+      "entertainment": "3% cash back on entertainment (movies, concerts, sporting events)",
+      "streaming": "3% cash back on popular streaming services",
+      "entertainment_portal": "8% cash back on Capital One Entertainment purchases",
+      "travel_portal": "5% cash back on hotels and rental cars booked through Capital One Travel",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 3.0,
+      "flights": 1.0,
+      "hotels": 5.0,
+      "travel_portal": 5.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 3.0,
+      "catch_all": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "Convert cash back rewards directly to Capital One Miles (1:1 ratio) when paired with a Venture or Venture X card!",
+      "0% foreign transaction fees on a $0 annual fee card",
+      "Access to Capital One Entertainment premium pre-sales and dining experiences",
+      "Extended Warranty and Price Protection benefits"
+    ],
+    "rewardProgram": {
+      "name": "Capital One Cash Back / Miles",
+      "currency": "cash_back",
+      "transferable": true,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Capital One 1/6 Rule applies."
+    ],
+    "summary": "Formerly known as SavorOne, this card offers a peerless 3% cash back across dining, groceries, entertainment, and streaming with zero annual fee and zero foreign transaction fees. When paired with Venture X, it becomes a 3x points monster.",
+    "bestFor": "Anyone wanting generous dining, grocery, and entertainment rewards without paying an annual fee; essential companion to Venture X.",
+    "pros": [
+      "$0 annual fee with zero foreign transaction fees",
+      "Covers dining, grocery stores, entertainment, and streaming all at 3%",
+      "Converts cash back to transferable miles when held alongside Venture X",
+      "Low $500 minimum spend requirement for the $200 bonus"
+    ],
+    "cons": [
+      "1% base rate on non-category purchases",
+      "Does not offer travel statement credits or lounge access"
+    ]
+  },
+  {
+    "id": "us-bank-altitude-go",
+    "name": "U.S. Bank Altitude® Go Visa Signature® Card",
+    "issuer": "U.S. Bank",
+    "network": "Visa Signature",
+    "tier": "Dining & Groceries",
+    "category": "dining_grocery",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.6,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "20,000",
+      "unit": "points",
+      "spendRequirement": 1000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 200,
+      "historicalHigh": "25,000 points",
+      "description": "Earn 20,000 bonus points after you spend $1,000 in eligible purchases in the first 90 days ($200 value)."
+    },
+    "multipliers": {
+      "dining": "4x points on dining, takeout, and restaurant delivery",
+      "grocery": "2x points at grocery stores and grocery delivery",
+      "streaming": "2x points on streaming services",
+      "gas": "2x points at gas stations and EV charging",
+      "base": "1x point on all other purchases"
+    },
+    "rates": {
+      "dining": 4.0,
+      "groceries": 2.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 2.0,
+      "transit": 1.0,
+      "streaming": 2.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Streaming Credit",
+        "amount": 15,
+        "frequency": "annual",
+        "description": "$15 annual statement credit for streaming services after 11 consecutive calendar months of streaming purchases."
+      }
+    ],
+    "perks": [
+      "No annual fee and zero foreign transaction fees",
+      "Points never expire and redeem for cash back or statement credit at 1.0 cpp"
+    ],
+    "rewardProgram": {
+      "name": "U.S. Bank Altitude Rewards",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "U.S. Bank underwriting criteria apply."
+    ],
+    "summary": "An exceptional no-fee dining card that rewards dining, takeout, and food delivery with a permanent 4x points (4% cash back) and no foreign transaction fees.",
+    "bestFor": "Foodies and dining enthusiasts looking for a dedicated 4% dining card with $0 annual fee and 0% FTF abroad.",
+    "pros": [
+      "Industry-leading 4x points on dining with no annual fee",
+      "No foreign transaction fee—great for eating out while traveling abroad",
+      "$15 annual streaming credit"
+    ],
+    "cons": [
+      "Points cannot be transferred to partner airline frequent flyer programs",
+      "2x rate on grocery and gas is modest compared to competitors"
+    ]
+  },
+  {
+    "id": "chase-freedom-flex",
+    "name": "Chase Freedom Flex®",
+    "issuer": "Chase",
+    "network": "Mastercard",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "rotating_cashback",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0% (Updated 2026)"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD (20,000 UR points)",
+      "spendRequirement": 500,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 320,
+      "historicalHigh": "$250 + 5% grocery/gas",
+      "description": "Earn a $200 bonus (20,000 UR points) after you spend $500 on purchases in the first 3 months from account opening."
+    },
+    "multipliers": {
+      "rotating": "5% cash back on up to $1,500 in combined purchases in bonus categories each quarter (activation required)",
+      "travel_portal": "5% cash back on travel purchased through Chase Travel",
+      "dining": "3% cash back on dining at restaurants, takeout & delivery",
+      "drugstores": "3% cash back at drugstores",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 1.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 5.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "Points are earned as Ultimate Rewards and can be pooled with Sapphire Preferred or Reserve for full airline/hotel partner transfers (boosting effective 5% return to 8%+!)",
+      "Cell Phone Protection: up to $800 per claim ($50 deductible, 2 claims/yr)",
+      "Trip Cancellation & Interruption Insurance",
+      "Purchase Protection & Extended Warranty",
+      "0% Foreign Transaction Fee (removed in late 2026 update!)"
+    ],
+    "rewardProgram": {
+      "name": "Chase Ultimate Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies."
+    ],
+    "summary": "A powerhouse rewards card combining 5% rotating quarterly categories (grocery, gas, Amazon, wholesale clubs) with permanent 3% dining, 3% drugstores, and 5% Chase Travel. Essential pillar of the Chase Trifecta.",
+    "bestFor": "Maximizers looking to optimize everyday spend and boost their Ultimate Rewards stash alongside a Sapphire card.",
+    "pros": [
+      "5% rotating quarterly categories (up to $1,500/quarter) generate up to 30,000 UR points per year",
+      "Permanent 3% on dining and drugstores with $0 annual fee",
+      "Transferable point superpower when paired with Sapphire Reserve or Preferred",
+      "Now features zero foreign transaction fees"
+    ],
+    "cons": [
+      "Requires manual activation of quarterly 5% categories",
+      "$1,500 quarterly limit caps 5% earnings at $75 back per quarter"
+    ]
+  },
+  {
+    "id": "chase-freedom-unlimited",
+    "name": "Chase Freedom Unlimited®",
+    "issuer": "Chase",
+    "network": "Visa",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_flat",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "3%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD (20,000 UR points)",
+      "spendRequirement": 500,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 320,
+      "historicalHigh": "$250",
+      "description": "Earn a $200 bonus (20,000 UR points) after you spend $500 on purchases in the first 3 months from account opening."
+    },
+    "multipliers": {
+      "base": "1.5% cash back on all purchases (unlimited catch-all)",
+      "travel_portal": "5% cash back on travel purchased through Chase Travel",
+      "dining": "3% cash back on dining at restaurants, takeout & delivery",
+      "drugstores": "3% cash back at drugstores"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 1.5,
+      "flights": 1.5,
+      "hotels": 1.5,
+      "travel_portal": 5.0,
+      "gas": 1.5,
+      "transit": 1.5,
+      "streaming": 1.5,
+      "catch_all": 1.5
+    },
+    "credits": [],
+    "perks": [
+      "Earns transferable Ultimate Rewards points when paired with Sapphire Preferred or Reserve (yielding an effective 2.4% return on all catch-all spend!)",
+      "Purchase Protection & Extended Warranty",
+      "Auto Rental Collision Damage Waiver (secondary)"
+    ],
+    "rewardProgram": {
+      "name": "Chase Ultimate Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies."
+    ],
+    "summary": "The premier catch-all companion card for Chase users. Delivers an unlimited 1.5% back on all purchases, plus 3% dining, 3% drugstores, and 5% Chase Travel with $0 annual fee.",
+    "bestFor": "Cardholders looking for a single high-floor card for medical bills, car maintenance, utilities, and general unbonused spend.",
+    "pros": [
+      "Unlimited 1.5% base earning rate ensures no transaction earns less than 1.5x points",
+      "Permanent 3% dining and 3% drugstores built in",
+      "Combines seamlessly into the Chase Trifecta",
+      "Zero annual fee"
+    ],
+    "cons": [
+      "Has a 3% foreign transaction fee—do not use outside the US",
+      "Base 1.5% is lower than dedicated 2% flat-rate cash back cards"
+    ]
+  },
+  {
+    "id": "citi-double-cash",
+    "name": "Citi® Double Cash Card",
+    "issuer": "Citi",
+    "network": "Mastercard",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_flat",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "3%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD (20,000 TYP)",
+      "spendRequirement": 1500,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 320,
+      "historicalHigh": "$200",
+      "description": "Earn $200 cash back (20,000 ThankYou Points) after you spend $1,500 on purchases in the first 6 months."
+    },
+    "multipliers": {
+      "base": "2% cash back on all purchases (1% when you buy, 1% when you pay)",
+      "travel_portal": "5% total cash back on hotel, car rentals and attractions booked on Citi Travel through 12/31/2026"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 2.0,
+      "flights": 2.0,
+      "hotels": 2.0,
+      "travel_portal": 5.0,
+      "gas": 2.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 2.0
+    },
+    "credits": [],
+    "perks": [
+      "Rewards are awarded as ThankYou Points (TYP), which can be converted to 1:1 airline miles when paired with Citi Strata Premier",
+      "No category tracking or spend caps",
+      "0% intro APR on balance transfers for 18 months"
+    ],
+    "rewardProgram": {
+      "name": "Citi ThankYou Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Citi 8/65 Rule applies."
+    ],
+    "summary": "The card that defined the flat 2% cash back standard. Earn 1% when you buy and 1% as you pay for purchases. When paired with Citi Strata Premier, this transforms into an unlimited 2x transferable ThankYou Points generator.",
+    "bestFor": "Anyone seeking clean, hassle-free 2% cash back on all purchases, or Citi ecosystem users needing an unbonused spend powerhouse.",
+    "pros": [
+      "Clean 2% cash back on every purchase with no caps and no rotating categories",
+      "Rewards earned as TYP can be transferred to partners when paired with Strata Premier",
+      "No annual fee"
+    ],
+    "cons": [
+      "3% foreign transaction fee",
+      "Must pay at least the minimum due to receive the second 1% reward"
+    ]
+  },
+  {
+    "id": "citi-custom-cash",
+    "name": "Citi Custom Cash® Card",
+    "issuer": "Citi",
+    "network": "Mastercard",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_category",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "3%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD (20,000 TYP)",
+      "spendRequirement": 1500,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 320,
+      "historicalHigh": "$300 (30,000 TYP)",
+      "description": "Earn $200 cash back (20,000 ThankYou Points) after you spend $1,500 on purchases in the first 6 months."
+    },
+    "multipliers": {
+      "top_category": "5% cash back on your highest eligible spend category each billing cycle (up to $500 spend, then 1%)",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 1.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "Automatically adapts each billing cycle to your highest spending category among: Restaurants, Gas Stations, Grocery Stores, Select Travel, Select Transit, Select Streaming, Drugstores, Home Improvement, Fitness Clubs, Live Entertainment",
+      "No quarterly category enrollment required",
+      "Earns ThankYou Points redeemable for direct cash or transferable to airline partners via Citi Strata Premier"
+    ],
+    "rewardProgram": {
+      "name": "Citi ThankYou Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Citi 8/65 Rule applies.",
+      "Cardholders are restricted to holding only 1 direct Citi Custom Cash account via new application."
+    ],
+    "summary": "An ingenious, adaptive rewards card that automatically awards 5% cash back on your highest eligible spend category each billing cycle up to $500 spend without any activation hassles.",
+    "bestFor": "Disciplined spenders who dedicate the card to a single predictable category (e.g., exactly $500/month on groceries, gas, or home improvement).",
+    "pros": [
+      "Automatic 5% optimization without needing to select or activate categories beforehand",
+      "Covers rarely-bonused categories like Home Improvement Stores and Fitness Clubs",
+      "Zero annual fee"
+    ],
+    "cons": [
+      "$500 monthly cap means maximum 5% rewards are $25/month ($300/year)",
+      "3% foreign transaction fee"
+    ]
+  },
+  {
+    "id": "wells-fargo-active-cash",
+    "name": "Wells Fargo Active Cash® Card",
+    "issuer": "Wells Fargo",
+    "network": "Visa Signature",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_flat",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "3%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD cash rewards",
+      "spendRequirement": 1000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 200,
+      "historicalHigh": "$250 (in-branch)",
+      "description": "Earn a $200 cash rewards bonus after spending $1,000 in purchases in the first 3 months ($250 in-branch)."
+    },
+    "multipliers": {
+      "base": "Unlimited 2% cash rewards on all purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 2.0,
+      "flights": 2.0,
+      "hotels": 2.0,
+      "travel_portal": 2.0,
+      "gas": 2.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 2.0
+    },
+    "credits": [],
+    "perks": [
+      "Cell Phone Protection: up to $600 against damage or theft when paying your monthly cell bill ($25 deductible)",
+      "Visa Signature Hotel Collection & Concierge privileges",
+      "0% intro APR on purchases and balance transfers for 15 months"
+    ],
+    "rewardProgram": {
+      "name": "Wells Fargo Rewards",
+      "currency": "cash_back",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Wells Fargo 1/6 Rule on introductory bonuses."
+    ],
+    "summary": "One of the best flat 2% cash back cards on the market, offering unlimited 2% on all purchases, a competitive $200 bonus, and valuable $600 cell phone protection with $0 annual fee.",
+    "bestFor": "Anyone wanting a pure, low-maintenance flat 2% cash back card with built-in cellular insurance.",
+    "pros": [
+      "Unlimited 2% cash rewards awarded immediately upon charge posting (no waiting for bill payment)",
+      "Valuable $600 cell phone protection included on a $0 annual fee card",
+      "Low $1,000 spend requirement for the $200 bonus"
+    ],
+    "cons": [
+      "3% foreign transaction fee",
+      "Rewards are pure cash back and cannot be transferred to airline partners"
+    ]
+  },
+  {
+    "id": "wells-fargo-autograph",
+    "name": "Wells Fargo Autograph℠ Card",
+    "issuer": "Wells Fargo",
+    "network": "Visa Signature",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_category",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "20,000",
+      "unit": "points",
+      "spendRequirement": 1000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 200,
+      "historicalHigh": "30,000 points ($300)",
+      "description": "Earn 20,000 bonus points after spending $1,000 on purchases in the first 3 months ($200 cash value)."
+    },
+    "multipliers": {
+      "dining": "3x points on dining (restaurants, takeout, delivery)",
+      "travel": "3x points on travel (airfare, hotels, car rentals, cruises)",
+      "gas": "3x points at gas stations and electric vehicle charging",
+      "transit": "3x points on transit (subways, trains, rideshare, tolls, parking)",
+      "streaming": "3x points on popular streaming services",
+      "phone_plans": "3x points on phone plans",
+      "base": "1x point on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 1.0,
+      "flights": 3.0,
+      "hotels": 3.0,
+      "travel_portal": 3.0,
+      "gas": 3.0,
+      "transit": 3.0,
+      "streaming": 3.0,
+      "catch_all": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "Unlimited 3x points across 6 major daily spend categories with NO annual fee and NO foreign transaction fee",
+      "Points can be transferred to airline partners (Flying Blue, British Airways, Avianca) or redeemed for cash at 1.0 cpp",
+      "Cell Phone Protection: up to $600 per claim ($25 deductible)",
+      "Auto Rental Collision Damage Waiver"
+    ],
+    "rewardProgram": {
+      "name": "Wells Fargo Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Aer Lingus AerClub",
+        "Avianca LifeMiles",
+        "Choice Privileges (1:2)"
+      ]
+    },
+    "rules": [
+      "Wells Fargo 1/6 Rule."
+    ],
+    "summary": "An unbelievable value proposition. 3x points on dining, travel, gas/EV, transit, streaming, and cell phone plans—with zero annual fee, zero foreign transaction fees, and cellular insurance.",
+    "bestFor": "Budget travelers, road trippers, and everyday spenders wanting massive category coverage without paying annual fees.",
+    "pros": [
+      "Six prominent 3x categories with unlimited earning caps",
+      "0% foreign transaction fee on a no-annual-fee card",
+      "Points can transfer to international airline partners or cash out at 1.0 cpp",
+      "$600 cell phone protection"
+    ],
+    "cons": [
+      "Lacks a dedicated grocery store multiplier (only 1x on groceries)",
+      "Base earning rate is 1x for general non-bonused purchases"
+    ]
+  },
+  {
+    "id": "amex-blue-cash-preferred",
+    "name": "Blue Cash Preferred® Card from American Express",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_category",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "2.7%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "250",
+      "unit": "USD cash back",
+      "spendRequirement": 3000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 250,
+      "historicalHigh": "$400",
+      "description": "Earn $250 back after spending $3,000 on purchases in the first 6 months ($0 intro annual fee for the first year)."
+    },
+    "multipliers": {
+      "grocery": "6% cash back at US supermarkets (up to $6,000/yr, then 1%)",
+      "streaming": "6% cash back on select US streaming subscriptions",
+      "transit": "3% cash back on transit (taxis, rideshare, parking, tolls, trains, buses)",
+      "gas": "3% cash back at US gas stations",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 6.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 3.0,
+      "transit": 3.0,
+      "streaming": 6.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Disney Streaming Credit",
+        "amount": 120,
+        "frequency": "monthly",
+        "description": "$10/mo statement credit ($120/yr) for subscriptions to Disney+, Hulu, or the Disney Bundle."
+      }
+    ],
+    "perks": [
+      "6% back on US supermarkets translates to up to $360 in annual cash back on groceries alone",
+      "Car Rental Loss & Damage Insurance",
+      "Purchase Protection & Return Protection"
+    ],
+    "rewardProgram": {
+      "name": "American Express Cash Back",
+      "currency": "cash_back",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies."
+    ],
+    "summary": "The reigning supermarket champion of cash back cards. Generates 6% on up to $6,000/year at US supermarkets ($360) and 6% on streaming. The $120 Disney streaming credit alone completely offsets the $95 annual fee.",
+    "bestFor": "Households spending $300 to $500 monthly on groceries who also subscribe to Disney+, Hulu, or Max.",
+    "pros": [
+      "Industry-leading 6% cash back at US supermarkets",
+      "6% cash back on streaming subscriptions",
+      "$120 annual Disney credit outvalues the $95 fee on its own",
+      "Solid 3% on gas and everyday transit"
+    ],
+    "cons": [
+      "$6,000 annual spending cap on 6% supermarkets (averages $500/month)",
+      "2.7% foreign transaction fee"
+    ]
+  },
+  {
+    "id": "amex-blue-cash-everyday",
+    "name": "Blue Cash Everyday® Card from American Express",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "cashback_category",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "2.7%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200",
+      "unit": "USD cash back",
+      "spendRequirement": 2000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 200,
+      "historicalHigh": "$250",
+      "description": "Earn $200 back after you spend $2,000 on purchases in the first 6 months."
+    },
+    "multipliers": {
+      "grocery": "3% cash back at US supermarkets (up to $6,000/yr, then 1%)",
+      "online_retail": "3% cash back on US online retail purchases (up to $6,000/yr, then 1%)",
+      "gas": "3% cash back at US gas stations (up to $6,000/yr, then 1%)",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 3.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 3.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Disney Streaming Credit",
+        "amount": 84,
+        "frequency": "monthly",
+        "description": "$7/mo statement credit ($84/yr) on Disney+ or the Disney Bundle."
+      },
+      {
+        "name": "Home Chef Meal Kit Credit",
+        "amount": 180,
+        "frequency": "monthly",
+        "description": "Up to $15/mo statement credit ($180/yr) on Home Chef meal kit orders."
+      }
+    ],
+    "perks": [
+      "Rare 3% cash back category on US online retail purchases (Amazon, Best Buy, clothing, electronics)",
+      "Zero annual fee with up to $264 in lifestyle credits",
+      "Purchase Protection & Car Rental Loss and Damage Insurance"
+    ],
+    "rewardProgram": {
+      "name": "American Express Cash Back",
+      "currency": "cash_back",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies."
+    ],
+    "summary": "A staple no-annual-fee card that includes a rare, high-utility 3% category for US online retail purchases, alongside 3% groceries and 3% gas, plus $84/year in Disney streaming credits.",
+    "bestFor": "Online shoppers and modern households wanting 3% back on e-commerce, supermarkets, and gas with zero annual fee.",
+    "pros": [
+      "3% on US online retail purchases covers countless e-commerce merchants",
+      "3% on US supermarkets and gas stations",
+      "$84 annual Disney credit is pure profit with a $0 annual fee",
+      "Zero annual fee"
+    ],
+    "cons": [
+      "$6,000 annual spending cap per 3% category",
+      "2.7% foreign transaction fee"
+    ]
+  },
+  {
+    "id": "discover-it-cash-back",
+    "name": "Discover it® Cash Back",
+    "issuer": "Discover",
+    "network": "Discover",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "rotating_cashback",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Fair to Good (630+)",
+    "rating": 4.6,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "Unlimited Match",
+      "unit": "Cashback Match (100%)",
+      "spendRequirement": 0,
+      "timeframeMonths": 12,
+      "estimatedValueUsd": 300,
+      "historicalHigh": "$300 offer or Unlimited Match",
+      "description": "Discover will automatically match all the cash back you've earned at the end of your first year—making 5% rotating categories effectively 10%!"
+    },
+    "multipliers": {
+      "rotating": "5% cash back on quarterly rotating categories (up to $1,500 spend per quarter, activation required)",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 1.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "First Year Cashback Match doubles all earnings (turning 5% into 10% back!)",
+      "0% Foreign Transaction Fee on a beginner-friendly no-annual-fee card",
+      "Free FICO credit score monitoring and Social Security number alerts",
+      "First late payment fee waiver"
+    ],
+    "rewardProgram": {
+      "name": "Discover Cashback",
+      "currency": "cash_back",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Discover allows holding at most 2 Discover credit cards at a time, requiring 1 year of account history before a second application."
+    ],
+    "summary": "The premier first credit card in America. Featuring 5% rotating quarterly categories and an extraordinary first-year Cashback Match that transforms rotating categories into an unprecedented 10% cash return.",
+    "bestFor": "Credit card beginners, students, and category optimizers seeking up to 10% cash back in year one.",
+    "pros": [
+      "First-year Cashback Match doubles all rewards with no upper limit",
+      "No foreign transaction fee and $0 annual fee",
+      "Very accessible approval criteria for new credit builders"
+    ],
+    "cons": [
+      "Rotating categories require manual quarterly activation",
+      "Base 1% rate outside bonus quarters is modest"
+    ]
+  },
+  {
+    "id": "bilt-blue",
+    "name": "Bilt Blue Card",
+    "issuer": "Cardless / Bilt",
+    "network": "Mastercard",
+    "tier": "Everyday / Cash Back & Rotating",
+    "category": "dining_grocery",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "100",
+      "unit": "USD Bilt Cash",
+      "spendRequirement": 0,
+      "timeframeMonths": 1,
+      "estimatedValueUsd": 100,
+      "historicalHigh": "5x on all purchases for 5 days",
+      "description": "Earn $100 in Bilt Cash when you apply and get approved for the Bilt Blue Card."
+    },
+    "multipliers": {
+      "rent": "1x points on rent payments without transaction fee (up to 100,000 points/yr)",
+      "dining": "3x points on dining",
+      "travel": "2x points on travel",
+      "rent_day": "Double points on Rent Day (1st of the month: 6x dining, 4x travel, 2x base up to 10k bonus pts)",
+      "base": "1x point on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 1.0,
+      "flights": 2.0,
+      "hotels": 2.0,
+      "travel_portal": 2.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "Pay rent with no credit card processing fee (even via routing/account number or mailed paper check)",
+      "1:1 transfers to World of Hyatt, United MileagePlus, Alaska Airlines, and Japan Airlines",
+      "Cell Phone Protection: up to $800 ($25 deductible)",
+      "Trip Cancellation & Interruption Protection",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "Bilt Rewards",
+      "currency": "points",
+      "transferable": true,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": [
+        "World of Hyatt",
+        "United MileagePlus",
+        "Alaska Airlines Mileage Plan",
+        "Japan Airlines Mileage Bank",
+        "Air France / KLM Flying Blue",
+        "British Airways Executive Club",
+        "Virgin Red"
+      ]
+    },
+    "rules": [
+      "Must make at least 5 transactions per statement period to earn points.",
+      "Issued via Cardless under Bilt 2.0 structure."
+    ],
+    "summary": "The groundbreaking card that allows renters to earn transferable points on rent payments with zero transaction fees. Paired with 3x dining, 2x travel, and elite transfer partners like World of Hyatt and Alaska Airlines.",
+    "bestFor": "Every renter in the United States who wants to convert their largest monthly expense into luxury airline and hotel award stays.",
+    "pros": [
+      "1x points on rent with zero credit card transaction fees (saves 3% merchant processing fees)",
+      "Elite 1:1 transfer partners including World of Hyatt, Alaska Airlines, and United",
+      "Double points on Rent Day (1st of every month) yields 6x dining and 4x travel",
+      "$0 annual fee and 0% foreign transaction fee"
+    ],
+    "cons": [
+      "Must use the card at least 5 times per statement period to earn points",
+      "Rent points capped at 100,000 points per calendar year"
+    ]
+  },
+  {
+    "id": "world-of-hyatt",
+    "name": "World of Hyatt Credit Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Hotel Cards",
+    "category": "hotel",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "60,000",
+      "unit": "World of Hyatt points",
+      "spendRequirement": 3000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 960,
+      "historicalHigh": "5 Free Night Awards (Cat 1-4)",
+      "description": "Earn 30,000 Bonus Points after spending $3,000 in first 3 months, plus up to 30,000 more points (2x on up to $15k spend in first 6 months)."
+    },
+    "multipliers": {
+      "hyatt": "Up to 9x total points at Hyatt (4x card + 5x member points)",
+      "dining": "2x points at restaurants",
+      "flights": "2x points on airline tickets purchased directly",
+      "transit": "2x points on local transit and commuting",
+      "fitness": "2x points on fitness club and gym memberships",
+      "base": "1x point on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 1.0,
+      "flights": 2.0,
+      "hotels": 4.0,
+      "travel_portal": 1.0,
+      "gas": 1.0,
+      "transit": 2.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Free Night Award (Category 1-4)",
+        "amount": 250,
+        "frequency": "annual",
+        "description": "Receive one free night award every year after your cardmember anniversary valid at any Category 1-4 Hyatt hotel or resort."
+      }
+    ],
+    "perks": [
+      "Automatic World of Hyatt Discoverist status for as long as account is open",
+      "Receive 5 tier-qualifying nights (EQNs) every year toward status",
+      "Earn 2 additional tier-qualifying nights for every $5,000 you spend on the card",
+      "Earn a second Category 1-4 Free Night Award after spending $15,000 in a calendar year",
+      "No foreign transaction fee and baggage delay insurance"
+    ],
+    "rewardProgram": {
+      "name": "World of Hyatt",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 1.6,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies.",
+      "Bonus eligibility restricted to once every 24 months."
+    ],
+    "summary": "Widely regarded as the single best value hotel credit card in the world. The annual Category 1-4 free night award alone easily delivers $200-$350 in value against the modest $95 annual fee.",
+    "bestFor": "Anyone who stays at Hyatt hotels at least once a year, and travelers pursuing elite Globalist status.",
+    "pros": [
+      "Category 1-4 Free Night Award every year easily outvalues the $95 fee",
+      "Hyatt points have the highest valuation in the hotel industry (1.6 to 2.1 cpp)",
+      "5 elite qualifying nights automatically credited every year",
+      "Earn 2 elite qualifying nights per $5k spend (fast track to Globalist)"
+    ],
+    "cons": [
+      "Hyatt's global footprint is smaller than Marriott or Hilton",
+      "2x bonus categories outside of Hyatt are relatively modest"
+    ]
+  },
+  {
+    "id": "marriott-bonvoy-boundless",
+    "name": "Marriott Bonvoy Boundless® Credit Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Hotel Cards",
+    "category": "hotel",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.6,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "3 Free Nights",
+      "unit": "Free Night Awards (up to 50k pts each)",
+      "spendRequirement": 3000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 750,
+      "historicalHigh": "5 Free Night Awards (up to 50k pts each)",
+      "description": "Earn 3 Free Night Awards (each valued up to 50,000 points) after spending $3,000 on purchases in the first 3 months."
+    },
+    "multipliers": {
+      "marriott": "Up to 17x total points at Marriott Bonvoy hotels (6x card + 10x member + 1x Silver)",
+      "grocery": "3x points on the first $6,000 spent each year on combined grocery stores, gas stations, and dining",
+      "gas": "3x (shared with grocery and dining)",
+      "dining": "3x (shared with grocery and gas)",
+      "base": "2x points on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 3.0,
+      "flights": 2.0,
+      "hotels": 6.0,
+      "travel_portal": 2.0,
+      "gas": 3.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 2.0
+    },
+    "credits": [
+      {
+        "name": "Annual Free Night Award (up to 35,000 points)",
+        "amount": 200,
+        "frequency": "annual",
+        "description": "1 Free Night Award every year upon card renewal, redeemable for hotels up to 35,000 points (can top off with up to 15,000 additional points)."
+      }
+    ],
+    "perks": [
+      "Automatic Marriott Bonvoy Silver Elite status",
+      "15 Elite Night Credits (ENCs) deposited into your account each year",
+      "Earn 1 Elite Night Credit for every $5,000 spent on the card",
+      "Path to Gold Elite status by spending $35,000 in a calendar year",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "Marriott Bonvoy",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 0.8,
+      "cashFloorCpp": 0.6,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies.",
+      "Complex cross-issuer rules: Ineligible if you currently hold or recently received bonuses on certain Amex Marriott cards (Brilliant, Bevy, Business)."
+    ],
+    "summary": "Chase's mid-tier Marriott card offering an annual 35,000-point Free Night Award, 15 Elite Night Credits, and 6x points at Marriott properties.",
+    "bestFor": "Marriott loyalists looking for an inexpensive way to bank 15 elite night credits and an annual free night.",
+    "pros": [
+      "Annual 35k Free Night Award easily justifies the $95 fee",
+      "15 Elite Night Credits jumpstart your progress toward Platinum Elite status",
+      "Can top off free night certificates with up to 15,000 points for higher-tier hotels"
+    ],
+    "cons": [
+      "Marriott points are worth ~0.8 cpp, so 2x base earning is modest (~1.6% return)",
+      "Silver Elite status provides very limited on-property benefits (no free breakfast)"
+    ]
+  },
+  {
+    "id": "marriott-bonvoy-brilliant",
+    "name": "Marriott Bonvoy Brilliant® American Express® Card",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Hotel Cards",
+    "category": "hotel",
+    "annualFee": 650,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "150,000",
+      "unit": "Marriott Bonvoy points + $250 credit",
+      "spendRequirement": 6000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 1450,
+      "historicalHigh": "200,000 points",
+      "description": "Earn 150,000 Marriott Bonvoy bonus points plus a $250 statement credit after spending $6,000 in your first 6 months."
+    },
+    "multipliers": {
+      "marriott": "6x points on eligible purchases at participating Marriott Bonvoy hotels",
+      "dining": "3x points at restaurants worldwide",
+      "flights": "3x points on flights booked directly with airlines",
+      "base": "2x points on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 2.0,
+      "flights": 3.0,
+      "hotels": 6.0,
+      "travel_portal": 2.0,
+      "gas": 2.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 2.0
+    },
+    "credits": [
+      {
+        "name": "Dining Statement Credit",
+        "amount": 300,
+        "frequency": "monthly",
+        "description": "$25/mo statement credit ($300/yr) for eligible restaurant purchases worldwide."
+      },
+      {
+        "name": "Annual Free Night Award (up to 85,000 points)",
+        "amount": 500,
+        "frequency": "annual",
+        "description": "1 Free Night Award every year upon renewal, valid for stays up to 85,000 points (usable at luxury Ritz-Carlton and St. Regis properties)."
+      },
+      {
+        "name": "Marriott Property Credit",
+        "amount": 100,
+        "frequency": "per_stay",
+        "description": "$100 property credit on qualifying 2-night minimum stays at The Ritz-Carlton or St. Regis."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 120,
+        "frequency": "every_4_years",
+        "description": "Up to $120 credit for Global Entry or TSA PreCheck application fee."
+      }
+    ],
+    "perks": [
+      "Complimentary Marriott Bonvoy Platinum Elite Status: Guaranteed 4pm late checkout, complimentary executive lounge access, room upgrades (including suites), and daily complimentary breakfast!",
+      "25 Elite Night Credits deposited into your account each year",
+      "Priority Pass Select membership with unlimited visits",
+      "$800 Cell Phone Protection ($50 deductible)",
+      "Earn an Earned Choice Award after $60,000 in calendar spend"
+    ],
+    "rewardProgram": {
+      "name": "Marriott Bonvoy",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 0.8,
+      "cashFloorCpp": 0.6,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies.",
+      "Cross-issuer restrictions: Cannot have received a welcome bonus on Chase Marriott cards within the last 24 months."
+    ],
+    "summary": "The premier luxury hotel card for Marriott guests. Instantly bestows coveted Marriott Platinum Elite status (free lounge access and breakfast), an annual 85,000-point luxury free night award, and an easy $300 dining credit.",
+    "bestFor": "Regular Marriott guests who want automatic Platinum Elite status and luxury free nights without doing 50 mattress runs.",
+    "pros": [
+      "Automatic Platinum Elite status unlocks executive lounges, suite upgrades, and free breakfast",
+      "Effortless $300 dining credit ($25/mo) slashes effective annual fee to $350",
+      "85,000-point Free Night Award easily books $600-$1,000+ luxury nights at St. Regis, Ritz-Carlton, and Edition",
+      "25 Elite Night Credits stack with Marriott business cards for 40 total nights"
+    ],
+    "cons": [
+      "Steep $650 upfront annual fee",
+      "Dining credit requires remembering to swipe the card at least once every calendar month"
+    ]
+  },
+  {
+    "id": "hilton-honors-aspire",
+    "name": "Hilton Honors American Express Aspire Card",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Hotel Cards",
+    "category": "hotel",
+    "annualFee": 550,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.9,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "200,000",
+      "unit": "Hilton Honors points",
+      "spendRequirement": 6000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 800,
+      "historicalHigh": "200,000 points",
+      "description": "Earn 200,000 Hilton Honors Bonus Points after spending $6,000 in your first 6 months (All-time high offer)."
+    },
+    "multipliers": {
+      "hilton": "14x points on eligible purchases at Hilton portfolio hotels & resorts",
+      "flights": "7x points on flights booked directly with airlines or on amextravel.com",
+      "car_rental": "7x points on select car rentals",
+      "dining": "7x points at US restaurants (including takeout and delivery)",
+      "base": "3x points on all other purchases"
+    },
+    "rates": {
+      "dining": 7.0,
+      "groceries": 3.0,
+      "flights": 7.0,
+      "hotels": 14.0,
+      "travel_portal": 7.0,
+      "gas": 3.0,
+      "transit": 3.0,
+      "streaming": 3.0,
+      "catch_all": 3.0
+    },
+    "credits": [
+      {
+        "name": "Hilton Resort Statement Credit",
+        "amount": 400,
+        "frequency": "semi-annual",
+        "description": "$200 semi-annually ($400/yr) for eligible purchases at participating Hilton Resorts."
+      },
+      {
+        "name": "Flight Statement Credit",
+        "amount": 200,
+        "frequency": "quarterly",
+        "description": "$50 per quarter ($200/yr) for flight purchases made directly with airlines or on amextravel.com."
+      },
+      {
+        "name": "CLEAR Plus Credit",
+        "amount": 199,
+        "frequency": "annual",
+        "description": "$199 annual statement credit covering CLEAR Plus expedited airport security."
+      },
+      {
+        "name": "Annual Free Night Reward",
+        "amount": 400,
+        "frequency": "annual",
+        "description": "1 Free Night Reward every year upon renewal (uncapped standard night valid at any property worldwide, including $1,500/nt resorts)."
+      }
+    ],
+    "perks": [
+      "Complimentary Hilton Honors Diamond Status: Top-tier status offering executive lounge access, suite upgrades, 100% points bonus, and daily food & beverage credits!",
+      "National Car Rental Emerald Club Executive status",
+      "Cell Phone Protection: up to $800 ($50 deductible)",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "Hilton Honors",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 0.4,
+      "cashFloorCpp": 0.3,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies."
+    ],
+    "summary": "Widely heralded as the single most overpowered hotel card on the market. Offers automatic top-tier Hilton Diamond status, an uncapped annual free night certificate (usable at luxury Waldorf Astoria and Conrad properties), and $600 in combined resort and flight credits that outvalue the $550 fee.",
+    "bestFor": "Hilton guests and luxury vacationers seeking top-tier hotel status and massive resort savings.",
+    "pros": [
+      "Instant top-tier Diamond status with no qualification requirements",
+      "Uncapped Free Night Reward usable at any Hilton property worldwide with standard room availability",
+      "$400 resort credit ($200 semi-annually) + $200 airline credit ($50 quarterly) easily exceed the $550 fee",
+      "14x points at Hilton properties yields substantial point earnings"
+    ],
+    "cons": [
+      "Hilton points have lower baseline valuation (~0.4 - 0.5 cpp)",
+      "Airline credit is divided quarterly ($50/quarter)"
+    ]
+  },
+  {
+    "id": "hilton-honors-surpass",
+    "name": "Hilton Honors American Express Surpass® Card",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Hotel Cards",
+    "category": "hotel",
+    "annualFee": 150,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.6,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "130,000",
+      "unit": "points + 1 Free Night",
+      "spendRequirement": 3000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 770,
+      "historicalHigh": "150,000 points + 1 FN",
+      "description": "Earn 130,000 Hilton Honors Bonus Points plus a Free Night Reward after spending $3,000 in your first 6 months."
+    },
+    "multipliers": {
+      "hilton": "12x points on eligible purchases at Hilton portfolio hotels & resorts",
+      "dining": "6x points at US restaurants (including takeout and delivery)",
+      "grocery": "6x points at US supermarkets",
+      "gas": "6x points at US gas stations",
+      "online_retail": "4x points on US online retail purchases",
+      "base": "3x points on all other purchases"
+    },
+    "rates": {
+      "dining": 6.0,
+      "groceries": 6.0,
+      "flights": 3.0,
+      "hotels": 12.0,
+      "travel_portal": 3.0,
+      "gas": 6.0,
+      "transit": 3.0,
+      "streaming": 3.0,
+      "catch_all": 3.0
+    },
+    "credits": [
+      {
+        "name": "Hilton Statement Credit",
+        "amount": 200,
+        "frequency": "quarterly",
+        "description": "$50 per quarter ($200/yr) for purchases made directly with a Hilton property."
+      }
+    ],
+    "perks": [
+      "Complimentary Hilton Honors Gold Status: Daily food & beverage credits or continental breakfast, space-available room upgrades, and 80% points bonus",
+      "Earn a Free Night Reward after spending $15,000 in a calendar year",
+      "National Car Rental Emerald Club Executive status",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "Hilton Honors",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 0.4,
+      "cashFloorCpp": 0.3,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies."
+    ],
+    "summary": "A high-yielding mid-tier hotel card offering complimentary Hilton Gold status (free breakfast/F&B credit) and $200 in quarterly Hilton credits that completely offset the $150 annual fee.",
+    "bestFor": "Occasional Hilton guests who want complimentary breakfast and free room upgrades.",
+    "pros": [
+      "$200 annual Hilton credit ($50/quarter) exceeds the $150 annual fee",
+      "Hilton Gold status provides daily dining credits or free breakfast",
+      "Strong 6x multipliers on dining, supermarkets, and gas"
+    ],
+    "cons": [
+      "Does not come with an automatic free night certificate (requires $15,000 calendar spend)",
+      "Hilton credits require quarterly hotel stays to maximize"
+    ]
+  },
+  {
+    "id": "ihg-one-rewards-premier",
+    "name": "IHG One Rewards Premier Credit Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Hotel Cards",
+    "category": "hotel",
+    "annualFee": 150,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "180,000",
+      "unit": "IHG points",
+      "spendRequirement": 3000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 900,
+      "historicalHigh": "180,000 + 10,000 points",
+      "description": "Earn 180,000 Bonus Points after spending $3,000 on purchases in the first 3 months from account opening."
+    },
+    "multipliers": {
+      "ihg": "Up to 26x total points at IHG hotels (10x card + 10x member + 6x Platinum)",
+      "travel": "5x points on travel",
+      "dining": "5x points on dining",
+      "gas": "5x points at gas stations",
+      "base": "3x points on all other purchases"
+    },
+    "rates": {
+      "dining": 5.0,
+      "groceries": 3.0,
+      "flights": 5.0,
+      "hotels": 10.0,
+      "travel_portal": 5.0,
+      "gas": 5.0,
+      "transit": 3.0,
+      "streaming": 3.0,
+      "catch_all": 3.0
+    },
+    "credits": [
+      {
+        "name": "Annual Anniversary Free Night",
+        "amount": 250,
+        "frequency": "annual",
+        "description": "Anniversary Free Night valid at hotels up to 40,000 points (can top off with unlimited points for luxury stays)."
+      },
+      {
+        "name": "United TravelBank Cash",
+        "amount": 50,
+        "frequency": "semi-annual",
+        "description": "$25 deposited semi-annually ($50/yr) into your United TravelBank account."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 100,
+        "frequency": "every_4_years",
+        "description": "Up to $100 statement credit every 4 years for Global Entry, TSA PreCheck, or NEXUS."
+      }
+    ],
+    "perks": [
+      "Redeem 3 Nights, Get 4th Night Free: When booking award stays of 4 consecutive nights or more, every 4th night costs 0 points (saving 25% on every award trip!)",
+      "Complimentary IHG Platinum Elite Status: Room upgrades, early check-in, late checkout, and 60% points bonus",
+      "20% discount on purchasing IHG points",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "IHG One Rewards",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 0.5,
+      "cashFloorCpp": 0.4,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies.",
+      "Bonus eligibility once every 24 months."
+    ],
+    "summary": "Revamped in late 2026 with an increased $150 fee and higher benefits. The card's standout '4th Night Free' on award redemptions and an anniversary night redeemable up to 40,000 points with top-off makes it essential for IHG guests.",
+    "bestFor": "Holiday Inn, Kimpton, and InterContinental guests who take 4+ night hotel vacations.",
+    "pros": [
+      "4th Night Free on award redemptions saves 25% of points on every 4-night stay",
+      "Anniversary free night (up to 40k pts) can be topped off with unlimited points for luxury stays",
+      "Automatic Platinum Elite status provides room upgrades and bonus points",
+      "$50 annual United TravelBank cash"
+    ],
+    "cons": [
+      "Annual fee was increased to $150",
+      "IHG points have lower valuation (~0.5 cpp)"
+    ]
+  },
+  {
+    "id": "delta-skymiles-gold",
+    "name": "Delta SkyMiles® Gold American Express Card",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Airline Cards",
+    "category": "airline",
+    "annualFee": 150,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.4,
+    "recommended": false,
+    "signupBonus": {
+      "amount": "80,000",
+      "unit": "Delta SkyMiles + $250 credit",
+      "spendRequirement": 3000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 1210,
+      "historicalHigh": "90,000 miles",
+      "description": "Earn 80,000 Delta SkyMiles and a $250 statement credit after spending $3,000 in the first 6 months ($0 intro annual fee year 1)."
+    },
+    "multipliers": {
+      "delta": "2x miles on Delta purchases",
+      "dining": "2x miles at restaurants worldwide (including takeout and delivery)",
+      "grocery": "2x miles at US supermarkets",
+      "base": "1x mile on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 2.0,
+      "flights": 2.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Delta Stays Credit",
+        "amount": 100,
+        "frequency": "annual",
+        "description": "$100 statement credit per year for prepaid hotels or vacation rentals booked via Delta Stays."
+      },
+      {
+        "name": "Delta Flight Credit",
+        "amount": 200,
+        "frequency": "annual",
+        "description": "$200 Delta Flight Credit after spending $10,000 on purchases in a calendar year."
+      }
+    ],
+    "perks": [
+      "First Checked Bag Free: Save up to $70 round-trip per passenger for up to 9 travelers on the same reservation",
+      "TakeOff 15: Receive a 15% discount on award flights booked with SkyMiles on Delta-operated flights",
+      "Main Cabin 1 / Zone 5 Priority Boarding",
+      "20% back as statement credit on inflight food, beverage, and audio headset purchases",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "Delta SkyMiles",
+      "currency": "miles",
+      "transferable": false,
+      "estimatedCpp": 1.2,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies.",
+      "Family Rule: Getting Delta Platinum or Reserve may restrict bonus eligibility on Delta Gold."
+    ],
+    "summary": "The starter card for Delta flyers. Free checked bags for up to 9 travelers and the TakeOff 15 award discount (15% off miles tickets) make this card pay for itself in just one or two flights per year.",
+    "bestFor": "Occasional Delta flyers who check luggage and redeem SkyMiles for flights.",
+    "pros": [
+      "Free checked bag for cardholder and up to 8 companions saves up to $630 round-trip on group trips",
+      "TakeOff 15 cuts mileage redemption costs by 15%",
+      "$100 Delta Stays credit cuts effective annual fee to $50",
+      "$0 introductory annual fee for the first year"
+    ],
+    "cons": [
+      "Does not help with Delta Medallion status qualification (no MQD earning)",
+      "SkyMiles have experienced dynamic award pricing inflation"
+    ]
+  },
+  {
+    "id": "delta-skymiles-platinum",
+    "name": "Delta SkyMiles® Platinum American Express Card",
+    "issuer": "American Express",
+    "network": "American Express",
+    "tier": "Airline Cards",
+    "category": "airline",
+    "annualFee": 350,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.6,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "90,000",
+      "unit": "Delta SkyMiles + $300 credit",
+      "spendRequirement": 4000,
+      "timeframeMonths": 6,
+      "estimatedValueUsd": 1380,
+      "historicalHigh": "100,000 miles",
+      "description": "Earn 90,000 Delta SkyMiles and a $300 statement credit after spending $4,000 in your first 6 months."
+    },
+    "multipliers": {
+      "delta": "3x miles on Delta purchases",
+      "hotels": "3x miles on purchases made directly with hotels",
+      "dining": "2x miles at restaurants worldwide",
+      "grocery": "2x miles at US supermarkets",
+      "base": "1x mile on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 2.0,
+      "flights": 3.0,
+      "hotels": 3.0,
+      "travel_portal": 1.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Companion Certificate",
+        "amount": 350,
+        "frequency": "annual",
+        "description": "Round-trip domestic, Caribbean, or Central American Main Cabin companion ticket upon card renewal (taxes/fees apply, easily worth $300-$500)."
+      },
+      {
+        "name": "Delta Stays Credit",
+        "amount": 150,
+        "frequency": "annual",
+        "description": "$150 annual statement credit for prepaid hotel bookings made through Delta Stays."
+      },
+      {
+        "name": "Resy Dining Credit",
+        "amount": 120,
+        "frequency": "monthly",
+        "description": "$10/mo statement credit ($120/yr) at Resy-partnered restaurants."
+      },
+      {
+        "name": "Rideshare Credit",
+        "amount": 120,
+        "frequency": "monthly",
+        "description": "$10/mo statement credit ($120/yr) on select US rideshare purchases (Uber, Lyft, Revel)."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 120,
+        "frequency": "every_4_years",
+        "description": "Up to $120 credit every 4 years for Global Entry or TSA PreCheck application."
+      }
+    ],
+    "perks": [
+      "MQD Headstart: Receive $2,500 Medallion Qualification Dollars each year toward Delta elite status",
+      "MQD Boost: Earn $1 MQD for every $20 in eligible purchases made on the card",
+      "First Checked Bag Free (up to 9 passengers) & Main Cabin 1 Priority Boarding",
+      "TakeOff 15: 15% discount on award flights booked with SkyMiles",
+      "Cell Phone Protection: up to $800 ($50 deductible)"
+    ],
+    "rewardProgram": {
+      "name": "Delta SkyMiles",
+      "currency": "miles",
+      "transferable": false,
+      "estimatedCpp": 1.2,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Amex Once-Per-Lifetime Rule applies."
+    ],
+    "summary": "An exceptional companion pass card for Delta flyers. The annual companion certificate easily pays for the $350 annual fee, while $390 in combined Delta Stays, Resy, and rideshare credits and a $2,500 MQD headstart supercharge elite status.",
+    "bestFor": "Regular Delta flyers who travel with a spouse or companion at least once a year and aim for Silver or Gold Medallion status.",
+    "pros": [
+      "Annual companion certificate covers round-trip domestic, Caribbean, or Central American flights",
+      "$2,500 MQD headstart provides 50% of the requirement for Silver Medallion status",
+      "Over $390 in statement credits (Delta Stays, Resy, rideshare) completely offsets the $350 fee",
+      "TakeOff 15 discount on award flights"
+    ],
+    "cons": [
+      "$350 annual fee is on the higher end for mid-tier co-branded airline cards",
+      "Monthly $10 credits require tracking across separate apps"
+    ]
+  },
+  {
+    "id": "united-explorer",
+    "name": "United℠ Explorer Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Airline Cards",
+    "category": "airline",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "80,000",
+      "unit": "United MileagePlus miles",
+      "spendRequirement": 3000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1040,
+      "historicalHigh": "80,000 miles",
+      "description": "Earn 70,000 United miles after $3,000 spend in 3 months, plus 10,000 more miles after adding an authorized user (80k total; $0 intro AF year 1)."
+    },
+    "multipliers": {
+      "united": "2x miles on United purchases",
+      "dining": "2x miles on dining (including eligible delivery services)",
+      "hotels": "2x miles on hotel stays booked directly",
+      "base": "1x mile on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 1.0,
+      "flights": 2.0,
+      "hotels": 2.0,
+      "travel_portal": 1.0,
+      "gas": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 100,
+        "frequency": "every_4_years",
+        "description": "Up to $100 statement credit every 4 years for Global Entry, TSA PreCheck, or NEXUS."
+      }
+    ],
+    "perks": [
+      "First Checked Bag Free: Cardholder and one travel companion save up to $160 round-trip (must pay for ticket with card)",
+      "Two United Club One-Time Passes per year upon account opening and each anniversary (value $118)",
+      "Priority Boarding (Group 2)",
+      "Expanded Award Seat Availability: Unlocks exclusive 'XN' saver award inventory on United flights not visible to non-cardholders",
+      "25% back on United in-flight purchases (food, beverages, Wi-Fi)",
+      "Earn 500 Premier Qualifying Points (PQP) for every $12,000 spent (up to 1,000 PQP/yr)"
+    ],
+    "rewardProgram": {
+      "name": "United MileagePlus",
+      "currency": "miles",
+      "transferable": false,
+      "estimatedCpp": 1.3,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies.",
+      "Bonus eligibility once every 24 months."
+    ],
+    "summary": "The gold standard co-branded airline card under $100. Offers free checked bags, two annual United Club passes ($118 value), priority boarding, and game-changing access to expanded award space.",
+    "bestFor": "Anyone flying United once or more each year with checked luggage or looking to redeem United miles efficiently.",
+    "pros": [
+      "Two United Club one-time passes ($118 value) exceed the $95 annual fee",
+      "Free checked bags for 2 people save up to $160 per round-trip flight",
+      "Access to hidden 'XN' award seat availability makes booking saver award flights far easier",
+      "$0 introductory annual fee for the first year"
+    ],
+    "cons": [
+      "Must charge ticket to the card to receive free checked bags",
+      "Base 1x multiplier on non-category spending"
+    ]
+  },
+  {
+    "id": "united-quest",
+    "name": "United Quest℠ Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Airline Cards",
+    "category": "airline",
+    "annualFee": 250,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "90,000",
+      "unit": "United MileagePlus miles",
+      "spendRequirement": 4000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1170,
+      "historicalHigh": "110,000 miles",
+      "description": "Earn 80,000 United miles after $4,000 spend in 3 months, plus 10,000 miles after adding an authorized user (90k total)."
+    },
+    "multipliers": {
+      "united": "3x miles on United purchases",
+      "travel": "2x miles on all other travel (flights, hotels, trains, rideshare, cruises)",
+      "dining": "2x miles on dining and select streaming services",
+      "streaming": "2x miles on select streaming services",
+      "base": "1x mile on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 1.0,
+      "flights": 3.0,
+      "hotels": 2.0,
+      "travel_portal": 2.0,
+      "gas": 1.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual United Purchase Credit",
+        "amount": 125,
+        "frequency": "annual",
+        "description": "$125 annual automatic statement credit for United purchases."
+      },
+      {
+        "name": "Award Flight Rebate Credits",
+        "amount": 130,
+        "frequency": "annual",
+        "description": "Two 5,000-mile award flight credits (10,000 miles total / ~$130 value) refunded back to your account each year after booking award flights."
+      },
+      {
+        "name": "Global Entry / TSA PreCheck Credit",
+        "amount": 100,
+        "frequency": "every_4_years",
+        "description": "Up to $100 credit for Global Entry, TSA PreCheck, or NEXUS."
+      }
+    ],
+    "perks": [
+      "First AND Second Checked Bags Free: Cardholder and companion save up to $320 per round-trip flight",
+      "Expanded Saver Award Availability (exclusive XN inventory)",
+      "Priority Boarding (Group 2)",
+      "25% back on United in-flight purchases",
+      "Earn 500 PQP per $12,000 spent (up to 6,000 PQP/yr toward Premier status)"
+    ],
+    "rewardProgram": {
+      "name": "United MileagePlus",
+      "currency": "miles",
+      "transferable": false,
+      "estimatedCpp": 1.3,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies.",
+      "Bonus eligibility once every 24 months."
+    ],
+    "summary": "The premier value airline card for frequent United flyers. Combines a $125 United statement credit with 10,000 miles in annual award rebates ($130 value), reducing the effective annual fee to -$5 while giving two free checked bags.",
+    "bestFor": "Regular United flyers who check multiple bags and book award tickets each year.",
+    "pros": [
+      "Net negative effective annual fee ($250 fee minus $125 credit minus $130 award rebate miles = -$5)",
+      "First and second checked bags free for 2 passengers (saves up to $320/flight)",
+      "Access to expanded United XN award flight inventory",
+      "3x miles on United purchases"
+    ],
+    "cons": [
+      "No complimentary United Club lounge passes (unlike Explorer or Club Infinite)",
+      "Must charge ticket purchase to the card for baggage fee waiver"
+    ]
+  },
+  {
+    "id": "southwest-rapid-rewards-priority",
+    "name": "Southwest Rapid Rewards® Priority Credit Card",
+    "issuer": "Chase",
+    "network": "Visa Signature",
+    "tier": "Airline Cards",
+    "category": "airline",
+    "annualFee": 149,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.8,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "90,000",
+      "unit": "Southwest points",
+      "spendRequirement": 3000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 1170,
+      "historicalHigh": "100,000 points or Companion Pass",
+      "description": "Earn 90,000 bonus points after spending $3,000 on purchases in the first 3 months (counts toward Companion Pass)."
+    },
+    "multipliers": {
+      "southwest": "3x points on Southwest purchases",
+      "hotel_car_partners": "2x points on Rapid Rewards hotel and car rental partners",
+      "transit": "2x points on local transit and commuting, including rideshare",
+      "utilities": "2x points on internet, cable, phone services, and select streaming",
+      "base": "1x point on all other purchases"
+    },
+    "rates": {
+      "dining": 1.0,
+      "groceries": 1.0,
+      "flights": 3.0,
+      "hotels": 2.0,
+      "travel_portal": 2.0,
+      "gas": 1.0,
+      "transit": 2.0,
+      "streaming": 2.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "Annual Southwest Travel Credit",
+        "amount": 75,
+        "frequency": "annual",
+        "description": "$75 annual statement credit for Southwest purchases (excluding upgraded boarding)."
+      },
+      {
+        "name": "Anniversary Bonus Points",
+        "amount": 105,
+        "frequency": "annual",
+        "description": "7,500 bonus points every year after your cardmember anniversary (worth ~$105 in flights)."
+      }
+    ],
+    "perks": [
+      "4 Upgraded Boardings per year (positions A1-A15 at the gate, reimbursed automatically up to $200 value)",
+      "All points earned count directly toward the legendary Southwest Companion Pass (135,000 points needed)",
+      "25% back on inflight drinks and Wi-Fi",
+      "1,500 Tier Qualifying Points (TQPs) toward A-List status for every $5,000 spent",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "Southwest Rapid Rewards",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 1.3,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Chase 5/24 Rule applies.",
+      "Southwest 24-Month Rule: Ineligible if you received a welcome bonus on any personal Southwest card in the past 24 months."
+    ],
+    "summary": "The undisputed best Southwest credit card. The $75 travel credit and 7,500 anniversary bonus points ($105 value) provide $180 in guaranteed annual value against the $149 fee, plus 4 free A1-A15 upgraded boardings.",
+    "bestFor": "Anyone who flies Southwest Airlines even once or twice a year, and travelers aiming for the Southwest Companion Pass.",
+    "pros": [
+      "Guaranteed net negative annual fee ($75 credit + $105 points = $180 value vs $149 fee)",
+      "4 free upgraded boardings (positions A1-A15) per year",
+      "All welcome and spend points count toward the Companion Pass",
+      "No foreign transaction fee"
+    ],
+    "cons": [
+      "Southwest flights are primarily domestic US, Mexico, and Caribbean",
+      "Points have a fixed redemption value (~1.3 - 1.4 cpp) without outsized sweet-spot upside"
+    ]
+  },
+  {
+    "id": "citi-aadvantage-platinum-select",
+    "name": "Citi® / AAdvantage® Platinum Select® World Elite™ Mastercard®",
+    "issuer": "Citi",
+    "network": "Mastercard",
+    "tier": "Airline Cards",
+    "category": "airline",
+    "annualFee": 99,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.6,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "80,000",
+      "unit": "AAdvantage miles",
+      "spendRequirement": 3500,
+      "timeframeMonths": 4,
+      "estimatedValueUsd": 1200,
+      "historicalHigh": "80,000 miles",
+      "description": "Earn 80,000 American Airlines AAdvantage miles after spending $3,500 within the first 4 months ($0 intro annual fee first year)."
+    },
+    "multipliers": {
+      "american_airlines": "2x miles on eligible American Airlines purchases",
+      "dining": "2x miles at restaurants",
+      "gas": "2x miles at gas stations",
+      "base": "1x mile on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 1.0,
+      "flights": 2.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "gas": 2.0,
+      "transit": 1.0,
+      "streaming": 1.0,
+      "catch_all": 1.0
+    },
+    "credits": [
+      {
+        "name": "American Airlines Flight Discount",
+        "amount": 125,
+        "frequency": "annual",
+        "description": "$125 flight discount certificate after spending $20,000 or more during your cardmembership year and renewing."
+      }
+    ],
+    "perks": [
+      "First Checked Bag Free: Primary cardholder and up to 4 companions on the same domestic reservation save up to $70 round-trip per person",
+      "Preferred Boarding (Group 5) on American Airlines flights",
+      "25% savings on inflight food and beverage purchases",
+      "Earn 1 Loyalty Point for every 1 eligible AAdvantage mile earned from purchases toward AAdvantage status",
+      "No foreign transaction fee"
+    ],
+    "rewardProgram": {
+      "name": "American Airlines AAdvantage",
+      "currency": "miles",
+      "transferable": false,
+      "estimatedCpp": 1.5,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Citi 8/65 Rule applies.",
+      "Citi 1/48 Rule on AAdvantage Platinum Select bonus."
+    ],
+    "summary": "The premier credit card for American Airlines passengers. Offers an all-time high 80,000-mile bonus, waived $99 annual fee in year one, free checked bags for up to 5 travelers, and 1 Loyalty Point per dollar spent toward AA elite status.",
+    "bestFor": "American Airlines flyers who want free baggage, group 5 priority boarding, and status-building Loyalty Points.",
+    "pros": [
+      "Generous 80,000-mile welcome offer with waived annual fee in year one",
+      "Free checked bags on domestic itineraries for up to 5 passengers",
+      "Every mile earned is also 1 Loyalty Point toward AAdvantage status",
+      "Valuable Oneworld partner award chart (Qatar Qsuite, Japan Airlines First)"
+    ],
+    "cons": [
+      "Earning rates (2x on AA, dining, gas) are modest compared to flexible bank cards",
+      "$125 flight discount requires high $20,000 annual spend threshold"
+    ]
+  }
+]
