@@ -2,10 +2,20 @@
 
 import * as React from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
-import { CreditCard, Moon, Sun, Sparkles, Menu, X } from "lucide-react"
+import {
+  CreditCard,
+  Moon,
+  Sun,
+  Sparkles,
+  Menu,
+  X,
+  Calculator,
+} from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils"
 
 const subscribe = () => () => {}
 
@@ -17,6 +27,10 @@ export function Navbar() {
     () => false
   )
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+
+  const pathname = usePathname()
+  const isCatalog = pathname === "/"
+  const isCalculator = pathname.startsWith("/calculator")
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
@@ -57,24 +71,42 @@ export function Navbar() {
         <nav className="hidden items-center gap-1 text-sm font-medium md:flex">
           <Link
             href="/"
-            className="flex items-center gap-1.5 rounded-md bg-secondary/80 px-3 py-1.5 text-foreground transition-colors hover:bg-secondary"
+            className={cn(
+              "flex items-center gap-1.5 rounded-md px-3 py-1.5 transition-colors",
+              isCatalog
+                ? "bg-secondary/80 font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
           >
-            <Sparkles className="size-3.5 text-primary" />
+            <Sparkles
+              className={cn(
+                "size-3.5",
+                isCatalog ? "text-primary" : "text-muted-foreground"
+              )}
+            />
             <span>Catalog</span>
             <span className="py-0.2 ml-1 rounded-full bg-primary/10 px-1.5 text-[10px] font-semibold text-primary">
               33
             </span>
           </Link>
           <Link
-            href="#calculator"
-            onClick={(e) => {
-              e.preventDefault()
-            }}
-            className="flex items-center gap-1.5 rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+            href="/calculator"
+            className={cn(
+              "flex items-center gap-1.5 rounded-md px-3 py-1.5 transition-colors",
+              isCalculator
+                ? "bg-secondary/80 font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
           >
+            <Calculator
+              className={cn(
+                "size-3.5",
+                isCalculator ? "text-primary" : "text-muted-foreground"
+              )}
+            />
             <span>Calculator</span>
-            <span className="py-0.2 rounded bg-muted px-1.5 text-[9px] tracking-wider text-muted-foreground uppercase">
-              Soon
+            <span className="py-0.2 rounded bg-primary/10 px-1.5 text-[9px] font-bold tracking-wider text-primary uppercase">
+              Live
             </span>
           </Link>
           <Link
@@ -137,20 +169,49 @@ export function Navbar() {
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center justify-between rounded-lg bg-secondary px-3 py-2 text-sm font-medium text-foreground"
+            className={cn(
+              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isCatalog
+                ? "bg-secondary font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
           >
             <span className="flex items-center gap-2">
-              <Sparkles className="size-4 text-primary" />
+              <Sparkles
+                className={cn(
+                  "size-4",
+                  isCatalog ? "text-primary" : "text-muted-foreground"
+                )}
+              />
               Catalog
             </span>
             <Badge variant="outline" className="text-xs">
               33 cards
             </Badge>
           </Link>
-          <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground">
-            <span>Calculator</span>
-            <span className="text-xs text-muted-foreground">Coming Soon</span>
-          </div>
+          <Link
+            href="/calculator"
+            onClick={() => setMobileMenuOpen(false)}
+            className={cn(
+              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isCalculator
+                ? "bg-secondary font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
+          >
+            <span className="flex items-center gap-2">
+              <Calculator
+                className={cn(
+                  "size-4",
+                  isCalculator ? "text-primary" : "text-muted-foreground"
+                )}
+              />
+              Calculator
+            </span>
+            <Badge variant="default" className="text-xs">
+              Live
+            </Badge>
+          </Link>
           <div className="flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground">
             <span>Wallet</span>
             <span className="text-xs text-muted-foreground">Beta</span>
