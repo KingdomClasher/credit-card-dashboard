@@ -15,6 +15,7 @@ import {
   X,
   Calculator,
   Wallet,
+  Bot,
 } from "lucide-react"
 
 /**
@@ -46,6 +47,7 @@ export function Navbar() {
   const isCatalog = pathname === "/"
   const isCalculator = pathname.startsWith("/calculator")
   const isWallet = pathname.startsWith("/wallet")
+  const isAdvisor = pathname.startsWith("/advisor")
 
   const toggleTheme = () => {
     setTheme(resolvedTheme === "dark" ? "light" : "dark")
@@ -142,6 +144,26 @@ export function Navbar() {
             <span>My Wallet</span>
             <span className="py-0.2 rounded bg-primary/10 px-1.5 text-[9px] font-bold tracking-wider text-primary uppercase">
               New
+            </span>
+          </Link>
+          <Link
+            href="/advisor"
+            className={cn(
+              "flex items-center gap-1.5 rounded-md px-3 py-1.5 transition-colors",
+              isAdvisor
+                ? "bg-secondary/80 font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
+          >
+            <Bot
+              className={cn(
+                "size-3.5",
+                isAdvisor ? "text-primary" : "text-muted-foreground"
+              )}
+            />
+            <span>AI Advisor</span>
+            <span className="py-0.2 rounded bg-primary/10 px-1.5 text-[9px] font-bold tracking-wider text-primary uppercase">
+              AI
             </span>
           </Link>
         </nav>
@@ -275,6 +297,29 @@ export function Navbar() {
               className="text-xs"
             >
               New
+            </Badge>
+          </Link>
+          <Link
+            href="/advisor"
+            onClick={() => setMobileMenuOpen(false)}
+            className={cn(
+              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              isAdvisor
+                ? "bg-secondary font-semibold text-foreground"
+                : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            )}
+          >
+            <span className="flex items-center gap-2">
+              <Bot
+                className={cn(
+                  "size-4",
+                  isAdvisor ? "text-primary" : "text-muted-foreground"
+                )}
+              />
+              AI Advisor
+            </span>
+            <Badge variant="default" className="text-xs">
+              AI
             </Badge>
           </Link>
           <div className="border-t pt-2">
