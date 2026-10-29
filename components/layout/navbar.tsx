@@ -4,6 +4,8 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useTheme } from "next-themes"
+import { SignInButton, UserButton } from "@clerk/nextjs"
+import { Show } from "@clerk/react"
 import {
   CreditCard,
   Moon,
@@ -14,6 +16,17 @@ import {
   Calculator,
   Wallet,
 } from "lucide-react"
+
+/**
+ * Compatibility wrappers for Clerk Core 3 (where <SignedIn> and <SignedOut> were replaced by <Show>)
+ */
+function SignedIn({ children }: { children: React.ReactNode }) {
+  return <Show when="signed-in">{children}</Show>
+}
+
+function SignedOut({ children }: { children: React.ReactNode }) {
+  return <Show when="signed-out">{children}</Show>
+}
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
@@ -156,6 +169,22 @@ export function Navbar() {
             <span className="sr-only">Toggle theme</span>
           </Button>
 
+          {/* Authentication Controls */}
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button
+                variant="default"
+                size="sm"
+                className="h-9 px-3 text-xs font-semibold"
+              >
+                Sign In
+              </Button>
+            </SignInButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
           {/* Mobile menu trigger */}
           <Button
             variant="ghost"
@@ -248,6 +277,27 @@ export function Navbar() {
               New
             </Badge>
           </Link>
+          <div className="border-t pt-2">
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button
+                  variant="outline"
+                  className="w-full justify-center text-xs"
+                  size="sm"
+                >
+                  Sign In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+            <SignedIn>
+              <div className="flex items-center justify-between px-2 py-1">
+                <span className="text-sm font-medium text-muted-foreground">
+                  Account
+                </span>
+                <UserButton />
+              </div>
+            </SignedIn>
+          </div>
         </div>
       )}
     </header>
