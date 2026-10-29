@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import {
   MessageScrollerProvider,
   MessageScroller,
@@ -35,6 +36,7 @@ import {
   RotateCcw,
   ShieldCheck,
   CheckCircle2,
+  ArrowLeft,
 } from "lucide-react"
 
 export interface ChatMessage {
@@ -204,6 +206,13 @@ export function AdvisorChatView() {
       {/* Header bar */}
       <div className="flex items-center justify-between border-b px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            className="flex items-center gap-1.5 rounded-lg border border-border/60 bg-muted/40 px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+          >
+            <ArrowLeft className="size-3.5" />
+            <span className="hidden sm:inline">Back to Catalog</span>
+          </Link>
           <div className="flex size-9 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
             <Bot className="size-5" />
           </div>

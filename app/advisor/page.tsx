@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import { Navbar } from "@/components/layout/navbar"
 import { AdvisorChatView } from "@/components/advisor/advisor-chat-view"
 
 export const metadata: Metadata = {
@@ -9,5 +10,12 @@ export const metadata: Metadata = {
 }
 
 export default function AdvisorPage() {
-  return <AdvisorChatView />
+  return (
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <Navbar />
+      <main className="flex flex-1 flex-col">
+        <AdvisorChatView />
+      </main>
+    </div>
+  )
 }
