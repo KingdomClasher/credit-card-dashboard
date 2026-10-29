@@ -1,6 +1,8 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
+import { Show } from "@clerk/react"
 import { useWallet } from "@/lib/hooks/use-wallet"
 import { Navbar } from "@/components/layout/navbar"
 import { FiveTwentyFourRadar } from "@/components/wallet/five-twenty-four-radar"
@@ -99,6 +101,31 @@ export function WalletView() {
             </Button>
           </div>
         </div>
+
+        {/* Guest Preview Notification Banner */}
+        <Show when="signed-out">
+          <div className="mt-6 flex flex-col gap-3 rounded-xl border border-primary/20 bg-primary/5 p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                <Sparkles className="size-4" />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-foreground sm:text-sm">
+                  Viewing Local Demo Portfolio
+                </p>
+                <p className="text-[11px] text-muted-foreground sm:text-xs">
+                  You are previewing pre-populated demo cards. All adjustments save to your browser. Sign in to save your cards to your personal Supabase account.
+                </p>
+              </div>
+            </div>
+            <Link
+              href="/sign-in"
+              className="inline-flex h-8 shrink-0 items-center justify-center rounded-lg bg-primary px-3.5 text-xs font-semibold text-primary-foreground shadow-xs transition-opacity hover:opacity-90"
+            >
+              Sign In to Sync
+            </Link>
+          </div>
+        </Show>
 
         {/* 4 Key Header Metrics Row */}
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">

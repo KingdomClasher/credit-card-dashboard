@@ -244,9 +244,14 @@ export function SpendInputMatrix({
                       step={catConfig.step}
                       value={currentValue === 0 ? "" : currentValue}
                       placeholder="0"
+                      onKeyDown={(e) => {
+                        if (e.key === "-" || e.key === "e" || e.key === "E") {
+                          e.preventDefault()
+                        }
+                      }}
                       onChange={(e) => {
                         const val =
-                          e.target.value === "" ? 0 : Number(e.target.value)
+                          e.target.value === "" ? 0 : Math.max(0, Number(e.target.value))
                         handleCategoryChange(catConfig.id, val)
                       }}
                       className="h-7 pr-2 pl-6 text-right font-mono text-xs font-bold"

@@ -1,4 +1,10 @@
+import type { Metadata } from "next"
 import { SignIn } from "@clerk/nextjs"
+
+export const metadata: Metadata = {
+  title: "Sign In",
+  description: "Sign in to your Credit Card Dashboard account to sync your portfolio across devices.",
+}
 
 export default function SignInPage() {
   return (

@@ -176,7 +176,16 @@ export function CardTile({ card, onSelect }: CardTileProps) {
 
   return (
     <Card
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border bg-card transition-all duration-200 hover:shadow-lg ${issuerStyle.border}`}
+      role="button"
+      tabIndex={0}
+      onClick={() => onSelect(card)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault()
+          onSelect(card)
+        }
+      }}
+      className={`group relative flex cursor-pointer flex-col justify-between overflow-hidden rounded-xl border bg-card transition-all duration-200 hover:shadow-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${issuerStyle.border}`}
     >
       <div className="flex flex-col">
         {/* Card Header */}
@@ -293,7 +302,10 @@ export function CardTile({ card, onSelect }: CardTileProps) {
         <Button
           variant="outline"
           size="sm"
-          onClick={() => onSelect(card)}
+          onClick={(e) => {
+            e.stopPropagation()
+            onSelect(card)
+          }}
           className="group/btn h-8 gap-1.5 text-xs font-medium transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
         >
           <span>View Details</span>

@@ -1,7 +1,11 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server"
 
-// Define protected routes that require authentication
-const isProtectedRoute = createRouteMatcher(["/wallet(.*)", "/dashboard(.*)"])
+// Define protected API routes and personal account actions that require authentication
+const isProtectedRoute = createRouteMatcher([
+  "/api/wallet(.*)",
+  "/api/user(.*)",
+  "/dashboard(.*)",
+])
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {

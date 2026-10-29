@@ -10,6 +10,9 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { useWallet } from "@/lib/hooks/use-wallet"
+import Link from "next/link"
 import {
   Table,
   TableHeader,
@@ -32,6 +35,8 @@ import {
   Sparkles,
   Check,
   Info,
+  Plus,
+  Wallet,
 } from "lucide-react"
 
 interface CardDetailSheetProps {
@@ -46,6 +51,26 @@ export function CardDetailSheet({
   onOpenChange,
 }: CardDetailSheetProps) {
   if (!card) return null
+
+  const { cards, addCard } = useWallet()
+  const isAlreadyInWallet = card ? cards.some((c) => c.cardSlug === card.id) : false
+  const [justAdded, setJustAdded] = React.useState(false)
+
+  const handleAddToWallet = () => {
+    if (!card) return
+    const today = new Date().toISOString().split("T")[0]
+    addCard({
+      cardSlug: card.id,
+      nickname: card.name,
+      openedDate: today,
+      annualFee: card.annualFee,
+      trackMSR: true,
+      targetSpend: card.signupBonus?.spendRequirement || 0,
+      currentSpend: 0,
+    })
+    setJustAdded(true)
+    setTimeout(() => setJustAdded(false), 3000)
+  }
 
   // Calculate annual total of statement credits
   const totalAnnualCredits =
@@ -508,6 +533,47 @@ export function CardDetailSheet({
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Sticky Action Footer */}
+        <div className="sticky bottom-0 z-10 flex items-center justify-between gap-3 border-t bg-background/95 p-4 backdrop-blur-md">
+          <div className="flex items-center gap-2">
+            {isAlreadyInWallet || justAdded ? (
+              <Badge
+                variant="secondary"
+                className="gap-1.5 border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-xs text-emerald-600 dark:text-emerald-400"
+              >
+                <CheckCircle2 className="size-3.5" />
+                <span>In My Wallet</span>
+              </Badge>
+            ) : (
+              <Button
+                size="sm"
+                onClick={handleAddToWallet}
+                className="gap-1.5 text-xs font-semibold shadow-xs"
+              >
+                <Plus className="size-4" />
+                <span>Add to My Wallet</span>
+              </Button>
+            )}
+            {(isAlreadyInWallet || justAdded) && (
+              <Link
+                href="/wallet"
+                className="text-xs font-medium text-primary underline underline-offset-4 hover:opacity-80"
+              >
+                View in Wallet &rarr;
+              </Link>
+            )}
+          </div>
+
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => onOpenChange(false)}
+            className="text-xs"
+          >
+            Close
+          </Button>
         </div>
       </SheetContent>
     </Sheet>
