@@ -11,7 +11,8 @@ import {
 } from "@/lib/calculator"
 import { Navbar } from "@/components/layout/navbar"
 import { SpendInputMatrix } from "@/components/calculator/spend-input-matrix"
-import { ValuationToggle } from "@/components/calculator/valuation-toggle"
+import { NetProfitHero } from "@/components/calculator/net-profit-hero"
+import { HowWeCalculateThis } from "@/components/calculator/how-we-calculate-this"
 import { RewardsRankingTable } from "@/components/calculator/rewards-ranking-table"
 import { NetFeeWaterfall } from "@/components/calculator/net-fee-waterfall"
 import { CardComparisonDialog } from "@/components/calculator/card-comparison-dialog"
@@ -119,10 +120,10 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
               <div className="flex flex-wrap items-center gap-2">
                 <Badge
                   variant="outline"
-                  className="gap-1.5 border-primary/30 bg-primary/5 py-1 text-xs text-primary"
+                  className="gap-1.5 border-primary/30 bg-primary/5 py-1 text-xs font-medium text-primary"
                 >
                   <Calculator className="size-3.5" />
-                  Task 2: Interactive Rewards & Net Fee Calculator
+                  Net Value & Rewards Calculator
                 </Badge>
                 <Badge
                   variant="secondary"
@@ -133,13 +134,12 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
               </div>
 
               <h1 className="font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">
-                Rewards & Net Annual Fee Calculator
+                Net Value & Rewards Calculator
               </h1>
 
               <p className="text-sm text-muted-foreground sm:text-base">
-                Model your real-world monthly category spend, toggle
-                conservative cash floor vs transfer partner valuations, and
-                evaluate cards by True Net Out-of-Pocket holding costs.
+                Model your real-world monthly category spend, evaluate net rewards
+                after annual fees, and discover your highest-yielding card portfolio.
               </p>
             </div>
 
@@ -196,15 +196,29 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
             />
           </section>
 
-          {/* Section 2: Valuation Mode Toggle */}
-          <section className="rounded-2xl border border-border/80 bg-card p-5 shadow-xs sm:p-6">
-            <ValuationToggle
-              value={valuationMode}
-              onChange={(mode) => setValuationMode(mode)}
+          {/* Section 2: Prominently Elevated Net Profit Outcome Spotlight */}
+          {topCardBreakdown && (
+            <section aria-label="Top Net Profit Recommendation">
+              <NetProfitHero
+                topCardBreakdown={topCardBreakdown}
+                totalAnnualSpend={totalAnnualSpend}
+                valuationMode={valuationMode}
+                onInspectCard={(card) => setSelectedCardId(card.id)}
+                onToggleCompare={handleToggleCompareCard}
+                isCompared={comparedCardIds.includes(topCardBreakdown.card.id)}
+              />
+            </section>
+          )}
+
+          {/* Section 3: Progressive Disclosure - "How We Calculate This" */}
+          <section aria-label="Calculation Methodology and Valuation Settings">
+            <HowWeCalculateThis
+              valuationMode={valuationMode}
+              onValuationModeChange={(mode) => setValuationMode(mode)}
             />
           </section>
 
-          {/* Section 3: Dynamic Card Ranking Table */}
+          {/* Section 4: Dynamic Card Ranking Table */}
           <section className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
@@ -230,7 +244,7 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
             />
           </section>
 
-          {/* Section 4: Net Effective Fee Analyzer */}
+          {/* Section 5: Net Effective Fee Analyzer */}
           <section id="net-fee-analyzer" className="pt-2">
             <NetFeeWaterfall
               card={selectedCard}
