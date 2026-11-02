@@ -181,7 +181,7 @@ export function OnboardingDialog() {
       <DialogContent className="max-h-[90vh] max-w-lg overflow-y-auto p-5 sm:max-w-xl sm:p-6">
         {/* Step Indicator Header */}
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between pr-10 sm:pr-12">
             <div className="flex items-center gap-1.5">
               {STEPS.map((step) => {
                 const isActive = step.step === currentStep
@@ -208,7 +208,7 @@ export function OnboardingDialog() {
 
             <Badge
               variant="outline"
-              className={cn("px-2 py-0.5 text-[11px] font-medium", currentStepData.badgeBg)}
+              className={cn("px-2.5 py-0.5 text-[11px] font-medium shrink-0", currentStepData.badgeBg)}
             >
               Step {currentStep} of 3
             </Badge>
