@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Footer } from "@/components/layout/footer"
+import { OnboardingDialog } from "@/components/layout/onboarding-dialog"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
@@ -51,6 +52,7 @@ export default function RootLayout({
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
+            <OnboardingDialog />
           </ThemeProvider>
         </body>
       </html>

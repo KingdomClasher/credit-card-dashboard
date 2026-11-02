@@ -16,7 +16,10 @@ import {
   Calculator,
   Wallet,
   Bot,
+  HelpCircle,
 } from "lucide-react"
+
+import { openOnboardingTour } from "@/components/layout/onboarding-dialog"
 
 /**
  * Compatibility wrappers for Clerk Core 3 (where <SignedIn> and <SignedOut> were replaced by <Show>)
@@ -170,6 +173,19 @@ export function Navbar() {
 
         {/* Action Controls */}
         <div className="flex items-center gap-2">
+          {/* Quick Guide / Onboarding Tour Button */}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={openOnboardingTour}
+            className="h-9 gap-1.5 rounded-lg border border-border/40 px-2.5 text-xs font-medium text-muted-foreground hover:bg-muted hover:text-foreground"
+            title="Quick Guide & Tour"
+            aria-label="Quick Guide & Tour"
+          >
+            <HelpCircle className="size-4 text-primary" />
+            <span className="hidden sm:inline">Guide</span>
+          </Button>
+
           {/* Theme Toggle Button */}
           <Button
             variant="ghost"
@@ -322,6 +338,24 @@ export function Navbar() {
               AI
             </Badge>
           </Link>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false)
+              openOnboardingTour()
+            }}
+            className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+          >
+            <span className="flex items-center gap-2">
+              <HelpCircle className="size-4 text-primary" />
+              Quick Guide
+            </span>
+            <Badge variant="outline" className="text-xs">
+              Tour
+            </Badge>
+          </button>
+
           <div className="border-t pt-2">
             <SignedOut>
               <SignInButton mode="modal">
