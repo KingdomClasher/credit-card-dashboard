@@ -20,6 +20,14 @@ interface CreditRedemptionChecklistProps {
   onResetRedemptions: () => void
 }
 
+function formatFrequency(freq: string): string {
+  if (!freq) return ""
+  return freq
+    .toLowerCase()
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase())
+}
+
 export function CreditRedemptionChecklist({
   items,
   onToggleRedemption,
@@ -49,11 +57,10 @@ export function CreditRedemptionChecklist({
   // Filtered items
   const filteredItems = React.useMemo(() => {
     return items.filter((item) => {
-      if (
-        frequencyFilter !== "all" &&
-        item.frequency.toLowerCase() !== frequencyFilter
-      ) {
-        return false
+      if (frequencyFilter !== "all") {
+        const itemFreq = item.frequency.toLowerCase().replace(/_/g, "-")
+        const filterFreq = frequencyFilter.toLowerCase().replace(/_/g, "-")
+        if (itemFreq !== filterFreq) return false
       }
       if (statusFilter === "pending" && item.isRedeemed) return false
       if (statusFilter === "redeemed" && !item.isRedeemed) return false
@@ -211,14 +218,14 @@ export function CreditRedemptionChecklist({
         {/* Cards filter if multiple cards */}
         {cardNames.length > 1 && (
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
-            <span className="text-[11px] font-medium text-muted-foreground">
+            <span className="shrink-0 text-[11px] font-medium text-muted-foreground">
               Card:
             </span>
             <button
               type="button"
               onClick={() => setSelectedCardFilter("all")}
               className={cn(
-                "rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-colors",
+                "shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-colors",
                 selectedCardFilter === "all"
                   ? "border border-primary/30 bg-primary/10 text-primary"
                   : "bg-muted/40 text-muted-foreground hover:text-foreground"
@@ -234,7 +241,7 @@ export function CreditRedemptionChecklist({
                   type="button"
                   onClick={() => setSelectedCardFilter(cName)}
                   className={cn(
-                    "rounded-full px-2.5 py-0.5 text-[11px] font-medium whitespace-nowrap transition-colors",
+                    "shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-[11px] font-medium transition-colors",
                     selectedCardFilter === cName
                       ? "border border-primary/30 bg-primary/10 text-primary"
                       : "bg-muted/40 text-muted-foreground hover:text-foreground"
@@ -293,9 +300,9 @@ export function CreditRedemptionChecklist({
                       </span>
                       <Badge
                         variant="secondary"
-                        className="h-4 px-1 py-0 text-[9px] font-normal tracking-wider uppercase"
+                        className="h-4 px-1.5 py-0 text-[9px] font-medium tracking-wide"
                       >
-                        {item.frequency}
+                        {formatFrequency(item.frequency)}
                       </Badge>
                     </div>
 

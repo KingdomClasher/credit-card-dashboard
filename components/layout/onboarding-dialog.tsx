@@ -178,7 +178,7 @@ export function OnboardingDialog() {
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-h-[90vh] max-w-lg overflow-y-auto p-5 sm:max-w-xl sm:p-6">
+      <DialogContent className="flex h-[560px] max-h-[92vh] w-full max-w-lg flex-col justify-between overflow-y-auto p-5 sm:h-[530px] sm:max-w-xl sm:p-6">
         {/* Step Indicator Header */}
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between pr-10 sm:pr-12">
@@ -214,7 +214,7 @@ export function OnboardingDialog() {
             </Badge>
           </div>
 
-          <DialogHeader className="gap-1.5 text-left">
+          <DialogHeader className="min-h-[84px] gap-1.5 text-left">
             <div className="flex items-center gap-3">
               <div
                 className={cn(
@@ -241,7 +241,7 @@ export function OnboardingDialog() {
         </div>
 
         {/* Step-specific Showcase Content */}
-        <div className="my-2 rounded-xl border bg-muted/30 p-4">
+        <div className="my-2 flex min-h-[265px] flex-1 flex-col justify-between rounded-xl border bg-muted/30 p-4">
           {currentStep === 1 && (
             <div className="space-y-3.5">
               <div className="flex items-center justify-between border-b pb-2.5">
@@ -257,7 +257,7 @@ export function OnboardingDialog() {
               </div>
 
               {/* Badges preview row */}
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-2">
                 <div className="rounded-lg border bg-card p-2.5 shadow-xs">
                   <div className="flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground">
                     <DollarSign className="size-3.5 text-emerald-500" />
@@ -455,7 +455,7 @@ export function OnboardingDialog() {
         </div>
 
         {/* Footer Navigation Controls */}
-        <div className="mt-2 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-2 flex items-center justify-between pt-1">
           <Button
             type="button"
             variant="ghost"
@@ -466,14 +466,14 @@ export function OnboardingDialog() {
             Skip Tour
           </Button>
 
-          <div className="flex items-center gap-2 sm:justify-end">
+          <div className="flex items-center gap-2">
             {currentStep > 1 && (
               <Button
                 type="button"
                 variant="outline"
                 size="sm"
                 onClick={handleBack}
-                className="gap-1 text-xs"
+                className="w-20 gap-1 text-xs"
               >
                 <ArrowLeft className="size-3.5" />
                 <span>Back</span>
@@ -486,7 +486,7 @@ export function OnboardingDialog() {
                 variant="default"
                 size="sm"
                 onClick={handleNext}
-                className="gap-1 text-xs font-semibold"
+                className="w-28 justify-center gap-1 text-xs font-semibold"
               >
                 <span>Next</span>
                 <ArrowRight className="size-3.5" />
@@ -497,7 +497,7 @@ export function OnboardingDialog() {
                 variant="default"
                 size="sm"
                 onClick={handleNext}
-                className="gap-1 bg-primary text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary/90"
+                className="w-28 justify-center gap-1 bg-primary text-xs font-semibold text-primary-foreground shadow-xs hover:bg-primary/90"
               >
                 <Sparkles className="size-3.5" />
                 <span>Get Started</span>
