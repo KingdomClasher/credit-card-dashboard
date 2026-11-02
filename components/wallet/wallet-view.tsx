@@ -9,7 +9,6 @@ import {
   IssuerRulesRadar,
   IssuerVelocitySummaryWidget,
 } from "@/components/wallet/issuer-rules-radar"
-import { ChaseStatusCard } from "@/components/wallet/chase-status-card"
 import { MSRTrackerCard } from "@/components/wallet/msr-tracker-card"
 import { CreditRedemptionChecklist } from "@/components/wallet/credit-redemption-checklist"
 import { CardInventoryList } from "@/components/wallet/card-inventory-list"
@@ -370,7 +369,6 @@ export function WalletView() {
 
             {/* ISSUER RULES & VELOCITY RADAR TAB */}
             <TabsContent value="radar" className="mx-auto max-w-5xl space-y-6">
-              <ChaseStatusCard status={fiveTwentyFour} />
               <IssuerRulesRadar summary={issuerRules} onSelectTab={setActiveTab} />
             </TabsContent>
 
