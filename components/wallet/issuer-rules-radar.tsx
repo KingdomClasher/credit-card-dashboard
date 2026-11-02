@@ -31,61 +31,87 @@ interface IssuerRulesRadarProps {
 
 type FilterMode = "all" | "cooldown" | "ready"
 
+interface FlatRuleItem extends RuleDetail {
+  bankName: string
+  bankId: string
+  logoShort: string
+  logoStyle: {
+    border: string
+    badge: string
+    text: string
+  }
+}
+
 export function IssuerRulesRadar({ summary, onSelectTab }: IssuerRulesRadarProps) {
   const [filter, setFilter] = React.useState<FilterMode>("all")
-  const [expandedBankIds, setExpandedBankIds] = React.useState<Set<string>>(new Set())
+  const [expandedRuleIds, setExpandedRuleIds] = React.useState<Set<string>>(new Set())
 
-  const toggleBankExpanded = (issuerId: string) => {
-    setExpandedBankIds((prev) => {
+  const toggleRuleExpanded = (ruleId: string) => {
+    setExpandedRuleIds((prev) => {
       const next = new Set(prev)
-      if (next.has(issuerId)) {
-        next.delete(issuerId)
+      if (next.has(ruleId)) {
+        next.delete(ruleId)
       } else {
-        next.add(issuerId)
+        next.add(ruleId)
       }
       return next
     })
   }
 
-  const {
-    banks,
-    totalActiveCooldowns,
-    readyToApplyBankCount,
-    chase524,
-    nextOverallUnlockFormatted,
-  } = summary
+  const { banks } = summary
 
-  const filteredBanks = React.useMemo(() => {
+  // Flatten all rules across all 6 banks into a single list
+  const allRules: FlatRuleItem[] = React.useMemo(() => {
+    return banks.flatMap((bank) =>
+      bank.rules.map((rule) => ({
+        ...rule,
+        bankName: bank.issuerName,
+        bankId: bank.issuerId,
+        logoShort: bank.logoShort,
+        logoStyle: bank.logoStyle,
+      }))
+    )
+  }, [banks])
+
+  const cooldownCount = React.useMemo(() => {
+    return allRules.filter((r) => r.cooldownActive || r.status === "warning" || r.status === "locked").length
+  }, [allRules])
+
+  const readyCount = React.useMemo(() => {
+    return allRules.filter((r) => r.status === "eligible" && !r.cooldownActive).length
+  }, [allRules])
+
+  const filteredRules = React.useMemo(() => {
     if (filter === "cooldown") {
-      return banks.filter(
-        (b) => b.overallStatus === "warning" || b.overallStatus === "locked"
+      return allRules.filter(
+        (r) => r.cooldownActive || r.status === "warning" || r.status === "locked"
       )
     }
     if (filter === "ready") {
-      return banks.filter((b) => b.overallStatus === "eligible")
+      return allRules.filter((r) => r.status === "eligible" && !r.cooldownActive)
     }
-    return banks
-  }, [banks, filter])
+    return allRules
+  }, [allRules, filter])
 
   return (
     <div className="space-y-6">
-      {/* Top Header & Triage Bar */}
+      {/* Top Header & Filter Controls */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between border-b pb-4">
         <div>
           <div className="flex items-center gap-2">
             <h2 className="font-heading text-lg font-bold tracking-tight text-foreground sm:text-xl">
-              Issuer Rules & Application Velocity Radar
+              Issuer Rules & Application Velocity Ledger
             </h2>
             <Badge variant="outline" className="font-mono text-xs text-primary border-primary/30">
-              6 Issuers Monitored
+              6 Banks • {allRules.length} Rules
             </Badge>
           </div>
           <p className="text-xs text-muted-foreground mt-0.5 sm:text-sm">
-            Standardized bank rule velocity limits, welcome bonus cooldowns, and churning underwriting criteria.
+            Complete list of underwriting constraints, cooldown timers, and approval velocity across all major issuers.
           </p>
         </div>
 
-        {/* Filter Pills and Actions */}
+        {/* Filter Pills and Action */}
         <div className="flex flex-wrap items-center gap-2">
           <div className="inline-flex items-center gap-1.5 rounded-xl border bg-muted/40 p-1">
             <Button
@@ -94,7 +120,7 @@ export function IssuerRulesRadar({ summary, onSelectTab }: IssuerRulesRadarProps
               onClick={() => setFilter("all")}
               className="h-7 text-xs font-medium"
             >
-              All Issuers ({banks.length})
+              All Rules ({allRules.length})
             </Button>
             <Button
               variant={filter === "cooldown" ? "default" : "ghost"}
@@ -107,7 +133,7 @@ export function IssuerRulesRadar({ summary, onSelectTab }: IssuerRulesRadarProps
                   : "text-amber-600 dark:text-amber-400"
               )}
             >
-              Active Cooldowns ({totalActiveCooldowns})
+              Active Cooldowns ({cooldownCount})
             </Button>
             <Button
               variant={filter === "ready" ? "default" : "ghost"}
@@ -120,7 +146,7 @@ export function IssuerRulesRadar({ summary, onSelectTab }: IssuerRulesRadarProps
                   : "text-emerald-600 dark:text-emerald-400"
               )}
             >
-              Ready to Apply ({readyToApplyBankCount})
+              Ready to Apply ({readyCount})
             </Button>
           </div>
 
@@ -138,257 +164,178 @@ export function IssuerRulesRadar({ summary, onSelectTab }: IssuerRulesRadarProps
         </div>
       </div>
 
-      {/* Overview Stat Strip */}
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded-xl border bg-card/60 p-3 shadow-2xs">
-          <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-            Chase 5/24 Status
-          </div>
-          <div className="mt-1 flex items-baseline gap-1.5">
-            <span className="font-mono text-xl font-extrabold text-foreground">
-              {chase524.currentCount ?? 0} / {chase524.maxLimit ?? 5}
-            </span>
-            <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-              ({chase524.slotsRemaining ?? 5} slots open)
-            </span>
-          </div>
-          <div className="text-[11px] text-muted-foreground truncate">
-            {chase524.unlockFormatted ? `Next drop-off: ${chase524.unlockFormatted}` : "No drop-off pending"}
-          </div>
-        </div>
-
-        <div className="rounded-xl border bg-card/60 p-3 shadow-2xs">
-          <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-            Active Cooldowns
-          </div>
-          <div className="mt-1 flex items-baseline gap-1.5">
-            <span className="font-mono text-xl font-extrabold text-amber-600 dark:text-amber-400">
-              {totalActiveCooldowns}
-            </span>
-            <span className="text-xs text-muted-foreground">across all banks</span>
-          </div>
-          <div className="text-[11px] text-muted-foreground truncate">
-            {nextOverallUnlockFormatted ? `Next unlock: ${nextOverallUnlockFormatted}` : "All rules clear"}
-          </div>
-        </div>
-
-        <div className="rounded-xl border bg-card/60 p-3 shadow-2xs">
-          <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-            Clear to Apply
-          </div>
-          <div className="mt-1 flex items-baseline gap-1.5">
-            <span className="font-mono text-xl font-extrabold text-emerald-600 dark:text-emerald-400">
-              {readyToApplyBankCount} / {banks.length}
-            </span>
-            <span className="text-xs text-muted-foreground">issuers</span>
-          </div>
-          <div className="text-[11px] text-emerald-600/80 dark:text-emerald-400/80 truncate">
-            Zero velocity restrictions
-          </div>
-        </div>
-
-        <div className="rounded-xl border bg-card/60 p-3 shadow-2xs">
-          <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
-            Catalog Coverage
-          </div>
-          <div className="mt-1 flex items-baseline gap-1.5">
-            <span className="font-mono text-xl font-extrabold text-primary">
-              35 Cards
-            </span>
-            <span className="text-xs text-muted-foreground">premier options</span>
-          </div>
-          <div className="text-[11px] text-muted-foreground truncate">
-            Includes BoA, Chase, Amex & more
-          </div>
-        </div>
-      </div>
-
-      {/* Grid of Bank Rule Cards */}
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {filteredBanks.map((bank) => {
-          const isExpanded = expandedBankIds.has(bank.issuerId)
+      {/* Row Ledger List */}
+      <div className="space-y-2.5">
+        {filteredRules.map((rule) => {
+          const isExpanded = expandedRuleIds.has(rule.id)
+          const isCooldown = rule.cooldownActive || rule.status === "warning"
+          const isLocked = rule.status === "locked"
 
           return (
-            <Card
-              key={bank.issuerId}
+            <div
+              key={rule.id}
               className={cn(
-                "relative flex flex-col justify-between overflow-hidden border bg-card/80 transition-all duration-200",
-                bank.logoStyle.border
+                "rounded-xl border transition-all duration-200 overflow-hidden shadow-2xs",
+                isCooldown
+                  ? "border-amber-500/30 bg-amber-500/[0.03] hover:bg-amber-500/[0.06]"
+                  : isLocked
+                  ? "border-rose-500/30 bg-rose-500/[0.03] hover:bg-rose-500/[0.06]"
+                  : "border-border/60 bg-card/60 hover:bg-card/90"
               )}
             >
-              <CardHeader className="pb-3 border-b border-border/40">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2.5">
-                    <div
-                      className={cn(
-                        "flex size-9 items-center justify-center rounded-xl border font-mono text-xs font-bold shadow-xs",
-                        bank.logoStyle.badge
-                      )}
-                    >
-                      {bank.logoShort}
-                    </div>
-                    <div>
-                      <CardTitle className="text-base font-bold tracking-tight text-foreground">
-                        {bank.issuerName}
-                      </CardTitle>
-                      <CardDescription className="text-xs text-muted-foreground">
-                        {bank.rules.length} Underwriting Rules Evaluated
-                      </CardDescription>
-                    </div>
-                  </div>
-
-                  {/* Status Badge */}
-                  <div>
-                    {bank.overallStatus === "eligible" && (
-                      <Badge
-                        variant="secondary"
-                        className="gap-1 border-emerald-500/20 bg-emerald-500/10 text-xs font-semibold text-emerald-600 dark:text-emerald-400"
-                      >
-                        <span className="size-1.5 rounded-full bg-emerald-500" />
-                        <span>Ready to Apply</span>
-                      </Badge>
-                    )}
-                    {bank.overallStatus === "warning" && (
-                      <Badge
-                        variant="secondary"
-                        className="gap-1 border-amber-500/20 bg-amber-500/10 text-xs font-semibold text-amber-600 dark:text-amber-400"
-                      >
-                        <Clock className="size-3" />
-                        <span>{bank.statusMessage}</span>
-                      </Badge>
-                    )}
-                    {bank.overallStatus === "locked" && (
-                      <Badge
-                        variant="destructive"
-                        className="gap-1 text-xs font-semibold"
-                      >
-                        <ShieldAlert className="size-3" />
-                        <span>{bank.statusMessage}</span>
-                      </Badge>
-                    )}
-                  </div>
-                </div>
-              </CardHeader>
-
-              <CardContent className="space-y-4 pt-4 flex-1">
-                {/* Standardized Rules List */}
-                <div className="space-y-3">
-                  {bank.rules.map((rule) => (
-                    <RuleItemRow key={rule.id} rule={rule} />
-                  ))}
-                </div>
-
-                {/* Churning Strategy Recommendation Box */}
-                {bank.rules[0]?.recommendation && (
-                  <div className="rounded-xl border border-primary/20 bg-primary/5 p-3 text-xs leading-relaxed text-foreground flex items-start gap-2.5">
-                    <span className="text-primary text-base font-bold shrink-0">💡</span>
-                    <div>
-                      <span className="font-semibold text-primary">Strategic Advice: </span>
-                      <span className="text-muted-foreground">{bank.rules[0].recommendation}</span>
-                    </div>
-                  </div>
-                )}
-
-                {/* Collapsible Underwriting Explainer */}
-                <div className="border-t border-border/40 pt-2">
-                  <button
-                    type="button"
-                    onClick={() => toggleBankExpanded(bank.issuerId)}
-                    className="flex w-full items-center justify-between py-1 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <span>View Underwriting Criteria & Details</span>
-                    {isExpanded ? (
-                      <ChevronUp className="size-3.5" />
+              <div className="flex flex-col gap-3 p-3.5 sm:flex-row sm:items-center sm:justify-between">
+                {/* Left: Status Dot + Rule Name + Bank Tag + 1-line Description */}
+                <div className="flex items-start gap-3 min-w-0 flex-1">
+                  <div className="mt-1.5 shrink-0">
+                    {isCooldown ? (
+                      <span className="relative flex size-2.5">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-amber-400 opacity-75" />
+                        <span className="relative inline-flex size-2.5 rounded-full bg-amber-500" />
+                      </span>
+                    ) : isLocked ? (
+                      <span className="inline-flex size-2.5 rounded-full bg-rose-500" />
                     ) : (
-                      <ChevronDown className="size-3.5" />
+                      <span className="inline-flex size-2.5 rounded-full bg-emerald-500" />
                     )}
-                  </button>
+                  </div>
 
-                  {isExpanded && (
-                    <div className="mt-2 space-y-2 rounded-lg bg-muted/30 p-2.5 text-[11px] text-muted-foreground leading-relaxed">
-                      {bank.rules.map((rule) => (
-                        <div key={rule.id} className="border-b border-border/20 pb-1.5 last:border-b-0 last:pb-0">
-                          <strong className="text-foreground">{rule.name}:</strong> {rule.description}
-                          {rule.contributingCards.length > 0 && (
-                            <div className="mt-1 flex flex-wrap gap-1">
-                              <span className="text-[10px] text-muted-foreground">Cards counting:</span>
-                              {rule.contributingCards.map((c, i) => (
-                                <Badge key={i} variant="outline" className="text-[10px] py-0 px-1.5">
-                                  {c.cardName} ({c.openedDate})
-                                </Badge>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ))}
+                  <div className="space-y-0.5 min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="font-heading text-sm font-bold tracking-tight text-foreground">
+                        {rule.name}
+                      </span>
+                      <span
+                        className={cn(
+                          "rounded-md px-1.5 py-0.5 text-[10px] font-bold border",
+                          rule.logoStyle.badge
+                        )}
+                      >
+                        {rule.bankName}
+                      </span>
                     </div>
+                    <p className="text-xs text-muted-foreground truncate">
+                      {rule.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right: Numerical Standing / Countdown + Badge + Contributing Cards Toggle */}
+                <div className="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 text-xs shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-border/40">
+                  <div className="min-w-0 sm:min-w-[160px] text-left sm:text-right font-mono shrink-0 whitespace-nowrap">
+                    {isCooldown ? (
+                      <div>
+                        <span className="font-bold text-amber-600 dark:text-amber-300 whitespace-nowrap">
+                          {rule.daysRemaining && rule.daysRemaining <= 90
+                            ? `${rule.daysRemaining} days left`
+                            : rule.monthsRemaining
+                            ? `${rule.monthsRemaining} months left`
+                            : "In Cooldown"}
+                        </span>
+                        {rule.unlockFormatted && (
+                          <div className="text-[10px] font-sans text-muted-foreground whitespace-nowrap">
+                            Unlocks {rule.unlockFormatted}
+                          </div>
+                        )}
+                      </div>
+                    ) : rule.currentCount !== undefined && rule.maxLimit !== undefined ? (
+                      <div>
+                        <span className="font-bold text-foreground whitespace-nowrap">
+                          {rule.currentCount} / {rule.maxLimit} Slots Used
+                        </span>
+                        {rule.unlockFormatted && (
+                          <div className="text-[10px] font-sans text-muted-foreground whitespace-nowrap">
+                            Next drop-off: {rule.unlockFormatted}
+                          </div>
+                        )}
+                      </div>
+                    ) : null}
+                  </div>
+
+                  {/* Badge + Contributing Cards Toggle Group */}
+                  <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+                    {/* Status Badge */}
+                    <div className="w-[95px] sm:w-[105px] shrink-0 flex items-center justify-end">
+                      {isCooldown ? (
+                        <Badge
+                          variant="secondary"
+                          className="w-full justify-center gap-1 border-amber-500/30 bg-amber-500/10 text-xs font-semibold text-amber-600 dark:text-amber-400 whitespace-nowrap"
+                        >
+                          <Clock className="size-3 shrink-0" />
+                          <span>Cooldown</span>
+                        </Badge>
+                      ) : isLocked ? (
+                        <Badge
+                          variant="destructive"
+                          className="w-full justify-center gap-1 text-xs font-semibold whitespace-nowrap"
+                        >
+                          <ShieldAlert className="size-3 shrink-0" />
+                          <span>Locked</span>
+                        </Badge>
+                      ) : (
+                        <Badge
+                          variant="secondary"
+                          className="w-full justify-center gap-1 border-emerald-500/20 bg-emerald-500/10 text-xs font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap"
+                        >
+                          <span className="size-1.5 rounded-full bg-emerald-500 shrink-0" />
+                          <span>Ready</span>
+                        </Badge>
+                      )}
+                    </div>
+
+                    {/* Dedicated Expand Toggle Slot */}
+                    <div className="w-8 shrink-0 flex items-center justify-center">
+                      {rule.contributingCards.length > 0 ? (
+                        <button
+                          type="button"
+                          onClick={() => toggleRuleExpanded(rule.id)}
+                          className="text-muted-foreground hover:text-foreground transition-colors p-1.5 rounded-md hover:bg-muted"
+                          title="View contributing cards"
+                        >
+                          {isExpanded ? (
+                            <ChevronUp className="size-4" />
+                          ) : (
+                            <ChevronDown className="size-4" />
+                          )}
+                        </button>
+                      ) : (
+                        <div className="size-7 hidden sm:block" aria-hidden="true" />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Contributing Portfolio Cards Drawer */}
+              {isExpanded && rule.contributingCards.length > 0 && (
+                <div className="border-t border-border/40 bg-muted/30 px-4 py-3 text-xs space-y-2 rounded-b-xl">
+                  <div className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
+                    Portfolio Cards Triggering This Rule ({rule.contributingCards.length}):
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {rule.contributingCards.map((card, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-1.5 rounded-md border border-border/60 bg-card px-2.5 py-1 text-xs shadow-2xs"
+                      >
+                        <span className="font-semibold text-foreground">{card.cardName}</span>
+                        <span className="text-muted-foreground text-[11px]">
+                          (opened {card.openedDate}
+                          {card.bonusDate ? `, bonus ${card.bonusDate}` : ""})
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  {rule.recommendation && (
+                    <p className="pt-1 text-[11px] text-muted-foreground leading-relaxed">
+                      <strong className="text-primary font-semibold">Advice: </strong>
+                      {rule.recommendation}
+                    </p>
                   )}
                 </div>
-              </CardContent>
-            </Card>
+              )}
+            </div>
           )
         })}
-      </div>
-    </div>
-  )
-}
-
-function RuleItemRow({ rule }: { rule: RuleDetail }) {
-  const isLocked = rule.status === "locked"
-  const isWarning = rule.status === "warning"
-
-  const progressColor = isLocked
-    ? "bg-rose-500"
-    : isWarning
-    ? "bg-amber-500"
-    : "bg-emerald-500"
-
-  return (
-    <div className="rounded-xl border border-border/50 bg-muted/20 p-3 space-y-2">
-      {/* Title & Metric Row */}
-      <div className="flex items-center justify-between text-xs">
-        <span className="font-semibold text-foreground">{rule.name}</span>
-
-        <div>
-          {rule.currentCount !== undefined && rule.maxLimit !== undefined ? (
-            <span className="font-mono font-bold text-foreground">
-              {rule.currentCount} / {rule.maxLimit}
-            </span>
-          ) : rule.cooldownActive ? (
-            <span className="badge badge-warning text-[10px] font-semibold px-2 py-0.5 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400">
-              {rule.daysRemaining ? `${rule.daysRemaining}d cooldown` : "In Cooldown"}
-            </span>
-          ) : (
-            <span className="text-emerald-600 dark:text-emerald-400 font-semibold text-[11px]">
-              Clear
-            </span>
-          )}
-        </div>
-      </div>
-
-      {/* Progress Bar */}
-      <div className="w-full bg-muted rounded-full h-1.5 overflow-hidden">
-        <div
-          className={cn("h-1.5 rounded-full transition-all duration-300", progressColor)}
-          style={{ width: `${rule.progressPercent}%` }}
-        />
-      </div>
-
-      {/* Bottom Subtitle / Countdown */}
-      <div className="flex items-center justify-between text-[11px] text-muted-foreground">
-        <span className="truncate max-w-[220px]">
-          {rule.contributingCards.length > 0
-            ? `${rule.contributingCards.length} card(s) counting`
-            : "No active inquiries"}
-        </span>
-
-        <span className="font-mono shrink-0">
-          {rule.unlockFormatted
-            ? `Unlocks ${rule.unlockFormatted}`
-            : rule.slotsRemaining !== undefined
-            ? `${rule.slotsRemaining} slot(s) open`
-            : "Eligible now"}
-        </span>
       </div>
     </div>
   )
@@ -404,7 +351,15 @@ export function IssuerVelocitySummaryWidget({
   summary: IssuerRulesSummary
   onNavigateToRadar: () => void
 }) {
-  const { chase524, totalActiveCooldowns, readyToApplyBankCount, nextOverallUnlockFormatted } = summary
+  const { chase524, banks } = summary
+
+  const activeCooldownRules = React.useMemo(() => {
+    return banks.flatMap((b) =>
+      b.rules
+        .filter((r) => r.cooldownActive || r.status === "warning")
+        .map((r) => ({ ...r, bankName: b.issuerName, logoStyle: b.logoStyle }))
+    )
+  }, [banks])
 
   return (
     <Card className="relative overflow-hidden border-border/80 bg-gradient-to-br from-card via-card to-card/60 shadow-sm">
@@ -415,11 +370,11 @@ export function IssuerVelocitySummaryWidget({
               <ShieldCheck className="size-4" />
             </div>
             <CardTitle className="text-base font-semibold tracking-tight">
-              Issuer Rules & Velocity Radar
+              Issuer Rules & Velocity Ledger
             </CardTitle>
           </div>
           <CardDescription className="text-xs text-muted-foreground">
-            Multi-bank application pacing, Chase 5/24 status, and bonus cooldowns
+            Chase 5/24 status and active bank cooldown timers
           </CardDescription>
         </div>
 
@@ -429,12 +384,12 @@ export function IssuerVelocitySummaryWidget({
           onClick={onNavigateToRadar}
           className="h-8 gap-1.5 text-xs text-primary font-semibold hover:bg-primary hover:text-primary-foreground"
         >
-          <span>View All 6 Issuers</span>
+          <span>View All Rules Ledger</span>
           <ArrowRight className="size-3.5" />
         </Button>
       </CardHeader>
 
-      <CardContent className="space-y-4 pt-1">
+      <CardContent className="space-y-3 pt-1">
         {/* Chase 5/24 Quick Bar */}
         <div className="rounded-xl border bg-muted/30 p-3 space-y-2">
           <div className="flex items-center justify-between text-xs">
@@ -458,32 +413,62 @@ export function IssuerVelocitySummaryWidget({
           </div>
           <div className="flex justify-between text-[11px] text-muted-foreground">
             <span>{chase524.slotsRemaining ?? 5} Chase slots available</span>
-            <span>{chase524.unlockFormatted ? `Next drop-off: ${chase524.unlockFormatted}` : "No drop-off pending"}</span>
+            <span>
+              {chase524.unlockFormatted
+                ? `Next drop-off: ${chase524.unlockFormatted}`
+                : "No drop-off pending"}
+            </span>
           </div>
         </div>
 
-        {/* 2 Key Stats Row */}
-        <div className="grid grid-cols-2 gap-2 text-xs">
-          <div className="rounded-lg border bg-muted/20 p-2.5">
-            <div className="text-[10px] font-semibold text-muted-foreground uppercase">Active Cooldowns</div>
-            <div className="mt-0.5 font-mono text-base font-bold text-amber-600 dark:text-amber-400">
-              {totalActiveCooldowns} {totalActiveCooldowns === 1 ? "Rule" : "Rules"}
+        {/* Active Cooldown List Preview */}
+        {activeCooldownRules.length > 0 ? (
+          <div className="space-y-1.5 pt-1">
+            <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
+              Active Cooldowns ({activeCooldownRules.length})
             </div>
-            <div className="text-[10px] text-muted-foreground truncate">
-              {nextOverallUnlockFormatted ? `Next: ${nextOverallUnlockFormatted}` : "All clear"}
+            <div className="space-y-1.5">
+              {activeCooldownRules.map((rule) => (
+                <div
+                  key={rule.id}
+                  className="flex items-center justify-between rounded-lg border border-amber-500/20 bg-amber-500/[0.04] p-2.5 text-xs"
+                >
+                  <div className="flex items-center gap-2 min-w-0">
+                    <span className="relative flex size-2 shrink-0">
+                      <span className="relative inline-flex size-2 rounded-full bg-amber-500 animate-pulse" />
+                    </span>
+                    <span className="font-semibold text-foreground truncate">{rule.name}</span>
+                    <span
+                      className={cn(
+                        "text-[10px] font-bold px-1.5 py-0.2 rounded border shrink-0",
+                        rule.logoStyle.badge
+                      )}
+                    >
+                      {rule.bankName}
+                    </span>
+                  </div>
+                  <div className="text-right font-mono text-xs font-semibold text-amber-600 dark:text-amber-400 shrink-0">
+                    {rule.daysRemaining && rule.daysRemaining <= 90
+                      ? `${rule.daysRemaining}d left`
+                      : rule.monthsRemaining
+                      ? `${rule.monthsRemaining}mo left`
+                      : "In Cooldown"}
+                    {rule.unlockFormatted && (
+                      <div className="text-[10px] font-sans text-muted-foreground font-normal">
+                        {rule.unlockFormatted}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-
-          <div className="rounded-lg border bg-muted/20 p-2.5">
-            <div className="text-[10px] font-semibold text-muted-foreground uppercase">Clear to Apply</div>
-            <div className="mt-0.5 font-mono text-base font-bold text-emerald-600 dark:text-emerald-400">
-              {readyToApplyBankCount} of 6 Banks
-            </div>
-            <div className="text-[10px] text-muted-foreground truncate">
-              Unrestricted approval status
-            </div>
+        ) : (
+          <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-3 text-xs text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+            <span className="size-2 rounded-full bg-emerald-500" />
+            <span>All bank velocity limits and bonus cooldowns are currently clear!</span>
           </div>
-        </div>
+        )}
       </CardContent>
     </Card>
   )

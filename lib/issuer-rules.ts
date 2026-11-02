@@ -159,7 +159,7 @@ export function calculateIssuerRules(
 
     sapphireRule = {
       id: "chase-sapphire-48",
-      name: "Sapphire 48-Month Bonus Cooldown",
+      name: "Chase Sapphire 48-Month Bonus Cooldown",
       description: "You cannot receive a welcome bonus on any Sapphire card if you earned a Sapphire bonus within the past 48 months.",
       status: isSapphireCooldown ? "warning" : "eligible",
       cooldownActive: isSapphireCooldown,
@@ -183,7 +183,7 @@ export function calculateIssuerRules(
   } else {
     sapphireRule = {
       id: "chase-sapphire-48",
-      name: "Sapphire 48-Month Bonus Cooldown",
+      name: "Chase Sapphire 48-Month Bonus Cooldown",
       description: "Eligible for Chase Sapphire Preferred or Reserve 60k-85k welcome offers (no active Sapphire bonus history).",
       status: "eligible",
       cooldownActive: false,

@@ -45,6 +45,7 @@ export function WalletView() {
     removeCard,
     updateMSRSpend,
     addMSRSpendIncrement,
+    updateMSRItem,
     removeMSRItem,
     toggleCreditRedemption,
     resetCreditRedemptions,
@@ -313,6 +314,7 @@ export function WalletView() {
                     items={msrItems}
                     onUpdateSpend={updateMSRSpend}
                     onAddSpendIncrement={addMSRSpendIncrement}
+                    onUpdateItem={updateMSRItem}
                     onRemoveItem={removeMSRItem}
                     onAddNewMSR={() => setAddModalOpen(true)}
                   />
@@ -368,6 +370,7 @@ export function WalletView() {
                 items={msrItems}
                 onUpdateSpend={updateMSRSpend}
                 onAddSpendIncrement={addMSRSpendIncrement}
+                onUpdateItem={updateMSRItem}
                 onRemoveItem={removeMSRItem}
                 onAddNewMSR={() => setAddModalOpen(true)}
               />

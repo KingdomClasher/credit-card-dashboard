@@ -591,6 +591,32 @@ export function useWallet() {
     []
   )
 
+  // Update MSR Item details
+  const updateMSRItem = React.useCallback(
+    (msrId: string, updates: Partial<MSRTrackerItem>) => {
+      mutateWallet((prev) => ({
+        ...prev,
+        msrItems: prev.msrItems.map((m) =>
+          m.id === msrId
+            ? {
+                ...m,
+                ...updates,
+                currentSpend:
+                  updates.currentSpend !== undefined
+                    ? Math.max(0, updates.currentSpend)
+                    : m.currentSpend,
+                targetSpend:
+                  updates.targetSpend !== undefined
+                    ? Math.max(0, updates.targetSpend)
+                    : m.targetSpend,
+              }
+            : m
+        ),
+      }))
+    },
+    []
+  )
+
   // Add standalone MSR item
   const addMSRItem = React.useCallback((item: Omit<MSRTrackerItem, "id">) => {
     const newMSR: MSRTrackerItem = {
@@ -660,6 +686,7 @@ export function useWallet() {
     removeCard,
     updateMSRSpend,
     addMSRSpendIncrement,
+    updateMSRItem,
     addMSRItem,
     removeMSRItem,
     toggleCreditRedemption,
