@@ -184,17 +184,17 @@ export function CardTile({ card, onSelect }: CardTileProps) {
           onSelect(card)
         }
       }}
-      className={`group relative flex cursor-pointer flex-col justify-between overflow-hidden rounded-xl border bg-card transition-all duration-200 hover:shadow-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${issuerStyle.border}`}
+      className={`group relative flex cursor-pointer flex-col justify-between overflow-hidden rounded-xl border bg-card py-0 transition-all duration-200 hover:shadow-lg focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring ${issuerStyle.border}`}
     >
       <div className="flex flex-col">
         {/* Card Header */}
-        <CardHeader className="p-4 pb-2">
+        <CardHeader className="p-4 pt-3 pb-2">
           {/* Top Row: Issuer & Tier text */}
-          <div className="mb-1.5 flex items-center justify-between text-xs text-muted-foreground">
-            <span className="font-semibold text-foreground/80">
+          <div className="mb-1 flex items-center justify-between gap-2">
+            <span className="text-[11px] font-medium tracking-wider uppercase text-muted-foreground">
               {card.issuer}
             </span>
-            <span className="text-[11px] text-muted-foreground">
+            <span className="text-[11px] font-medium text-muted-foreground/80">
               {card.tier}
             </span>
           </div>
