@@ -5,7 +5,10 @@ import Link from "next/link"
 import { Show } from "@clerk/react"
 import { useWallet } from "@/lib/hooks/use-wallet"
 import { Navbar } from "@/components/layout/navbar"
-import { FiveTwentyFourRadar } from "@/components/wallet/five-twenty-four-radar"
+import {
+  IssuerRulesRadar,
+  IssuerVelocitySummaryWidget,
+} from "@/components/wallet/issuer-rules-radar"
 import { MSRTrackerCard } from "@/components/wallet/msr-tracker-card"
 import { CreditRedemptionChecklist } from "@/components/wallet/credit-redemption-checklist"
 import { CardInventoryList } from "@/components/wallet/card-inventory-list"
@@ -35,6 +38,7 @@ export function WalletView() {
     creditItems,
     metrics,
     fiveTwentyFour,
+    issuerRules,
     allCatalogCards,
     addCard,
     updateCard,
@@ -129,21 +133,21 @@ export function WalletView() {
 
         {/* 4 Key Header Metrics Row */}
         <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {/* 1. Chase 5/24 Status */}
+          {/* 1. Chase 5/24 & Issuer Velocity Status */}
           <Card className="relative overflow-hidden border-border/80 bg-gradient-to-br from-card to-card/70 shadow-xs">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-                Chase 5/24 Status
+                5/24 & Issuer Velocity
               </span>
               <div
                 className={cn(
                   "flex size-7 items-center justify-center rounded-lg border",
-                  fiveTwentyFour.isUnderLimit
+                  fiveTwentyFour.isUnderLimit && issuerRules.totalActiveCooldowns === 0
                     ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-500"
-                    : "border-rose-500/20 bg-rose-500/10 text-rose-500"
+                    : "border-amber-500/20 bg-amber-500/10 text-amber-500"
                 )}
               >
-                {fiveTwentyFour.isUnderLimit ? (
+                {fiveTwentyFour.isUnderLimit && issuerRules.totalActiveCooldowns === 0 ? (
                   <ShieldCheck className="size-4" />
                 ) : (
                   <ShieldAlert className="size-4" />
@@ -159,18 +163,18 @@ export function WalletView() {
                   variant="outline"
                   className={cn(
                     "text-[10px] font-semibold uppercase",
-                    fiveTwentyFour.isUnderLimit
+                    issuerRules.totalActiveCooldowns === 0
                       ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                      : "border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400"
+                      : "border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400"
                   )}
                 >
-                  {fiveTwentyFour.isUnderLimit ? "Under Limit" : "Over Limit"}
+                  {issuerRules.totalActiveCooldowns === 0
+                    ? "All Clear"
+                    : `${issuerRules.totalActiveCooldowns} Cooldowns`}
                 </Badge>
               </div>
               <p className="mt-1 text-xs text-muted-foreground">
-                {fiveTwentyFour.isUnderLimit
-                  ? `${fiveTwentyFour.slotsRemaining} Chase ${fiveTwentyFour.slotsRemaining === 1 ? "slot" : "slots"} remaining`
-                  : `Next drop-off: ${fiveTwentyFour.formattedDropOff}`}
+                {fiveTwentyFour.slotsRemaining} Chase slots | {issuerRules.readyToApplyBankCount}/6 banks ready
               </p>
             </CardContent>
           </Card>
@@ -279,7 +283,7 @@ export function WalletView() {
                 className="gap-1.5 text-xs font-medium"
               >
                 <ShieldCheck className="size-3.5" />
-                <span>Chase 5/24 Radar</span>
+                <span>Issuer Rules Radar</span>
               </TabsTrigger>
               <TabsTrigger value="msr" className="gap-1.5 text-xs font-medium">
                 <Target className="size-3.5" />
@@ -296,10 +300,13 @@ export function WalletView() {
 
             {/* OVERVIEW DASHBOARD TAB */}
             <TabsContent value="dashboard" className="space-y-6">
-              {/* Top row: 5/24 Radar + MSR Pacing side-by-side */}
+              {/* Top row: Multi-Issuer Velocity + MSR Pacing side-by-side */}
               <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
                 <div className="lg:col-span-6">
-                  <FiveTwentyFourRadar status={fiveTwentyFour} />
+                  <IssuerVelocitySummaryWidget
+                    summary={issuerRules}
+                    onNavigateToRadar={() => setActiveTab("radar")}
+                  />
                 </div>
                 <div className="lg:col-span-6">
                   <MSRTrackerCard
@@ -350,9 +357,9 @@ export function WalletView() {
               />
             </TabsContent>
 
-            {/* CHASE 5/24 RADAR TAB */}
-            <TabsContent value="radar" className="mx-auto max-w-4xl space-y-6">
-              <FiveTwentyFourRadar status={fiveTwentyFour} />
+            {/* ISSUER RULES & VELOCITY RADAR TAB */}
+            <TabsContent value="radar" className="mx-auto max-w-5xl space-y-6">
+              <IssuerRulesRadar summary={issuerRules} onSelectTab={setActiveTab} />
             </TabsContent>
 
             {/* MSR PACING TAB */}

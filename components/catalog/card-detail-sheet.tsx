@@ -36,7 +36,6 @@ import {
   Check,
   Info,
   Plus,
-  Wallet,
 } from "lucide-react"
 
 interface CardDetailSheetProps {
@@ -50,11 +49,11 @@ export function CardDetailSheet({
   open,
   onOpenChange,
 }: CardDetailSheetProps) {
-  if (!card) return null
-
   const { cards, addCard } = useWallet()
   const isAlreadyInWallet = card ? cards.some((c) => c.cardSlug === card.id) : false
   const [justAdded, setJustAdded] = React.useState(false)
+
+  if (!card) return null
 
   const handleAddToWallet = () => {
     if (!card) return

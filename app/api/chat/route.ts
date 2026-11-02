@@ -6,8 +6,8 @@ export const runtime = "nodejs"
 const SYSTEM_PROMPT = `You are the Expert AI Credit Card Advisor for the Credit Card Dashboard application.
 You possess world-class financial knowledge of personal credit cards, reward multiplier math, issuer underwriting rules, and loyalty point arbitrage.
 
-### CARD CATALOG KNOWLEDGE (33 PREMIER CARDS)
-You have complete knowledge of the 33 cards in the catalog:
+### CARD CATALOG KNOWLEDGE (35 PREMIER CARDS)
+You have complete knowledge of the 35 cards in the catalog:
 1. Chase Sapphire Reserve ($795 fee, 8x portal travel, 4x flights/hotels direct, 3x dining/transit, $300 travel credit, $500 hotel credit, Priority Pass + Sapphire Lounges)
 2. The Platinum Card from American Express ($895 fee [recently refreshed from $695], 5x flights, 5x prepaid hotels, $200 airline credit, $200 hotel credit, $240 digital entertainment, $200 Uber Cash, $199 CLEAR+, Centurion Lounge + Priority Pass)
 3. Capital One Venture X Rewards ($395 fee, 2x catch-all, 10x hotels/cars portal, 5x flights portal, $300 travel credit, 10k anniversary miles, free authorized users, Plaza Premium/Priority Pass)
@@ -41,10 +41,15 @@ You have complete knowledge of the 33 cards in the catalog:
 31. United Quest Card ($250 fee, 3x United, 2x travel/dining/streaming, $125 annual United purchase credit, 2x 5,000-mile award flight credits)
 32. Southwest Rapid Rewards Priority ($149 fee, 3x Southwest, 2x transit/commuting/streaming, $75 annual Southwest travel credit, 7,500 anniversary points, 4 upgraded boardings)
 33. Citi / AAdvantage Platinum Select ($99 fee waived yr 1, 2x American Airlines/restaurants/gas, first checked bag free, preferred boarding, $125 flight discount after $20k spend)
+34. Bank of America Customized Cash Rewards ($0 fee, 3% choice category [gas/EV, online shopping, dining, travel, drug stores, home improvement up to $2,500/quarter], 2% grocery/wholesale clubs, up to 5.25% with Preferred Rewards Platinum Honors)
+35. Bank of America Premium Rewards ($95 fee, 2x travel/dining, 1.5x catch-all, up to 3.5x travel/dining and 2.625x catch-all with Preferred Rewards, $100 airline incidental credit, TSA PreCheck/Global Entry)
 
 ### ISSUER APPLICATION RULES & UNDERWRITING
 - Chase 5/24 Rule: Automatic denial if applicant has opened 5 or more personal credit cards across ANY bank in the trailing 24 months. If at 4/24, the applicant has exactly 1 slot left for a Chase card. Advise applying for Chase cards BEFORE cards from any other issuer.
 - Chase Sapphire 48-Month Rule: Ineligible for welcome bonus if received any Sapphire bonus within past 48 months; only 1 Sapphire card held at a time.
+- Bank of America 2/3/4 Rule & 2-in-90 Days: Max 2 cards in 2 months, 3 in 12 months, 4 in 24 months across BoA. Cannot apply for 2 cards within 90 days.
+- Wells Fargo 15-Month Bonus Rule & 6-Month Velocity: One Wells Fargo personal card bonus every 15 months; max 1 card per 6 months.
+- American Express 5-Card Limit & 2/90 Rule: Maximum 5 credit cards at one time; max 2 credit card approvals in 90 rolling days (charge cards exempt from 5-card and 2/90 limits).
 - Amex Once-Per-Lifetime Rule: Welcome bonus is strictly once per product per lifetime (5-7 years).
 - Amex Family Language: Hierarchical lockout; getting Platinum first locks out Gold/Green welcome offers. Must apply bottom-up (Green -> Gold -> Platinum).
 - Amex Pop-Up Jail: Algorithmic bonus restriction warning.
@@ -250,15 +255,15 @@ Both cards sit at the apex of premium travel, but their financial architectures 
   // Generic grounded response for any other credit card query
   return `<trace>
 {
-  "cardValuationMath": "Calculated based on 33-card catalog benchmarks: Transferable points (UR/MR/Bilt) valued at 1.8 cpp; Capital One Miles at 1.7 cpp; Cash back at fixed 1.0 cpp floor.",
-  "status524Check": "Application sequencing: Chase cards strictly enforce 5/24; prioritize Chase slots prior to applying for Amex, Capital One, Citi, or Wells Fargo products.",
+  "cardValuationMath": "Calculated based on 35-card catalog benchmarks: Transferable points (UR/MR/Bilt) valued at 1.8 cpp; Capital One Miles at 1.7 cpp; Cash back at fixed 1.0 cpp floor.",
+  "status524Check": "Application sequencing: Chase cards strictly enforce 5/24; prioritize Chase slots prior to applying for Amex, Capital One, Citi, Wells Fargo, or Bank of America products.",
   "feeVsRewardDelta": "Net holding cost calculated as Stated Annual Fee minus direct high-utility statement credits. Optimize for positive annual surplus."
 }
 </trace>
 
 ### Personalized Credit Card Strategy Analysis
 
-Based on your financial inquiry and our 33-card credit card catalog, here is the strategic recommendation:
+Based on your financial inquiry and our 35-card credit card catalog, here is the strategic recommendation:
 
 \`\`\`markdown
 | Priority Category | Recommended Card | Reward Rate | Net Effective Fee | Key Underwriting Rule |

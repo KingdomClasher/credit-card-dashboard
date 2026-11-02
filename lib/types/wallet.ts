@@ -78,10 +78,60 @@ export interface UserWalletCard {
   cardSlug: string
   nickname?: string
   openedDate: string // YYYY-MM-DD
+  bonusEarnedDate?: string // YYYY-MM-DD (optional override for 48-mo, 15-mo bonus cooldowns)
   creditLimit?: number
   annualFee: number
   isCustom?: boolean
   notes?: string
+}
+
+export type IssuerRuleStatus = "eligible" | "warning" | "locked"
+
+export interface RuleDetail {
+  id: string
+  name: string
+  description: string
+  status: IssuerRuleStatus
+  currentCount?: number
+  maxLimit?: number
+  slotsRemaining?: number
+  isUnderLimit: boolean
+  cooldownActive: boolean
+  daysRemaining?: number
+  monthsRemaining?: number
+  unlockDate?: string | null // YYYY-MM-DD
+  unlockFormatted?: string | null // "Dec 15, 2026"
+  progressPercent: number // 0 to 100
+  contributingCards: {
+    cardName: string
+    openedDate: string
+    bonusDate?: string
+  }[]
+  recommendation: string
+}
+
+export interface BankRuleGroup {
+  issuerId: "chase" | "boa" | "wells-fargo" | "amex" | "capital-one" | "citi"
+  issuerName: string
+  logoShort: string
+  logoStyle: {
+    border: string
+    badge: string
+    text: string
+  }
+  overallStatus: IssuerRuleStatus
+  statusMessage: string
+  activeCooldownsCount: number
+  rules: RuleDetail[]
+}
+
+export interface IssuerRulesSummary {
+  banks: BankRuleGroup[]
+  totalActiveCooldowns: number
+  chase524: RuleDetail
+  readyToApplyBankCount: number
+  nextOverallUnlockDate: string | null
+  nextOverallUnlockFormatted: string | null
 }
 
 export interface MSRTrackerItem {
@@ -131,6 +181,7 @@ export interface WalletSummaryMetrics {
   totalAnnualFees: number
   totalCreditLimit: number
   fiveTwentyFour: FiveTwentyFourStatus
+  issuerRules?: IssuerRulesSummary
   activeMSRCount: number
   totalTargetSpend: number
   totalCurrentSpend: number

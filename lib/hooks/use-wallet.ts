@@ -3,6 +3,7 @@
 import * as React from "react"
 import cardsData from "@/app/data/cards.json"
 import { CreditCard } from "@/types/card"
+import { calculateIssuerRules } from "@/lib/issuer-rules"
 import {
   UserWalletCard,
   MSRTrackerItem,
@@ -33,6 +34,12 @@ function getDemoDate(monthsAgo: number, dayOfMonth: number = 15): string {
   return formatDateISO(d)
 }
 
+function getDemoDaysAgo(daysAgo: number): string {
+  const now = new Date()
+  const d = new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000)
+  return formatDateISO(d)
+}
+
 function getDemoDeadline(monthsAhead: number, dayOfMonth: number = 20): string {
   const now = new Date()
   const d = new Date(
@@ -43,21 +50,23 @@ function getDemoDeadline(monthsAhead: number, dayOfMonth: number = 20): string {
   return formatDateISO(d)
 }
 
-// Pre-populated demo cards per spec:
-// 1. Amex Gold opened 8 months ago ($325 AF, statement credits)
-// 2. Chase Sapphire Preferred opened 3 months ago with active MSR ($95 AF, active MSR)
-// 3. Capital One Venture X opened 15 months ago ($395 AF, statement credits) - gives 3/24!
-// 4. Chase Freedom Unlimited opened 28 months ago ($0 AF) - aged out of 5/24 window (>24 mo)
+// Pre-populated demo cards showcasing multi-issuer rules & cooldowns:
+// 1. Bank of America Customized Cash opened 45 days ago ($0 AF, active 90-day cooldown) -> in 5/24
+// 2. Chase Sapphire Preferred opened 3 months ago with active MSR ($95 AF, active 48-mo Sapphire bonus cooldown) -> in 5/24
+// 3. Wells Fargo Autograph opened 10 months ago ($0 AF, active 15-mo bonus cooldown) -> in 5/24 (Total 3/24!)
+// 4. Amex Gold opened 25 months ago ($325 AF, statement credits, charge card exempt from 5-credit-card limit) -> aged out of 5/24
+// 5. Capital One Venture X opened 26 months ago ($395 AF, statement credits, 1/6 rule clear) -> aged out of 5/24
+// 6. Chase Freedom Unlimited opened 38 months ago ($0 AF) -> aged out of 5/24
 export const INITIAL_DEMO_CARDS: UserWalletCard[] = [
   {
-    id: "wallet-amex-gold",
-    cardSlug: "amex-gold",
-    nickname: "Everyday Dining & Groceries",
-    openedDate: getDemoDate(8, 14),
-    creditLimit: 25000,
-    annualFee: 325,
+    id: "wallet-boa-customized-cash",
+    cardSlug: "boa-customized-cash",
+    nickname: "Online Shopping & Gas 3%",
+    openedDate: getDemoDaysAgo(45),
+    creditLimit: 12000,
+    annualFee: 0,
     isCustom: false,
-    notes: "Main card for US Supermarkets (4x) and Dining worldwide (4x).",
+    notes: "Set choice 3% category to Online Shopping. Preferred Rewards boost active.",
   },
   {
     id: "wallet-chase-sapphire-preferred",
@@ -71,10 +80,30 @@ export const INITIAL_DEMO_CARDS: UserWalletCard[] = [
       "Primary card for travel transfer partners. Working on sign-up bonus.",
   },
   {
+    id: "wallet-wells-fargo-autograph",
+    cardSlug: "wells-fargo-autograph",
+    nickname: "Travel & Transit 3x",
+    openedDate: getDemoDate(10, 10),
+    creditLimit: 15000,
+    annualFee: 0,
+    isCustom: false,
+    notes: "Primary no-fee card for transit, streaming, and cell phone protection.",
+  },
+  {
+    id: "wallet-amex-gold",
+    cardSlug: "amex-gold",
+    nickname: "Everyday Dining & Groceries",
+    openedDate: getDemoDate(25, 14),
+    creditLimit: 25000,
+    annualFee: 325,
+    isCustom: false,
+    notes: "Main card for US Supermarkets (4x) and Dining worldwide (4x).",
+  },
+  {
     id: "wallet-capital-one-venture-x",
     cardSlug: "capital-one-venture-x",
     nickname: "Catch-All 2x & Lounge Access",
-    openedDate: getDemoDate(15, 10),
+    openedDate: getDemoDate(26, 10),
     creditLimit: 30000,
     annualFee: 395,
     isCustom: false,
@@ -85,7 +114,7 @@ export const INITIAL_DEMO_CARDS: UserWalletCard[] = [
     id: "wallet-chase-freedom-unlimited",
     cardSlug: "chase-freedom-unlimited",
     nickname: "Oldest Chase Account",
-    openedDate: getDemoDate(28, 5),
+    openedDate: getDemoDate(38, 5),
     creditLimit: 14000,
     annualFee: 0,
     isCustom: false,
@@ -374,6 +403,11 @@ export function useWallet() {
     return calculate524Status(cards, allCards)
   }, [cards])
 
+  // Calculated Multi-Issuer Velocity & Cooldown Rules
+  const issuerRules = React.useMemo(() => {
+    return calculateIssuerRules(cards, allCards)
+  }, [cards])
+
   // Total summary metrics
   const metrics = React.useMemo<WalletSummaryMetrics>(() => {
     const totalAnnualFees = cards.reduce(
@@ -403,13 +437,14 @@ export function useWallet() {
       totalAnnualFees,
       totalCreditLimit,
       fiveTwentyFour,
+      issuerRules,
       activeMSRCount,
       totalTargetSpend,
       totalCurrentSpend,
       totalCreditValue,
       redeemedCreditValue,
     }
-  }, [cards, fiveTwentyFour, msrItems, creditItems])
+  }, [cards, fiveTwentyFour, issuerRules, msrItems, creditItems])
 
   // Add Card to Wallet
   const addCard = React.useCallback(
@@ -417,6 +452,7 @@ export function useWallet() {
       cardSlug: string
       nickname?: string
       openedDate: string
+      bonusEarnedDate?: string
       creditLimit?: number
       annualFee?: number
       notes?: string
@@ -434,6 +470,7 @@ export function useWallet() {
         cardSlug: cardData.cardSlug,
         nickname: cardData.nickname?.trim() || undefined,
         openedDate: cardData.openedDate,
+        bonusEarnedDate: cardData.bonusEarnedDate || undefined,
         creditLimit: cardData.creditLimit || undefined,
         annualFee:
           cardData.annualFee !== undefined
@@ -616,6 +653,7 @@ export function useWallet() {
     creditItems,
     metrics,
     fiveTwentyFour,
+    issuerRules,
     allCatalogCards: allCards,
     addCard,
     updateCard,

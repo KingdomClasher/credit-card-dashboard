@@ -164,7 +164,7 @@ export function FinancialTrace({
                 <div className="flex items-center gap-1.5 pt-0.5 text-[10px] text-muted-foreground/70">
                   <CheckCircle2 className="size-3 text-emerald-500" />
                   <span>
-                    Ground truth verified against 33-card catalog and bank
+                    Ground truth verified against 35-card catalog and bank
                     disclosures.
                   </span>
                 </div>

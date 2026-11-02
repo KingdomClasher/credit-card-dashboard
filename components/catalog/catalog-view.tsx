@@ -54,7 +54,7 @@ export function CatalogView({ cards }: CatalogViewProps) {
                 Discovery Engine
               </Badge>
               <Badge variant="secondary" className="text-xs">
-                33 Premier Cards
+                35 Premier Cards
               </Badge>
               <Badge variant="secondary" className="text-xs">
                 Updated October 2026

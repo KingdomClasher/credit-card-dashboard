@@ -252,7 +252,7 @@ export function AdvisorChatView() {
             className="flex items-center gap-1 text-[11px] font-normal"
           >
             <span className="size-1.5 animate-pulse rounded-full bg-emerald-500" />
-            33-Card Catalog Live
+            35-Card Catalog Live
           </Badge>
         </div>
       </div>
@@ -274,7 +274,7 @@ export function AdvisorChatView() {
                       How can I optimize your wallet today?
                     </h2>
                     <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-                      Powered by Groq and grounded in the comprehensive 33-card
+                      Powered by Groq and grounded in the comprehensive 35-card
                       catalog, reward multiplier math, Chase 5/24 status, and
                       Amex once-per-lifetime rules.
                     </p>
@@ -459,7 +459,7 @@ export function AdvisorChatView() {
             <span className="flex items-center gap-1.5">
               <Sparkles className="size-3 text-primary" />
               <span>
-                Grounded in 33-card catalog &amp; US Credit Card Guide
+                Grounded in 35-card catalog &amp; US Credit Card Guide
                 underwriting math
               </span>
             </span>

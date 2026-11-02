@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Credit Card Dashboard",
   },
   description:
-    "Comprehensive 33-card rewards catalog, interactive annual fee calculator, Chase 5/24 status tracker, and AI financial advisor.",
+    "Comprehensive 35-card rewards catalog, interactive annual fee calculator, Chase 5/24 & multi-issuer velocity tracker, and AI financial advisor.",
 }
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })

@@ -29,6 +29,7 @@ interface AddCardModalProps {
     cardSlug: string
     nickname?: string
     openedDate: string
+    bonusEarnedDate?: string
     creditLimit?: number
     annualFee?: number
     notes?: string
@@ -62,6 +63,7 @@ export function AddCardModal({
   )
   const [nickname, setNickname] = React.useState("")
   const [openedDate, setOpenedDate] = React.useState(todayStr)
+  const [bonusEarnedDate, setBonusEarnedDate] = React.useState("")
   const [creditLimit, setCreditLimit] = React.useState("")
   const [trackMSR, setTrackMSR] = React.useState(true)
   const [startingSpend, setStartingSpend] = React.useState("")
@@ -76,6 +78,7 @@ export function AddCardModal({
     setSelectedCard(null)
     setNickname("")
     setOpenedDate(todayStr)
+    setBonusEarnedDate("")
     setCreditLimit("")
     setTrackMSR(true)
     setStartingSpend("")
@@ -183,6 +186,7 @@ export function AddCardModal({
       cardSlug: selectedCard.id,
       nickname: nickname.trim() || undefined,
       openedDate,
+      bonusEarnedDate: bonusEarnedDate || undefined,
       creditLimit: limitNum,
       annualFee: selectedCard.annualFee,
       notes: notes.trim() || undefined,
@@ -232,7 +236,7 @@ export function AddCardModal({
               <div className="relative">
                 <Search className="absolute top-2.5 left-2.5 size-3.5 text-muted-foreground" />
                 <Input
-                  placeholder="Search 33 credit cards (e.g. Sapphire, Gold, Venture X)..."
+                  placeholder="Search 35 credit cards (e.g. Sapphire, Gold, Venture X, BoA)..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-8 text-xs"
@@ -310,8 +314,8 @@ export function AddCardModal({
             </div>
           )}
 
-          {/* Form Fields: Date Opened & Credit Limit */}
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {/* Form Fields: Date Opened, Bonus Earned Date, & Credit Limit */}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <div>
               <label className="text-xs font-semibold text-foreground">
                 Date Opened <span className="text-destructive">*</span>
@@ -324,7 +328,22 @@ export function AddCardModal({
                 className="mt-1 text-xs"
               />
               <span className="text-[10px] text-muted-foreground">
-                Used to calculate Chase 5/24 status & drop-off date
+                Calculates 5/24 status & drop-offs
+              </span>
+            </div>
+
+            <div>
+              <label className="text-xs font-semibold text-foreground">
+                Bonus Earned (Optional)
+              </label>
+              <Input
+                type="date"
+                value={bonusEarnedDate}
+                onChange={(e) => setBonusEarnedDate(e.target.value)}
+                className="mt-1 text-xs"
+              />
+              <span className="text-[10px] text-muted-foreground">
+                For 48-mo (Chase) & 15-mo (WF) timers
               </span>
             </div>
 
@@ -347,7 +366,7 @@ export function AddCardModal({
                 />
               </div>
               <span className="text-[10px] text-muted-foreground">
-                Leave blank for charge cards with no preset limit
+                Leave blank for charge cards
               </span>
             </div>
           </div>

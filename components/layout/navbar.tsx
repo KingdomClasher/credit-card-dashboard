@@ -103,7 +103,7 @@ export function Navbar() {
             />
             <span>Catalog</span>
             <span className="py-0.2 ml-1 rounded-full bg-primary/10 px-1.5 text-[10px] font-semibold text-primary">
-              33
+              35
             </span>
           </Link>
           <Link
@@ -247,7 +247,7 @@ export function Navbar() {
               Catalog
             </span>
             <Badge variant="outline" className="text-xs">
-              33 cards
+              35 cards
             </Badge>
           </Link>
           <Link

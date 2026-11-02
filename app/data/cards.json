@@ -2988,5 +2988,162 @@
       "Earning rates (2x on AA, dining, gas) are modest compared to flexible bank cards",
       "$125 flight discount requires high $20,000 annual spend threshold"
     ]
+  },
+  {
+    "id": "boa-customized-cash",
+    "name": "Bank of America® Customized Cash Rewards",
+    "issuer": "Bank of America",
+    "network": "Visa Signature",
+    "tier": "Cash Back",
+    "category": "cash_back",
+    "annualFee": 0,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": true,
+      "rate": "3%"
+    },
+    "creditScoreRequired": "Good to Excellent (670+)",
+    "rating": 4.7,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "$200",
+      "unit": "Cash Back",
+      "spendRequirement": 1000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 200,
+      "description": "Earn $200 online cash rewards bonus after spending $1,000 on purchases in the first 90 days from account opening."
+    },
+    "multipliers": {
+      "choice_category": "3% cash back in choice category: Gas/EV, Online Shopping, Dining, Travel, Drugstores, or Home Improvement",
+      "grocery": "2% cash back at grocery stores and wholesale clubs",
+      "base": "1% cash back on all other purchases"
+    },
+    "rates": {
+      "dining": 3.0,
+      "groceries": 2.0,
+      "gas": 3.0,
+      "catch_all": 1.0,
+      "flights": 1.0,
+      "hotels": 1.0,
+      "travel_portal": 1.0,
+      "transit": 1.0,
+      "streaming": 1.0
+    },
+    "credits": [],
+    "perks": [
+      "3% choice category on up to $2,500 in combined choice category/grocery/wholesale purchases each quarter",
+      "Change choice category once per calendar month in the mobile app",
+      "Bank of America Preferred Rewards members earn 25% to 75% more cash back (up to 5.25% on choice category)",
+      "Zero liability fraud protection",
+      "$0 annual fee"
+    ],
+    "rewardProgram": {
+      "name": "Bank of America Rewards",
+      "currency": "cash",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Bank of America 2/3/4 Rule: Max 2 cards in 2 months, 3 in 12 months, 4 in 24 months.",
+      "Bank of America 2-in-90 Days velocity limit applies."
+    ],
+    "summary": "A versatile, zero-annual-fee cash back card that lets you choose your top 3% earn category each month (like online shopping or dining), boosted up to 5.25% for Preferred Rewards clients.",
+    "bestFor": "Everyday spenders and Bank of America Preferred Rewards banking clients looking for high cash back on flexible categories.",
+    "pros": [
+      "Customizable 3% cash back category changeable once a calendar month",
+      "2% at grocery stores and wholesale clubs like Costco",
+      "Preferred Rewards tier boosts return up to 5.25%",
+      "$0 annual fee"
+    ],
+    "cons": [
+      "3% and 2% bonus rates capped at $2,500 combined spend per quarter",
+      "Foreign transaction fee applies (3%)"
+    ]
+  },
+  {
+    "id": "boa-premium-rewards",
+    "name": "Bank of America® Premium Rewards®",
+    "issuer": "Bank of America",
+    "network": "Visa Signature",
+    "tier": "Mid-Tier Travel",
+    "category": "travel_mid",
+    "annualFee": 95,
+    "authorizedUserFee": 0,
+    "foreignTransactionFee": {
+      "hasFee": false,
+      "rate": "0%"
+    },
+    "creditScoreRequired": "Excellent (720+)",
+    "rating": 4.6,
+    "recommended": true,
+    "signupBonus": {
+      "amount": "60,000",
+      "unit": "points",
+      "spendRequirement": 4000,
+      "timeframeMonths": 3,
+      "estimatedValueUsd": 600,
+      "description": "Earn 60,000 bonus points after spending $4,000 on purchases in the first 90 days from account opening."
+    },
+    "multipliers": {
+      "travel": "2x points on travel and dining purchases",
+      "base": "1.5x points on all other purchases"
+    },
+    "rates": {
+      "dining": 2.0,
+      "groceries": 1.5,
+      "gas": 1.5,
+      "catch_all": 1.5,
+      "flights": 2.0,
+      "hotels": 2.0,
+      "travel_portal": 2.0,
+      "transit": 2.0,
+      "streaming": 1.5
+    },
+    "credits": [
+      {
+        "name": "Airline Incidental Statement Credit",
+        "amount": 100,
+        "frequency": "annual",
+        "description": "Up to $100 annually for qualifying airline incidental charges like seat upgrades, baggage fees, and in-flight services."
+      },
+      {
+        "name": "TSA PreCheck / Global Entry Credit",
+        "amount": 100,
+        "frequency": "every_4_years",
+        "description": "Up to $100 every four years for TSA PreCheck or Global Entry application fee."
+      }
+    ],
+    "perks": [
+      "$100 annual airline incidental statement credit that completely offsets the $95 annual fee",
+      "Unlimited 2x on travel and dining, 1.5x on all purchases with no categories to track",
+      "Preferred Rewards members earn up to 3.5x on travel/dining and 2.62x catch-all",
+      "No foreign transaction fees"
+    ],
+    "rewardProgram": {
+      "name": "Bank of America Premium Rewards",
+      "currency": "points",
+      "transferable": false,
+      "estimatedCpp": 1.0,
+      "cashFloorCpp": 1.0,
+      "topPartners": []
+    },
+    "rules": [
+      "Bank of America 2/3/4 Rule: Max 2 cards in 2 months, 3 in 12 months, 4 in 24 months.",
+      "Bank of America 2-in-90 Days velocity limit applies."
+    ],
+    "summary": "A high-floor, negative-effective-fee card offering a $100 airline incidental credit against a $95 fee, delivering up to 2.62% flat cash back everywhere with Preferred Rewards status.",
+    "bestFor": "Travelers and Preferred Rewards banking clients seeking an effortless flat-rate card with negative net annual fee.",
+    "pros": [
+      "$100 annual airline incidental credit pays for the $95 annual fee automatically",
+      "TSA PreCheck/Global Entry credit every 4 years",
+      "Boosts to 3.5% travel/dining and 2.62% everywhere with Preferred Rewards Platinum Honors",
+      "No foreign transaction fees"
+    ],
+    "cons": [
+      "Points redeem for cash/travel at a fixed 1.0 cpp without airline transfer partners",
+      "Requires $100k with Merrill/BoA to unlock peak Platinum Honors multipliers"
+    ]
   }
 ]

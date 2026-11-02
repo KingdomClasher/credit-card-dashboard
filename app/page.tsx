@@ -6,7 +6,7 @@ import { CatalogView } from "@/components/catalog/catalog-view"
 export const metadata: Metadata = {
   title: "Credit Card Catalog & Reward Optimizer",
   description:
-    "Explore 33 premier credit cards with live multiplier math, statement credits, welcome bonus value, and real-time filtering.",
+    "Explore 35 premier credit cards with live multiplier math, statement credits, welcome bonus value, and real-time filtering.",
 }
 
 export default function Page() {
