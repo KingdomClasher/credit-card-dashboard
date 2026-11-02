@@ -226,15 +226,15 @@ export function Navbar() {
           {/* Mobile menu trigger */}
           <Button
             variant="ghost"
-            size="icon-sm"
-            className="size-9 rounded-lg border border-border/40 md:hidden"
+            size="icon"
+            className="flex size-10 min-h-[44px] min-w-[44px] items-center justify-center rounded-lg border border-border/40 md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? (
-              <X className="size-4" />
+              <X className="size-4.5" />
             ) : (
-              <Menu className="size-4" />
+              <Menu className="size-4.5" />
             )}
           </Button>
         </div>
@@ -247,7 +247,7 @@ export function Navbar() {
             href="/"
             onClick={() => setMobileMenuOpen(false)}
             className={cn(
-              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              "flex min-h-[44px] items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
               isCatalog
                 ? "bg-secondary font-semibold text-foreground"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
@@ -270,7 +270,7 @@ export function Navbar() {
             href="/calculator"
             onClick={() => setMobileMenuOpen(false)}
             className={cn(
-              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              "flex min-h-[44px] items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
               isCalculator
                 ? "bg-secondary font-semibold text-foreground"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
@@ -293,7 +293,7 @@ export function Navbar() {
             href="/wallet"
             onClick={() => setMobileMenuOpen(false)}
             className={cn(
-              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              "flex min-h-[44px] items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
               isWallet
                 ? "bg-secondary font-semibold text-foreground"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
@@ -319,7 +319,7 @@ export function Navbar() {
             href="/advisor"
             onClick={() => setMobileMenuOpen(false)}
             className={cn(
-              "flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+              "flex min-h-[44px] items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
               isAdvisor
                 ? "bg-secondary font-semibold text-foreground"
                 : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
@@ -345,7 +345,7 @@ export function Navbar() {
               setMobileMenuOpen(false)
               openOnboardingTour()
             }}
-            className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+            className="flex min-h-[44px] w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground hover:bg-muted/50 hover:text-foreground"
           >
             <span className="flex items-center gap-2">
               <HelpCircle className="size-4 text-primary" />

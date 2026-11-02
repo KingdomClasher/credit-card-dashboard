@@ -4,6 +4,7 @@ export const INITIAL_FILTERS: FilterState = {
   searchQuery: "",
   issuers: [],
   maxAnnualFee: 895,
+  quickCategory: "all",
   categoryMultipliers: {
     dining: false,
     groceries: false,
@@ -25,6 +26,52 @@ export function filterAndSortCards(
   const query = filters.searchQuery.trim().toLowerCase()
 
   const filtered = cards.filter((card) => {
+    // 0. Quick Category Filter (Mobile & Fast Navigation Strip)
+    if (filters.quickCategory && filters.quickCategory !== "all") {
+      switch (filters.quickCategory) {
+        case "travel": {
+          const isTravel =
+            card.category.includes("travel") ||
+            card.tier.toLowerCase().includes("travel") ||
+            (card.rates.flights ?? 0) >= 3 ||
+            (card.rates.travel ?? 0) >= 2 ||
+            (card.perks || []).some((p) =>
+              /lounge|tsa|global entry|airline|flight|hotel/i.test(p)
+            )
+          if (!isTravel) return false
+          break
+        }
+        case "dining": {
+          const isDining =
+            (card.rates.dining ?? 0) >= 3 ||
+            card.category.includes("dining") ||
+            card.tier.toLowerCase().includes("dining")
+          if (!isDining) return false
+          break
+        }
+        case "groceries": {
+          const isGroceries =
+            (card.rates.groceries ?? 0) >= 3 ||
+            card.category.includes("grocery") ||
+            card.tier.toLowerCase().includes("grocery")
+          if (!isGroceries) return false
+          break
+        }
+        case "zero_fee": {
+          if (card.annualFee !== 0) return false
+          break
+        }
+        case "cash_back": {
+          const isCashBack =
+            card.category.includes("cash") ||
+            card.tier.toLowerCase().includes("cash") ||
+            card.rewardProgram.currency.toLowerCase().includes("cash")
+          if (!isCashBack) return false
+          break
+        }
+      }
+    }
+
     // 1. Text Search Filter
     if (query) {
       const cardText = [

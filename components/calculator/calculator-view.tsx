@@ -198,7 +198,10 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
 
           {/* Section 2: Prominently Elevated Net Profit Outcome Spotlight */}
           {topCardBreakdown && (
-            <section aria-label="Top Net Profit Recommendation">
+            <section
+              id="top-profit-recommendation"
+              aria-label="Top Net Profit Recommendation"
+            >
               <NetProfitHero
                 topCardBreakdown={topCardBreakdown}
                 totalAnnualSpend={totalAnnualSpend}
@@ -257,9 +260,50 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
         </div>
       </main>
 
+      {/* Mobile Floating Net Profit Bar (Sticky above Mobile Nav) */}
+      {topCardBreakdown && comparedCardIds.length === 0 && (
+        <div className="fixed bottom-20 left-1/2 z-30 w-[calc(100%-2rem)] max-w-md -translate-x-1/2 transform animate-in fade-in-0 slide-in-from-bottom-4 md:hidden">
+          <button
+            type="button"
+            onClick={() => {
+              const el =
+                document.getElementById("top-profit-recommendation") ||
+                document.getElementById("net-fee-analyzer")
+              if (el) el.scrollIntoView({ behavior: "smooth" })
+            }}
+            className="flex min-h-[44px] w-full items-center justify-between rounded-full border border-primary/20 bg-background/95 px-4 py-2 shadow-lg backdrop-blur-md transition-all active:scale-[0.98]"
+          >
+            <div className="flex min-w-0 items-center gap-2">
+              <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-amber-500/10 text-amber-500">
+                <Trophy className="size-3.5" />
+              </div>
+              <div className="flex flex-col text-left">
+                <span className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
+                  Top Card
+                </span>
+                <span className="max-w-[120px] truncate text-xs font-bold text-foreground">
+                  {topCardBreakdown.card.name}
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-1.5">
+              <span className="rounded-full bg-emerald-500/10 px-2.5 py-1 font-mono text-xs font-bold text-emerald-600 dark:bg-emerald-500/20 dark:text-emerald-400">
+                +{topCardBreakdown.netAnnualValue >= 0 ? "" : "-"}$
+                {Math.abs(
+                  Math.round(topCardBreakdown.netAnnualValue)
+                ).toLocaleString()}{" "}
+                / yr Net Profit
+              </span>
+              <ArrowRight className="size-3.5 text-muted-foreground" />
+            </div>
+          </button>
+        </div>
+      )}
+
       {/* Floating Bottom Comparison Dock */}
       {comparedCardIds.length > 0 && (
-        <div className="fixed bottom-4 left-1/2 z-40 -translate-x-1/2 transform animate-in fade-in-0 slide-in-from-bottom-4">
+        <div className="fixed bottom-20 md:bottom-6 left-1/2 z-40 -translate-x-1/2 transform animate-in fade-in-0 slide-in-from-bottom-4">
           <div className="flex items-center gap-3 rounded-full border border-border/80 bg-background/95 px-4 py-2.5 shadow-xl backdrop-blur-md">
             <div className="flex items-center gap-2">
               <span className="flex size-6 items-center justify-center rounded-full bg-primary text-xs font-bold text-primary-foreground">
@@ -273,7 +317,7 @@ export function CalculatorView({ cards }: CalculatorViewProps) {
             <Button
               size="sm"
               onClick={() => setComparisonModalOpen(true)}
-              className="h-7 text-xs font-semibold"
+              className="h-8 text-xs font-semibold"
             >
               Compare Side-by-Side
               <ArrowRight className="ml-1 size-3.5" />

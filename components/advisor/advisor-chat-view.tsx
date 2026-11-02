@@ -202,7 +202,7 @@ export function AdvisorChatView() {
   }
 
   return (
-    <div className="flex h-[calc(100vh-4rem)] w-full flex-col bg-background">
+    <div className="flex h-[calc(100dvh-8rem)] w-full flex-col bg-background md:h-[calc(100vh-4rem)]">
       {/* Header bar */}
       <div className="flex items-center justify-between border-b px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3">

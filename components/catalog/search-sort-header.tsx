@@ -73,7 +73,7 @@ export function SearchSortHeader({
             value={filters.searchQuery}
             onChange={handleSearchChange}
             placeholder="Search by card name, issuer, or rewards..."
-            className="h-10 w-full rounded-xl border-border/80 bg-card pr-9 pl-9 text-sm focus-visible:ring-2"
+            className="h-11 min-h-[44px] w-full rounded-xl border-border/80 bg-card pr-9 pl-9 text-sm focus-visible:ring-2 sm:h-10 sm:min-h-0"
           />
           {filters.searchQuery && (
             <Button
@@ -81,7 +81,7 @@ export function SearchSortHeader({
               variant="ghost"
               size="icon-sm"
               onClick={handleClearSearch}
-              className="absolute top-1/2 right-2 size-6 -translate-y-1/2 rounded-full text-muted-foreground hover:text-foreground"
+              className="absolute top-1/2 right-2 flex size-8 min-h-[32px] -translate-y-1/2 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
               aria-label="Clear search"
             >
               <X className="size-3.5" />
@@ -98,7 +98,7 @@ export function SearchSortHeader({
                 <Button
                   variant="outline"
                   size="default"
-                  className="h-10 gap-1.5 rounded-xl border-border px-3 text-xs font-medium lg:hidden"
+                  className="h-11 min-h-[44px] gap-1.5 rounded-xl border-border px-3.5 text-xs font-medium lg:hidden sm:h-10 sm:min-h-0"
                 />
               }
             >
@@ -130,7 +130,7 @@ export function SearchSortHeader({
           {/* Sort Dropdown */}
           <div className="flex items-center gap-1.5">
             <Select value={filters.sortBy} onValueChange={handleSortChange}>
-              <SelectTrigger className="h-10 min-w-[210px] rounded-xl border-border/80 bg-card px-3 text-xs font-medium">
+              <SelectTrigger className="h-11 min-h-[44px] min-w-[210px] rounded-xl border-border/80 bg-card px-3 text-xs font-medium sm:h-10 sm:min-h-0">
                 <div className="mr-1 flex items-center gap-1.5 text-muted-foreground">
                   <ArrowUpDown className="size-3.5 text-primary" />
                   <span className="text-foreground">Sort:</span>

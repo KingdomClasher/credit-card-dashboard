@@ -70,10 +70,19 @@ export interface CreditCard {
 
 export type SortOption = "rating" | "fee-asc" | "fee-desc" | "bonus-desc"
 
+export type QuickCategory =
+  | "all"
+  | "travel"
+  | "dining"
+  | "groceries"
+  | "zero_fee"
+  | "cash_back"
+
 export interface FilterState {
   searchQuery: string
   issuers: string[]
   maxAnnualFee: number
+  quickCategory?: QuickCategory
   categoryMultipliers: {
     dining: boolean
     groceries: boolean

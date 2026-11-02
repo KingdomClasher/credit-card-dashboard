@@ -127,3 +127,16 @@
     @apply font-sans;
     }
 }
+
+/* Mobile Safe Area and Scrollbar Utilities */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

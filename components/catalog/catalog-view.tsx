@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { CreditCard, FilterState } from "@/types/card"
+import { CreditCard, FilterState, QuickCategory } from "@/types/card"
 import { INITIAL_FILTERS, filterAndSortCards } from "@/lib/card-filter"
 import { Navbar } from "@/components/layout/navbar"
 import { FilterSidebar } from "@/components/catalog/filter-sidebar"
@@ -9,11 +9,36 @@ import { SearchSortHeader } from "@/components/catalog/search-sort-header"
 import { CardGrid } from "@/components/catalog/card-grid"
 import { CardDetailSheet } from "@/components/catalog/card-detail-sheet"
 import { Badge } from "@/components/ui/badge"
-import { Sparkles, Shield, Compass, Zap } from "lucide-react"
+import {
+  Sparkles,
+  Shield,
+  Compass,
+  Zap,
+  CreditCard as CreditCardIcon,
+  Plane,
+  Utensils,
+  ShoppingCart,
+  BadgePercent,
+  Banknote,
+} from "lucide-react"
+import { cn } from "@/lib/utils"
 
 interface CatalogViewProps {
   cards: CreditCard[]
 }
+
+const QUICK_CATEGORIES: {
+  id: QuickCategory
+  label: string
+  icon: React.ComponentType<{ className?: string }>
+}[] = [
+  { id: "all", label: "All", icon: CreditCardIcon },
+  { id: "travel", label: "Travel", icon: Plane },
+  { id: "dining", label: "Dining", icon: Utensils },
+  { id: "groceries", label: "Groceries", icon: ShoppingCart },
+  { id: "zero_fee", label: "$0 Fee", icon: BadgePercent },
+  { id: "cash_back", label: "Cash Back", icon: Banknote },
+]
 
 export function CatalogView({ cards }: CatalogViewProps) {
   const [filters, setFilters] = React.useState<FilterState>(INITIAL_FILTERS)
@@ -115,6 +140,38 @@ export function CatalogView({ cards }: CatalogViewProps) {
               filteredCount={filteredCards.length}
               allCards={cards}
             />
+
+            {/* Mobile Quick Category Filter Strip */}
+            <div className="mb-4 lg:hidden">
+              <div className="flex items-center gap-2 overflow-x-auto p-1 no-scrollbar scroll-smooth">
+                {QUICK_CATEGORIES.map((cat) => {
+                  const isActive = (filters.quickCategory || "all") === cat.id
+                  const Icon = cat.icon
+                  return (
+                    <button
+                      key={cat.id}
+                      type="button"
+                      onClick={() =>
+                        setFilters({
+                          ...filters,
+                          quickCategory:
+                            isActive && cat.id !== "all" ? "all" : cat.id,
+                        })
+                      }
+                      className={cn(
+                        "inline-flex min-h-[44px] shrink-0 items-center gap-1.5 rounded-full px-4 text-xs font-semibold transition-all select-none active:scale-95",
+                        isActive
+                          ? "bg-primary text-primary-foreground shadow-xs"
+                          : "border border-border/70 bg-card text-muted-foreground hover:bg-muted hover:text-foreground"
+                      )}
+                    >
+                      <Icon className="size-3.5" />
+                      <span>{cat.label}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
 
             {/* Responsive Card Grid */}
             <CardGrid

@@ -99,7 +99,7 @@ export function WalletView() {
             <Button
               size="sm"
               onClick={() => setAddModalOpen(true)}
-              className="h-9 gap-1.5 px-3.5 text-xs font-semibold shadow-xs"
+              className="h-10 min-h-[44px] gap-1.5 px-3.5 text-xs font-semibold shadow-xs sm:h-9 sm:min-h-0"
             >
               <Plus className="size-4" />
               <span>Add Card to Wallet</span>
@@ -272,40 +272,45 @@ export function WalletView() {
         {/* Tab Navigation */}
         <div className="mt-8">
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="mb-6 h-9">
-              <TabsTrigger
-                value="dashboard"
-                className="gap-1.5 text-xs font-medium"
-              >
-                <LayoutDashboard className="size-3.5" />
-                <span>Overview Dashboard</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="inventory"
-                className="gap-1.5 text-xs font-medium"
-              >
-                <CreditCard className="size-3.5" />
-                <span>Card Inventory ({cards.length})</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="radar"
-                className="gap-1.5 text-xs font-medium"
-              >
-                <ShieldCheck className="size-3.5" />
-                <span>Chase 5/24 & Bank Rules</span>
-              </TabsTrigger>
-              <TabsTrigger value="msr" className="gap-1.5 text-xs font-medium">
-                <Target className="size-3.5" />
-                <span>MSR Pacing ({msrItems.length})</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="credits"
-                className="gap-1.5 text-xs font-medium"
-              >
-                <Sparkles className="size-3.5" />
-                <span>Statement Credits ({creditItems.length})</span>
-              </TabsTrigger>
-            </TabsList>
+            <div className="overflow-x-auto no-scrollbar scroll-smooth flex w-full max-w-full justify-start p-1">
+              <TabsList className="mb-6 inline-flex h-11 shrink-0 flex-nowrap sm:h-9">
+                <TabsTrigger
+                  value="dashboard"
+                  className="gap-1.5 px-3 text-xs font-medium whitespace-nowrap min-h-[44px] sm:min-h-0"
+                >
+                  <LayoutDashboard className="size-3.5" />
+                  <span>Overview Dashboard</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="inventory"
+                  className="gap-1.5 px-3 text-xs font-medium whitespace-nowrap min-h-[44px] sm:min-h-0"
+                >
+                  <CreditCard className="size-3.5" />
+                  <span>Card Inventory ({cards.length})</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="radar"
+                  className="gap-1.5 px-3 text-xs font-medium whitespace-nowrap min-h-[44px] sm:min-h-0"
+                >
+                  <ShieldCheck className="size-3.5" />
+                  <span>Chase 5/24 & Bank Rules</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="msr"
+                  className="gap-1.5 px-3 text-xs font-medium whitespace-nowrap min-h-[44px] sm:min-h-0"
+                >
+                  <Target className="size-3.5" />
+                  <span>MSR Pacing ({msrItems.length})</span>
+                </TabsTrigger>
+                <TabsTrigger
+                  value="credits"
+                  className="gap-1.5 px-3 text-xs font-medium whitespace-nowrap min-h-[44px] sm:min-h-0"
+                >
+                  <Sparkles className="size-3.5" />
+                  <span>Statement Credits ({creditItems.length})</span>
+                </TabsTrigger>
+              </TabsList>
+            </div>
 
             {/* OVERVIEW DASHBOARD TAB */}
             <TabsContent value="dashboard" className="space-y-6">
