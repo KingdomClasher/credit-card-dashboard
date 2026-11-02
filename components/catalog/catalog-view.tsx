@@ -132,23 +132,6 @@ export function CatalogView({ cards }: CatalogViewProps) {
         open={sheetOpen}
         onOpenChange={setSheetOpen}
       />
-
-      {/* Footer */}
-      <footer className="mt-auto border-t bg-muted/30 py-8 text-xs text-muted-foreground">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2">
-            <span className="font-semibold text-foreground">
-              Credit Card Dashboard
-            </span>
-            <span>•</span>
-            <span>Zero-PAN Architecture</span>
-          </div>
-          <p className="text-center sm:text-right">
-            Reward valuations are editorial estimates and subject to bank
-            program terms.
-          </p>
-        </div>
-      </footer>
     </div>
   )
 }

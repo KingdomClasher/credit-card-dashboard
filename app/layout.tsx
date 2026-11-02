@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Footer } from "@/components/layout/footer"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
@@ -45,7 +46,12 @@ export default function RootLayout({
         )}
       >
         <body>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <div className="flex min-h-screen flex-col">
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
