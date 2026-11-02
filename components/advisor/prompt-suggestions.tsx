@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Utensils, ShieldCheck, DollarSign, ArrowLeftRight } from "lucide-react"
+import { Utensils, ShieldCheck, DollarSign, ShoppingBag } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 
@@ -15,32 +15,31 @@ export interface PromptSuggestionItem {
 
 export const STARTER_PROMPTS: PromptSuggestionItem[] = [
   {
-    id: "dining-optimization",
-    category: "Dining Optimization",
-    prompt: "Which card should I apply for next to optimize dining spend?",
+    id: "dining-travel",
+    category: "Dining & Travel",
+    prompt: "Which card should I get next for dining & travel?",
     icon: Utensils,
     colorClass: "text-amber-500 bg-amber-500/10 border-amber-500/20",
   },
   {
-    id: "chase-524-eligibility",
-    category: "Chase 5/24 Strategy",
-    prompt: "Am I eligible for Chase Sapphire Preferred if I'm at 4/24?",
+    id: "chase-524",
+    category: "Chase 5/24 Rule",
+    prompt: "How does the Chase 5/24 rule work?",
     icon: ShieldCheck,
     colorClass: "text-blue-500 bg-blue-500/10 border-blue-500/20",
   },
   {
-    id: "amex-platinum-roi",
-    category: "Annual Fee ROI",
-    prompt:
-      "Is the Amex Platinum $695 annual fee worth it for my travel spend?",
+    id: "annual-fees",
+    category: "Annual Fees",
+    prompt: "Are annual fees worth it for my budget?",
     icon: DollarSign,
     colorClass: "text-emerald-500 bg-emerald-500/10 border-emerald-500/20",
   },
   {
-    id: "compare-vx-csr",
-    category: "Head-to-Head Comparison",
-    prompt: "Compare Capital One Venture X vs Chase Sapphire Reserve.",
-    icon: ArrowLeftRight,
+    id: "groceries-cashback",
+    category: "Groceries & Cash Back",
+    prompt: "How do I earn the most cash back on groceries?",
+    icon: ShoppingBag,
     colorClass: "text-purple-500 bg-purple-500/10 border-purple-500/20",
   },
 ]
@@ -83,7 +82,7 @@ export function PromptSuggestions({
     <div className={cn("mx-auto w-full max-w-3xl space-y-3", className)}>
       <div className="flex items-center justify-between px-1">
         <span className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-          Suggested Financial Queries
+          Popular Questions to Get Started
         </span>
         <span className="text-[11px] text-muted-foreground">Click to ask</span>
       </div>

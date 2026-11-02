@@ -79,24 +79,24 @@ export function FinancialTrace({
                 )}
               </TraceIcon>
               <TraceTitle className="text-xs font-semibold text-foreground">
-                Financial Reasoning & Strategy Trace
+                Card Insights & Strategy Breakdown
               </TraceTitle>
               <TraceDescription className="ml-1.5 text-[11px] text-muted-foreground">
                 {isRunning
-                  ? "Evaluating rules & valuations..."
-                  : `${stepsCount} checks analyzed`}
+                  ? "Evaluating card perks & rules..."
+                  : `${stepsCount} insights analyzed`}
               </TraceDescription>
             </TraceLine>
           </TraceCollapsibleTrigger>
 
           <TraceCollapsibleContent>
             <div className="space-y-3 pt-2 text-xs">
-              {/* 1. Card Valuation Math */}
+              {/* 1. Points & Rewards Value */}
               <div className="rounded-md border border-border/50 bg-background/80 p-2.5 shadow-xs">
                 <div className="flex items-center justify-between border-b border-border/40 pb-1.5">
                   <div className="flex items-center gap-1.5 font-medium text-foreground">
                     <Calculator className="size-3.5 text-amber-500" />
-                    <span>Card Valuation Math</span>
+                    <span>Points &amp; Rewards Value</span>
                   </div>
                   <Badge
                     variant="outline"
@@ -108,7 +108,7 @@ export function FinancialTrace({
                 <div className="pt-2 leading-relaxed text-muted-foreground">
                   {trace.cardValuationMath || (
                     <span className="text-muted-foreground/60 italic">
-                      Calculating point yields and cpp valuations...
+                      Calculating estimated point rewards and value...
                     </span>
                   )}
                 </div>
@@ -119,7 +119,7 @@ export function FinancialTrace({
                 <div className="flex items-center justify-between border-b border-border/40 pb-1.5">
                   <div className="flex items-center gap-1.5 font-medium text-foreground">
                     <ShieldCheck className="size-3.5 text-blue-500" />
-                    <span>Chase 5/24 & Issuer Underwriting Check</span>
+                    <span>Chase 5/24 &amp; Issuer Rules</span>
                   </div>
                   <Badge
                     variant="outline"
@@ -131,7 +131,7 @@ export function FinancialTrace({
                 <div className="pt-2 leading-relaxed text-muted-foreground">
                   {trace.status524Check || (
                     <span className="text-muted-foreground/60 italic">
-                      Analyzing recent account openings and issuer rules...
+                      Checking application rules and eligibility...
                     </span>
                   )}
                 </div>
@@ -142,19 +142,19 @@ export function FinancialTrace({
                 <div className="flex items-center justify-between border-b border-border/40 pb-1.5">
                   <div className="flex items-center gap-1.5 font-medium text-foreground">
                     <DollarSign className="size-3.5 text-emerald-500" />
-                    <span>Fee vs. Reward Delta</span>
+                    <span>Annual Fee vs. Reward Value</span>
                   </div>
                   <Badge
                     variant="outline"
                     className="border-emerald-500/30 px-1.5 py-0 text-[10px] text-emerald-600 dark:text-emerald-400"
                   >
-                    Net Effective ROI
+                    Net Value
                   </Badge>
                 </div>
                 <div className="pt-2 leading-relaxed text-muted-foreground">
                   {trace.feeVsRewardDelta || (
                     <span className="text-muted-foreground/60 italic">
-                      Computing statement credits and net holding costs...
+                      Comparing credits and net costs...
                     </span>
                   )}
                 </div>
@@ -164,8 +164,7 @@ export function FinancialTrace({
                 <div className="flex items-center gap-1.5 pt-0.5 text-[10px] text-muted-foreground/70">
                   <CheckCircle2 className="size-3 text-emerald-500" />
                   <span>
-                    Ground truth verified against 35-card catalog and bank
-                    disclosures.
+                    Verified against 35-card catalog and official bank terms.
                   </span>
                 </div>
               )}

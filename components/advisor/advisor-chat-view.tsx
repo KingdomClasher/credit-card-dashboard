@@ -219,7 +219,7 @@ export function AdvisorChatView() {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="font-heading text-sm font-semibold text-foreground sm:text-base">
-                Conversational AI Credit Card Advisor
+                AI Card Advisor
               </h1>
               <Badge
                 variant="outline"
@@ -229,8 +229,7 @@ export function AdvisorChatView() {
               </Badge>
             </div>
             <p className="hidden text-[11px] text-muted-foreground sm:block">
-              Portfolio gap analysis, Chase 5/24 underwriting, and reward
-              arbitrage math
+              Friendly guidance on card perks, rewards, and smart card choices
             </p>
           </div>
         </div>
@@ -269,29 +268,28 @@ export function AdvisorChatView() {
                     <Sparkles className="size-7" />
                   </div>
 
-                  <div className="max-w-md space-y-2">
+                  <div className="max-w-lg space-y-2">
                     <h2 className="font-heading text-xl font-bold tracking-tight text-foreground sm:text-2xl">
-                      How can I optimize your wallet today?
+                      Welcome! I&apos;m your AI Card Advisor.
                     </h2>
                     <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">
-                      Powered by Groq and grounded in the comprehensive 35-card
-                      catalog, reward multiplier math, Chase 5/24 status, and
-                      Amex once-per-lifetime rules.
+                      Ask me anything about card perks, maximizing rewards, or
+                      which card fits your spending habits next.
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
-                    <span className="inline-flex items-center gap-1 rounded-md border border-border/60 bg-muted/30 px-2.5 py-1">
-                      <ShieldCheck className="size-3.5 text-blue-500" />
-                      Chase 5/24 Rule
-                    </span>
-                    <span className="inline-flex items-center gap-1 rounded-md border border-border/60 bg-muted/30 px-2.5 py-1">
-                      <CheckCircle2 className="size-3.5 text-emerald-500" />
-                      Cpp Point Valuations
-                    </span>
-                    <span className="inline-flex items-center gap-1 rounded-md border border-border/60 bg-muted/30 px-2.5 py-1">
+                  <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-muted-foreground">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1">
                       <Sparkles className="size-3.5 text-amber-500" />
-                      Net Effective Fee ROI
+                      Perks &amp; Rewards
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1">
+                      <CheckCircle2 className="size-3.5 text-blue-500" />
+                      Application &amp; 5/24 Rules
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1">
+                      <ShieldCheck className="size-3.5 text-emerald-500" />
+                      Zero-PAN Secure
                     </span>
                   </div>
 
@@ -375,8 +373,7 @@ export function AdvisorChatView() {
                             ) : parsed.isTraceRunning ? (
                               <div className="flex animate-pulse items-center gap-2 py-2 text-xs text-muted-foreground">
                                 <span>
-                                  Formulating financial strategy &amp;
-                                  calculations...
+                                  Thinking through card options &amp; perks...
                                 </span>
                               </div>
                             ) : null}
@@ -419,7 +416,7 @@ export function AdvisorChatView() {
                     handleSend()
                   }
                 }}
-                placeholder="Ask about card recommendations, 5/24 status, fee comparisons..."
+                placeholder="Ask anything about card perks, 5/24 rules, annual fee value, or recommendations..."
                 className="py-3 text-sm placeholder:text-muted-foreground"
                 rows={1}
                 disabled={isLoading}
@@ -455,12 +452,11 @@ export function AdvisorChatView() {
             </InputGroup>
           </form>
 
-          <div className="flex items-center justify-between px-1 text-[11px] text-muted-foreground">
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between px-1 text-[11px] text-muted-foreground">
             <span className="flex items-center gap-1.5">
-              <Sparkles className="size-3 text-primary" />
+              <ShieldCheck className="size-3 text-emerald-500" />
               <span>
-                Grounded in 35-card catalog &amp; US Credit Card Guide
-                underwriting math
+                Zero-PAN Security: No real card numbers or sensitive account details are ever requested or stored.
               </span>
             </span>
             <span className="hidden sm:inline">
