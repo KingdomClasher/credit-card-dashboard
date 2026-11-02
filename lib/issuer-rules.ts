@@ -129,10 +129,10 @@ export function calculateIssuerRules(
     })),
     recommendation:
       chase524Count >= 5
-        ? "You are over 5/24. Focus on business cards or non-Chase issuers until your next drop-off date."
+        ? "You have opened 5 or more personal cards in the last 24 months. Focus on business cards or non-Chase issuers until your next drop-off date."
         : chase524Count === 4
-        ? "You have exactly 1 Chase slot remaining. Make sure your next application is an impactful Chase card."
-        : `You have ${chase524SlotsRemaining} Chase slots available. Prioritize Chase cards now before opening accounts with other banks.`,
+        ? "You have opened 4 personal cards in 24 months (only 1 Chase slot remaining). Prioritize an impactful Chase card next."
+        : `You have opened ${chase524Count} personal cards in 24 months (${chase524SlotsRemaining} Chase slots available). Prioritize Chase cards now before opening accounts with other banks.`,
   }
 
   // Chase Sapphire 48-Month Bonus Cooldown

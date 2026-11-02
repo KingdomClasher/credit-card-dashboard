@@ -9,6 +9,7 @@ import {
   IssuerRulesRadar,
   IssuerVelocitySummaryWidget,
 } from "@/components/wallet/issuer-rules-radar"
+import { ChaseStatusCard } from "@/components/wallet/chase-status-card"
 import { MSRTrackerCard } from "@/components/wallet/msr-tracker-card"
 import { CreditRedemptionChecklist } from "@/components/wallet/credit-redemption-checklist"
 import { CardInventoryList } from "@/components/wallet/card-inventory-list"
@@ -138,7 +139,7 @@ export function WalletView() {
           <Card className="relative overflow-hidden border-border/80 bg-gradient-to-br from-card to-card/70 shadow-xs">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <span className="text-xs font-semibold tracking-wide text-muted-foreground uppercase">
-                5/24 & Issuer Velocity
+                Chase 5/24 & Velocity
               </span>
               <div
                 className={cn(
@@ -156,26 +157,34 @@ export function WalletView() {
               </div>
             </CardHeader>
             <CardContent>
-              <div className="flex items-baseline gap-2">
-                <span className="font-heading text-2xl font-black tracking-tight text-foreground">
-                  {fiveTwentyFour.count}/24
-                </span>
+              <div className="flex items-baseline justify-between gap-2">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-heading text-2xl font-black tracking-tight text-foreground">
+                    {fiveTwentyFour.count} of 5
+                  </span>
+                  <span className="text-xs font-semibold text-muted-foreground">
+                    Chase Slots
+                  </span>
+                </div>
                 <Badge
                   variant="outline"
                   className={cn(
                     "text-[10px] font-semibold uppercase",
-                    issuerRules.totalActiveCooldowns === 0
+                    fiveTwentyFour.isUnderLimit
                       ? "border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
-                      : "border-amber-500/30 bg-amber-500/10 text-amber-600 dark:text-amber-400"
+                      : "border-rose-500/30 bg-rose-500/10 text-rose-600 dark:text-rose-400"
                   )}
                 >
-                  {issuerRules.totalActiveCooldowns === 0
-                    ? "All Clear"
-                    : `${issuerRules.totalActiveCooldowns} Cooldowns`}
+                  {fiveTwentyFour.isUnderLimit
+                    ? `${fiveTwentyFour.slotsRemaining} Open`
+                    : "Limit Reached"}
                 </Badge>
               </div>
               <p className="mt-1 text-xs text-muted-foreground">
-                {fiveTwentyFour.slotsRemaining} Chase slots | {issuerRules.readyToApplyBankCount}/6 banks ready
+                {fiveTwentyFour.count} cards in 24 mos • {issuerRules.readyToApplyBankCount}/6 banks ready
+              </p>
+              <p className="mt-1.5 text-[11px] leading-tight text-muted-foreground/80">
+                Chase restricts approvals if you opened 5+ personal cards across any bank in the last 24 months.
               </p>
             </CardContent>
           </Card>
@@ -284,7 +293,7 @@ export function WalletView() {
                 className="gap-1.5 text-xs font-medium"
               >
                 <ShieldCheck className="size-3.5" />
-                <span>Issuer Rules Radar</span>
+                <span>Chase 5/24 & Bank Rules</span>
               </TabsTrigger>
               <TabsTrigger value="msr" className="gap-1.5 text-xs font-medium">
                 <Target className="size-3.5" />
@@ -361,6 +370,7 @@ export function WalletView() {
 
             {/* ISSUER RULES & VELOCITY RADAR TAB */}
             <TabsContent value="radar" className="mx-auto max-w-5xl space-y-6">
+              <ChaseStatusCard status={fiveTwentyFour} />
               <IssuerRulesRadar summary={issuerRules} onSelectTab={setActiveTab} />
             </TabsContent>
 
