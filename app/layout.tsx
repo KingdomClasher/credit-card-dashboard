@@ -4,6 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { OnboardingDialog } from "@/components/layout/onboarding-dialog"
 import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
@@ -45,7 +46,10 @@ export default function RootLayout({
         )}
       >
         <body>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            {children}
+            <OnboardingDialog />
+          </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>
