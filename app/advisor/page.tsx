@@ -3,10 +3,9 @@ import { Navbar } from "@/components/layout/navbar"
 import { AdvisorChatView } from "@/components/advisor/advisor-chat-view"
 
 export const metadata: Metadata = {
-  title:
-    "AI Credit Card Advisor | Personalized Recommendations & 5/24 Strategy",
+  title: "AI Credit Card Advisor | Personalized Recommendations & Card Perks",
   description:
-    "Ask our conversational AI credit card advisor for personalized card recommendations, portfolio gap analysis, Chase 5/24 strategies, and rewards valuation math.",
+    "Ask our AI credit card advisor for personalized card recommendations, understanding 5/24 rules, comparing annual fees, and maximizing your reward points.",
 }
 
 export default function AdvisorPage() {

@@ -128,6 +128,10 @@ To maximize rewards on dining, restaurants, and food delivery, your best card de
   }
 
   if (
+    lower.includes("how does the chase 5/24") ||
+    lower.includes("5/24 rule work") ||
+    lower.includes("what is 5/24") ||
+    lower.includes("5/24") ||
     lower.includes("4/24") ||
     lower.includes("sapphire preferred") ||
     lower.includes("eligible")
@@ -135,35 +139,67 @@ To maximize rewards on dining, restaurants, and food delivery, your best card de
     return `<trace>
 {
   "cardValuationMath": "Chase Sapphire Preferred (CSP) earns 3x dining, 3x online grocery, 3x select streaming, 2x travel, and 5x portal travel. At 1.8 cpp transfer benchmark (e.g. World of Hyatt), 60,000 point sign-up bonus is worth $1,080.00 in travel value.",
-  "status524Check": "ELIGIBLE (4/24). You have opened exactly 4 personal credit cards in the past 24 months. Chase strictly denies applications at 5/24 or higher, meaning you have exactly ONE Chase slot remaining. You MUST apply for this Chase card now before opening cards with any other bank.",
+  "status524Check": "The 5/24 rule applies across all card issuers: opening 5 or more personal credit cards across ANY bank within 24 months triggers automatic rejection from Chase. Prioritize Chase cards before non-Chase issuers.",
   "feeVsRewardDelta": "Stated annual fee: $95. Offset by $50 annual Chase Travel hotel credit = $45 net effective annual fee. First year value: $1,080 (SUB) + $280 (organic spend rewards) - $45 net fee = +$1,315.00 net profit."
 }
 </trace>
 
-### Verification: Chase Sapphire Preferred® Eligibility at 4/24
+### How the Chase 5/24 Rule Works
 
-**Yes, you are currently eligible to apply for the Chase Sapphire Preferred® Card at 4/24!** However, you are standing on a critical underwriting threshold.
+The **5/24 rule** is Chase's unwritten policy for credit card approvals. It is one of the most important guidelines to understand when building your credit card portfolio:
 
 \`\`\`diff
-+ Current Status: 4/24 (Eligible for exactly 1 more Chase card)
-- Threshold Rule: Once you open ANY personal card from ANY bank, you reach 5/24
-! Strategic Action: Apply for Chase FIRST before any Amex, Capital One, or Citi cards
++ Under 5/24 (Opened fewer than 5 personal cards in the last 24 months):
+  You are ELIGIBLE for Chase credit card approvals.
+
+- At 5/24 or Higher (Opened 5+ personal cards in the last 24 months):
+  Chase will AUTOMATICALLY DENY your application, regardless of your credit score or income.
 \`\`\`
 
-#### Essential Underwriting Checks Before Submitting:
-1. **The 5/24 Rule Ceiling:**
-   Chase automatically denies card applications if your credit report reflects 5 or more personal credit card accounts opened across all banks within the last 24 months. Because you are at **4/24**, this is your **final slot**.
-2. **The Sapphire 48-Month Rule:**
-   You cannot receive a welcome offer on the Sapphire Preferred if:
-   - You currently hold *any* active Sapphire card (Preferred or Reserve).
-   - You received a welcome bonus on *any* Sapphire card within the preceding **48 months**.
-3. **Application Sequencing Strategy:**
-   - **Do NOT apply for non-Chase cards first.** An approval from American Express, Capital One, or Citi will immediately push you to 5/24 once the new account appears on your credit bureau report.
-   - If you also want Chase business cards (like the Ink Business Cash or Ink Business Preferred), note that business cards require you to be under 5/24 to be approved, but they *do not* add to your personal 5/24 count.
+#### Key Guidelines to Remember:
+1. **Cards From Any Bank Count:**
+   It is not just Chase cards! Any personal credit card account you open from American Express, Capital One, Citi, Discover, or Bank of America counts toward your 5-card limit.
+2. **Most Small Business Cards Don't Count:**
+   Chase Ink business cards and most other business cards do not appear on your personal credit report, so they typically do not add to your 5/24 count.
+3. **The Recommended Order:**
+   Because Chase enforces this rule strictly, the best strategy is to apply for the Chase cards you want (like the **Chase Sapphire Preferred®** or **Freedom Flex®**) first, before applying for cards with other issuers.`
+  }
 
-#### Value Math Breakdown:
-- **Sign-Up Bonus:** 60,000 points after $4,000 spend in 3 months = **$1,080 travel value** transferred 1:1 to World of Hyatt or United.
-- **Annual Fee:** $95 stated fee - $50 annual hotel credit = **$45 net effective fee**.`
+  if (
+    lower.includes("grocer") ||
+    lower.includes("supermarket")
+  ) {
+    return `<trace>
+{
+  "cardValuationMath": "Amex Blue Cash Preferred earns 6% cash back on up to $6,000/yr at U.S. supermarkets ($360/yr). Citi Custom Cash earns 5% on highest category up to $500/mo ($300/yr). Capital One Savor earns unlimited 3% cash back with $0 fee.",
+  "status524Check": "None of these cards are issued by Chase, but opening any personal account adds +1 to your Chase 5/24 total. Keep your Chase goals in mind before applying.",
+  "feeVsRewardDelta": "Blue Cash Preferred ($95 annual fee, waived year 1): $360 cash back minus $95 fee = $265 net annual value, plus 6% on streaming and 3% on gas. Citi Custom Cash ($0 fee): $300 net cash back with zero holding cost."
+}
+</trace>
+
+### Strategy: Top Credit Cards for Maximum Grocery Rewards
+
+Groceries are a major everyday spending category. Here are the best cards to maximize your grocery budget:
+
+\`\`\`markdown
+| Card | Grocery Reward Rate | Annual Cap | Annual Fee | Best For |
+| :--- | :--- | :--- | :--- | :--- |
+| **Blue Cash Preferred® from Amex** | **6% Cash Back** | $6,000 / year | $95 (waived yr 1) | High grocery & streaming spend |
+| **Citi Custom Cash® Card** | **5% Cash Back** | $500 / billing cycle | $0 | Dedicated single-category card |
+| **Capital One Savor** | **3% Cash Back** | Unlimited | $0 | No-fee simplicity with dining & streaming |
+| **American Express® Gold Card** | **4x Points** | $25,000 / year | $325 | Travelers who redeem with airline partners |
+\`\`\`
+
+#### Top Recommendations:
+1. **The Pure Cash Back Champion: Blue Cash Preferred® Card from American Express**
+   - **6% cash back** at U.S. supermarkets (up to $6,000/year, then 1%), plus **6% on select U.S. streaming** and **3% on transit and gas**.
+   - If you spend at least $61/week on groceries, the 6% rate easily outperforms a 2% flat card even after the annual fee.
+
+2. **The Flexible No-Fee Card: Citi Custom Cash® Card**
+   - Automatically gives **5% cash back** on your highest spending category each billing cycle (up to $500 spend), with **$0 annual fee**. Perfect as a dedicated grocery card.
+
+3. **The Unlimited No-Fee Option: Capital One Savor**
+   - **3% cash back** with no spending caps on dining, entertainment, popular streaming, and grocery stores.`
   }
 
   if (
@@ -207,7 +243,7 @@ To maximize rewards on dining, restaurants, and food delivery, your best card de
 
 #### When It Is NOT Worth It:
 - If you find managing monthly/quarterly credit expiration tedious.
-- If you spend heavily on dining and everyday groceries—the **Amex Gold Card** ($325 fee, 4x dining/grocery) delivers vastly superior everyday point yields.`
+- If you spend heavily on dining and everyday groceries - the **Amex Gold Card** ($325 fee, 4x dining/grocery) delivers vastly superior everyday point yields.`
   }
 
   if (
