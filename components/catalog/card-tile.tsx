@@ -5,7 +5,7 @@ import { CreditCard } from "@/types/card"
 import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, ArrowRight, Gift, Check } from "lucide-react"
+import { ArrowRight, Gift } from "lucide-react"
 
 interface CardTileProps {
   card: CreditCard
@@ -89,90 +89,89 @@ function getIssuerStyle(issuer: string) {
   }
 }
 
-// Format top rate badges
-function getTopMultipliers(card: CreditCard) {
-  const items: { label: string; rate: number }[] = []
+// Format top rate badge
+function getTopMultiplier(card: CreditCard): string {
+  if (card.multipliers) {
+    if (card.multipliers.top_category) {
+      return "5% Top Category"
+    }
+    if (card.multipliers.rotating) {
+      return "5% Rotating"
+    }
+  }
 
   const rateLabels: Record<string, string> = {
-    dining: "Dining",
-    groceries: "Groceries",
+    travel_portal: "Travel",
     flights: "Flights",
     hotels: "Hotels",
-    travel_portal: "Portal",
+    dining: "Dining",
+    groceries: "Groceries",
     gas: "Gas",
     transit: "Transit",
     streaming: "Streaming",
     catch_all: "Base",
   }
 
-  Object.entries(card.rates).forEach(([key, val]) => {
-    if (typeof val === "number" && val > 1 && rateLabels[key]) {
-      items.push({ label: `${val}x ${rateLabels[key]}`, rate: val })
+  let topLabel = ""
+  let topRate = 0
+
+  if (card.rates) {
+    const priorityCategories = [
+      "travel_portal",
+      "flights",
+      "hotels",
+      "dining",
+      "groceries",
+      "gas",
+      "transit",
+      "streaming",
+    ]
+
+    for (const key of priorityCategories) {
+      const val = card.rates[key]
+      if (typeof val === "number" && val > topRate && rateLabels[key]) {
+        topRate = val
+        topLabel = `${val}x ${rateLabels[key]}`
+      }
     }
-  })
 
-  // Sort by rate descending
-  items.sort((a, b) => b.rate - a.rate)
-
-  if (items.length === 0) {
-    const base = card.rates.catch_all || 1
-    items.push({ label: `${base}x Everything`, rate: base })
+    Object.entries(card.rates).forEach(([key, val]) => {
+      if (
+        typeof val === "number" &&
+        val > topRate &&
+        key !== "catch_all" &&
+        rateLabels[key]
+      ) {
+        topRate = val
+        topLabel = `${val}x ${rateLabels[key]}`
+      }
+    })
   }
 
-  return items.slice(0, 3)
-}
-
-// Extract top key perk chips
-function getKeyPerks(card: CreditCard) {
-  const chips: string[] = []
-
-  // 1. FTF
-  if (
-    card.foreignTransactionFee.hasFee === false ||
-    card.foreignTransactionFee.rate === "0%"
-  ) {
-    chips.push("0% FTF")
+  if (topRate > 1 && topLabel) {
+    return topLabel
   }
 
-  // 2. Lounge Access
-  const fullText = [
-    ...(card.perks || []),
-    ...(card.credits?.map((c) => c.name + " " + c.description) || []),
-  ].join(" ")
-
-  if (/lounge|priority pass|centurion|united club|sky club/i.test(fullText)) {
-    if (/priority pass/i.test(fullText)) chips.push("Priority Pass")
-    else if (/centurion/i.test(fullText)) chips.push("Centurion Lounge")
-    else chips.push("Lounge Access")
-  }
-
-  // 3. Free Night
-  if (/free night|anniversary night|4th night free/i.test(fullText)) {
-    chips.push("Free Night")
-  }
-
-  // 4. Primary CDW
-  if (/primary.*(cdw|auto|collision|car rental)/i.test(fullText)) {
-    chips.push("Primary CDW")
-  }
-
-  // 5. Global Entry
-  if (/global entry|tsa precheck/i.test(fullText)) {
-    chips.push("TSA/GE Credit")
-  }
-
-  // 6. Transfer Partners
-  if (card.rewardProgram?.transferable) {
-    chips.push("Transfer Partners")
-  }
-
-  return chips.slice(0, 3)
+  const base = card.rates?.catch_all || 1
+  return `${base}x Everything`
 }
 
 export function CardTile({ card, onSelect }: CardTileProps) {
   const issuerStyle = getIssuerStyle(card.issuer)
-  const topMultipliers = getTopMultipliers(card)
-  const keyPerks = getKeyPerks(card)
+
+  // 3 Essential Metrics Badges
+  const annualFeeBadge =
+    card.annualFee === 0 ? "$0 Fee" : `$${card.annualFee}/yr`
+  const topMultiplierBadge = getTopMultiplier(card)
+  const bonusBadge =
+    card.signupBonus && card.signupBonus.estimatedValueUsd > 0
+      ? `$${card.signupBonus.estimatedValueUsd.toLocaleString()} Bonus`
+      : card.rewardProgram?.currency === "cash_back"
+        ? "Cash Back"
+        : card.rewardProgram?.currency
+          ? card.rewardProgram.currency.charAt(0).toUpperCase() +
+            card.rewardProgram.currency.slice(1)
+          : "Points"
 
   return (
     <Card
@@ -190,112 +189,68 @@ export function CardTile({ card, onSelect }: CardTileProps) {
       <div className="flex flex-col">
         {/* Card Header */}
         <CardHeader className="p-4 pb-2">
-          {/* Top Row: Issuer & Tier Badge, Rating */}
-          <div className="mb-2 flex items-center justify-between gap-2">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <Badge
-                variant="outline"
-                className={`border text-[11px] font-medium ${issuerStyle.badge}`}
-              >
-                {card.issuer}
-              </Badge>
-              <Badge
-                variant="secondary"
-                className="text-[10px] font-normal text-muted-foreground"
-              >
-                {card.tier}
-              </Badge>
-            </div>
-
-            {/* Rating */}
-            <div className="flex items-center gap-1 text-xs font-semibold text-amber-600 dark:text-amber-400">
-              <Star className="size-3.5 fill-current" />
-              <span>{card.rating.toFixed(1)}</span>
-            </div>
+          {/* Top Row: Issuer & Tier text */}
+          <div className="mb-1.5 flex items-center justify-between text-xs text-muted-foreground">
+            <span className="font-semibold text-foreground/80">
+              {card.issuer}
+            </span>
+            <span className="text-[11px] text-muted-foreground">
+              {card.tier}
+            </span>
           </div>
 
-          {/* Card Title & Fee */}
-          <div className="mt-1 flex items-start justify-between gap-3">
-            <h3 className="font-heading text-base leading-snug font-semibold text-foreground transition-colors group-hover:text-primary">
-              {card.name}
-            </h3>
+          {/* Card Title */}
+          <h3 className="font-heading text-base leading-snug font-semibold text-foreground transition-colors group-hover:text-primary">
+            {card.name}
+          </h3>
 
-            {/* Prominent Annual Fee */}
-            <div className="shrink-0 text-right">
-              <div className="font-mono text-base leading-tight font-bold text-foreground">
-                {card.annualFee === 0 ? "$0" : `$${card.annualFee}`}
-              </div>
-              <div className="text-[10px] tracking-wider text-muted-foreground uppercase">
-                / year
-              </div>
-            </div>
+          {/* 3 Essential Badges */}
+          <div className="mt-3 flex flex-wrap items-center gap-1.5">
+            {/* 1. Annual Fee */}
+            <Badge
+              variant="outline"
+              className="border-border/80 bg-background/80 font-mono text-xs font-semibold text-foreground"
+            >
+              {annualFeeBadge}
+            </Badge>
+
+            {/* 2. Top Multiplier */}
+            <Badge
+              variant="secondary"
+              className="bg-secondary/90 font-mono text-xs font-semibold text-foreground"
+            >
+              {topMultiplierBadge}
+            </Badge>
+
+            {/* 3. Bonus Value or Reward Currency */}
+            <Badge
+              variant="outline"
+              className="border-emerald-500/30 bg-emerald-500/10 font-mono text-xs font-semibold text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300"
+            >
+              {bonusBadge}
+            </Badge>
           </div>
         </CardHeader>
 
-        {/* Card Content */}
-        <CardContent className="space-y-3 px-4 py-2">
-          {/* Welcome Bonus Banner */}
-          <div className="rounded-lg border bg-muted/40 p-2.5 transition-colors group-hover:bg-muted/60">
-            <div className="flex items-center justify-between gap-2">
-              <div className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
-                <Gift className="size-3.5 shrink-0 text-primary" />
-                <span className="line-clamp-1">
-                  {card.signupBonus.amount} {formatBonusUnit(card.signupBonus.unit)}
-                </span>
-              </div>
-              <Badge
-                variant="default"
-                className="h-4 shrink-0 bg-emerald-600 px-1.5 py-0 text-[10px] font-bold text-white hover:bg-emerald-600 dark:bg-emerald-500"
-              >
-                ~${card.signupBonus.estimatedValueUsd} value
-              </Badge>
+        {/* Card Content: Welcome Bonus Info */}
+        <CardContent className="px-4 py-2">
+          <div className="rounded-lg border bg-muted/30 p-2.5 transition-colors group-hover:bg-muted/50">
+            <div className="flex items-center gap-1.5 text-xs font-semibold text-foreground">
+              <Gift className="size-3.5 shrink-0 text-primary" />
+              <span className="line-clamp-1">
+                {card.signupBonus.amount} {formatBonusUnit(card.signupBonus.unit)}
+              </span>
             </div>
             <p className="mt-1 line-clamp-1 text-[11px] text-muted-foreground">
               Spend ${card.signupBonus.spendRequirement.toLocaleString()} in{" "}
               {card.signupBonus.timeframeMonths} mos
             </p>
           </div>
-
-          {/* Top Multipliers */}
-          <div className="space-y-1.5">
-            <div className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
-              Top Multipliers
-            </div>
-            <div className="flex flex-wrap gap-1.5">
-              {topMultipliers.map((m) => (
-                <Badge
-                  key={m.label}
-                  variant="secondary"
-                  className="bg-secondary/80 px-2 py-0.5 font-mono text-xs font-medium text-foreground"
-                >
-                  {m.label}
-                </Badge>
-              ))}
-            </div>
-          </div>
-
-          {/* Key Perks Chips */}
-          <div className="space-y-1.5">
-            <div className="text-[10px] font-semibold tracking-wider text-muted-foreground uppercase">
-              Key Perks
-            </div>
-            <div className="flex flex-wrap gap-1">
-              {keyPerks.map((perk) => (
-                <span
-                  key={perk}
-                  className="inline-flex items-center gap-1 rounded-md border bg-background px-1.5 py-0.5 text-[10px] font-medium text-muted-foreground"
-                >
-                  <Check className="size-2.5 text-emerald-600 dark:text-emerald-400" />
-                  {perk}
-                </span>
-              ))}
-            </div>
-          </div>
         </CardContent>
       </div>
 
       {/* Card Footer */}
-      <CardFooter className="mt-3 flex items-center justify-between gap-2 border-t bg-muted/20 px-4 py-3">
+      <CardFooter className="mt-2 flex items-center justify-between gap-2 border-t bg-muted/20 px-4 py-3">
         <span className="font-mono text-[11px] text-muted-foreground">
           {card.network}
         </span>

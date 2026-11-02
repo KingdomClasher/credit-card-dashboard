@@ -36,7 +36,74 @@ import {
   Check,
   Info,
   Plus,
+  ShieldCheck,
+  Plane,
+  Smartphone,
+  ArrowRightLeft,
 } from "lucide-react"
+
+interface CategorizedPerks {
+  travel: string[]
+  insurance: string[]
+  purchase: string[]
+  general: string[]
+}
+
+function categorizePerks(perks: string[]): CategorizedPerks {
+  const result: CategorizedPerks = {
+    travel: [],
+    insurance: [],
+    purchase: [],
+    general: [],
+  }
+
+  perks.forEach((perk) => {
+    const p = perk.toLowerCase()
+    if (
+      p.includes("cdw") ||
+      p.includes("collision") ||
+      p.includes("rental") ||
+      p.includes("cancellation") ||
+      p.includes("interruption") ||
+      p.includes("delay") ||
+      p.includes("luggage") ||
+      p.includes("baggage") ||
+      p.includes("accident") ||
+      p.includes("evacuation") ||
+      p.includes("insurance") ||
+      p.includes("roadside")
+    ) {
+      result.insurance.push(perk)
+    } else if (
+      p.includes("lounge") ||
+      p.includes("priority pass") ||
+      p.includes("centurion") ||
+      p.includes("sky club") ||
+      p.includes("united club") ||
+      p.includes("tsa") ||
+      p.includes("global entry") ||
+      p.includes("nexus") ||
+      p.includes("free night") ||
+      p.includes("companion") ||
+      p.includes("elite night") ||
+      p.includes("tqps")
+    ) {
+      result.travel.push(perk)
+    } else if (
+      p.includes("cell phone") ||
+      p.includes("warranty") ||
+      p.includes("purchase protection") ||
+      p.includes("return protection") ||
+      p.includes("fraud")
+    ) {
+      result.purchase.push(perk)
+    } else {
+      result.general.push(perk)
+    }
+  })
+
+  return result
+}
 
 interface CardDetailSheetProps {
   card: CreditCard | null
@@ -50,8 +117,26 @@ export function CardDetailSheet({
   onOpenChange,
 }: CardDetailSheetProps) {
   const { cards, addCard } = useWallet()
-  const isAlreadyInWallet = card ? cards.some((c) => c.cardSlug === card.id) : false
+  const isAlreadyInWallet = card
+    ? cards.some((c) => c.cardSlug === card.id)
+    : false
   const [justAdded, setJustAdded] = React.useState(false)
+
+  const categorizedPerks = React.useMemo(() => {
+    return card
+      ? categorizePerks(card.perks || [])
+      : { travel: [], insurance: [], purchase: [], general: [] }
+  }, [card])
+
+  const fullText = React.useMemo(() => {
+    if (!card) return ""
+    return [
+      ...(card.perks || []),
+      ...(card.credits?.map((c) => c.name + " " + c.description) || []),
+    ]
+      .join(" ")
+      .toLowerCase()
+  }, [card])
 
   if (!card) return null
 
@@ -83,6 +168,17 @@ export function CardDetailSheet({
     }, 0) || 0
 
   const netEffectiveFee = card.annualFee - totalAnnualCredits
+
+  const hasLounge =
+    /lounge|priority pass|centurion|united club|sky club|plaza premium/.test(
+      fullText
+    )
+  const hasPrimaryCdw = /primary.*(cdw|auto|collision|car rental)/i.test(
+    fullText
+  )
+  const hasCellPhone = /cell phone/i.test(fullText)
+  const hasGlobalEntry = /global entry|tsa precheck|nexus/i.test(fullText)
+  const hasFreeNight = /free night|anniversary night/i.test(fullText)
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
@@ -367,10 +463,21 @@ export function CardDetailSheet({
 
           {/* 4. Reward Program & Transfer Partners */}
           <div className="space-y-3 rounded-xl border bg-card p-4">
-            <h4 className="flex items-center gap-2 font-heading text-sm font-semibold text-foreground">
-              <Globe className="size-4 text-primary" />
-              Point Currency & Ecosystem
-            </h4>
+            <div className="flex items-center justify-between">
+              <h4 className="flex items-center gap-2 font-heading text-sm font-semibold text-foreground">
+                <Globe className="size-4 text-primary" />
+                Point Currency & Transfer Ecosystem
+              </h4>
+              {card.rewardProgram.transferable && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-primary/30 bg-primary/10 text-[11px] font-medium text-primary"
+                >
+                  <ArrowRightLeft className="size-3" />
+                  1:1 Transfer Enabled
+                </Badge>
+              )}
+            </div>
             <div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-3">
               <div className="rounded-lg bg-muted/40 p-2">
                 <span className="block text-[10px] text-muted-foreground">
@@ -404,8 +511,13 @@ export function CardDetailSheet({
             {card.rewardProgram.topPartners &&
               card.rewardProgram.topPartners.length > 0 && (
                 <div className="space-y-1.5 border-t pt-2">
-                  <div className="text-[10px] font-semibold text-muted-foreground uppercase">
-                    Key Transfer Partners
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-semibold text-muted-foreground uppercase">
+                      1:1 Airline & Hotel Transfer Partners ({card.rewardProgram.topPartners.length})
+                    </span>
+                    <span className="text-[10px] text-muted-foreground">
+                      Transfer for maximum redemption value
+                    </span>
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {card.rewardProgram.topPartners.map((partner) => (
@@ -447,24 +559,233 @@ export function CardDetailSheet({
             </div>
           </div>
 
-          {/* 6. Key Perks & Benefits */}
-          <div className="space-y-3">
-            <h4 className="flex items-center gap-2 font-heading text-sm font-semibold text-foreground">
-              <Sparkles className="size-4 text-primary" />
-              Card Perks & Insurance Protections
-            </h4>
-            <div className="space-y-1.5">
-              {card.perks.map((perk, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-2 text-xs text-muted-foreground"
+          {/* 6. Key Perks, Protections & Secondary Details */}
+          <div className="space-y-4">
+            <div className="flex flex-col gap-1">
+              <h4 className="flex items-center gap-2 font-heading text-sm font-semibold text-foreground">
+                <Sparkles className="size-4 text-primary" />
+                Card Perks, Protections & Secondary Details
+              </h4>
+              <p className="text-xs text-muted-foreground">
+                Comprehensive overview of travel insurance coverage, airport lounge access, purchase protections, and foreign fee waivers.
+              </p>
+            </div>
+
+            {/* Quick Privileges Badge Strip */}
+            <div className="flex flex-wrap gap-1.5">
+              {!card.foreignTransactionFee.hasFee ||
+              card.foreignTransactionFee.rate === "0%" ? (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-emerald-500/30 bg-emerald-500/10 text-[11px] font-medium text-emerald-700 dark:text-emerald-300"
                 >
-                  <Check className="mt-0.5 size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                  <span className="leading-relaxed text-foreground/90">
-                    {perk}
-                  </span>
+                  <Globe className="size-3" />
+                  0% Foreign Tx Fee
+                </Badge>
+              ) : (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-amber-500/30 bg-amber-500/10 text-[11px] font-medium text-amber-700 dark:text-amber-300"
+                >
+                  <Globe className="size-3" />
+                  {card.foreignTransactionFee.rate} FTF
+                </Badge>
+              )}
+
+              {hasLounge && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-blue-500/30 bg-blue-500/10 text-[11px] font-medium text-blue-700 dark:text-blue-300"
+                >
+                  <Plane className="size-3" />
+                  Airport Lounge Access
+                </Badge>
+              )}
+
+              {hasPrimaryCdw && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-indigo-500/30 bg-indigo-500/10 text-[11px] font-medium text-indigo-700 dark:text-indigo-300"
+                >
+                  <ShieldCheck className="size-3" />
+                  Primary Auto Rental CDW
+                </Badge>
+              )}
+
+              {hasCellPhone && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-purple-500/30 bg-purple-500/10 text-[11px] font-medium text-purple-700 dark:text-purple-300"
+                >
+                  <Smartphone className="size-3" />
+                  Cell Phone Protection
+                </Badge>
+              )}
+
+              {hasGlobalEntry && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-sky-500/30 bg-sky-500/10 text-[11px] font-medium text-sky-700 dark:text-sky-300"
+                >
+                  <Plane className="size-3" />
+                  TSA / Global Entry Credit
+                </Badge>
+              )}
+
+              {hasFreeNight && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-teal-500/30 bg-teal-500/10 text-[11px] font-medium text-teal-700 dark:text-teal-300"
+                >
+                  <Sparkles className="size-3" />
+                  Free Night Award
+                </Badge>
+              )}
+
+              {card.rewardProgram?.transferable && (
+                <Badge
+                  variant="outline"
+                  className="gap-1 border-primary/30 bg-primary/10 text-[11px] font-medium text-primary"
+                >
+                  <ArrowRightLeft className="size-3" />
+                  1:1 Transfer Partners
+                </Badge>
+              )}
+            </div>
+
+            {/* Foreign Transaction Fee Detailed Callout */}
+            {!card.foreignTransactionFee.hasFee ||
+            card.foreignTransactionFee.rate === "0%" ? (
+              <div className="flex items-start gap-3 rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3.5 dark:bg-emerald-500/10">
+                <div className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-lg bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                  <Globe className="size-4" />
                 </div>
-              ))}
+                <div className="space-y-0.5">
+                  <div className="text-xs font-semibold text-emerald-800 dark:text-emerald-300">
+                    0% Foreign Transaction Fee Waiver
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    This card waives all foreign transaction fees on international purchases, dining abroad, and overseas merchants (saving ~3% on every international swipe).
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div className="flex items-start gap-3 rounded-xl border bg-muted/40 p-3.5">
+                <div className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground">
+                  <Globe className="size-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <div className="text-xs font-semibold text-foreground">
+                    Foreign Transaction Fee: {card.foreignTransactionFee.rate}
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    A {card.foreignTransactionFee.rate} fee applies on non-USD transactions. Consider pairing with a 0% FTF card for international travel.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Categorized Perks Blocks */}
+            <div className="space-y-3">
+              {/* Travel Insurance & Protections */}
+              {categorizedPerks.insurance.length > 0 && (
+                <div className="rounded-xl border bg-card p-3.5 shadow-xs">
+                  <div className="mb-2 flex items-center gap-2">
+                    <ShieldCheck className="size-4 text-emerald-600 dark:text-emerald-400" />
+                    <h5 className="font-heading text-xs font-semibold uppercase tracking-wider text-foreground">
+                      Travel Insurance & Trip Protections
+                    </h5>
+                  </div>
+                  <div className="space-y-2">
+                    {categorizedPerks.insurance.map((perk, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-muted-foreground"
+                      >
+                        <Check className="mt-0.5 size-3.5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                        <span className="leading-relaxed text-foreground/90">
+                          {perk}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Airport Lounge & Travel Privileges */}
+              {categorizedPerks.travel.length > 0 && (
+                <div className="rounded-xl border bg-card p-3.5 shadow-xs">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Plane className="size-4 text-blue-600 dark:text-blue-400" />
+                    <h5 className="font-heading text-xs font-semibold uppercase tracking-wider text-foreground">
+                      Airport & Travel Privileges
+                    </h5>
+                  </div>
+                  <div className="space-y-2">
+                    {categorizedPerks.travel.map((perk, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-muted-foreground"
+                      >
+                        <Check className="mt-0.5 size-3.5 shrink-0 text-blue-600 dark:text-blue-400" />
+                        <span className="leading-relaxed text-foreground/90">
+                          {perk}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Purchase & Device Protections */}
+              {categorizedPerks.purchase.length > 0 && (
+                <div className="rounded-xl border bg-card p-3.5 shadow-xs">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Smartphone className="size-4 text-purple-600 dark:text-purple-400" />
+                    <h5 className="font-heading text-xs font-semibold uppercase tracking-wider text-foreground">
+                      Purchase, Warranty & Device Protection
+                    </h5>
+                  </div>
+                  <div className="space-y-2">
+                    {categorizedPerks.purchase.map((perk, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-muted-foreground"
+                      >
+                        <Check className="mt-0.5 size-3.5 shrink-0 text-purple-600 dark:text-purple-400" />
+                        <span className="leading-relaxed text-foreground/90">
+                          {perk}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* General / Additional Privileges */}
+              {categorizedPerks.general.length > 0 && (
+                <div className="rounded-xl border bg-card p-3.5 shadow-xs">
+                  <div className="mb-2 flex items-center gap-2">
+                    <Sparkles className="size-4 text-primary" />
+                    <h5 className="font-heading text-xs font-semibold uppercase tracking-wider text-foreground">
+                      Additional Privileges & Partner Benefits
+                    </h5>
+                  </div>
+                  <div className="space-y-2">
+                    {categorizedPerks.general.map((perk, i) => (
+                      <div
+                        key={i}
+                        className="flex items-start gap-2 text-xs text-muted-foreground"
+                      >
+                        <Check className="mt-0.5 size-3.5 shrink-0 text-primary" />
+                        <span className="leading-relaxed text-foreground/90">
+                          {perk}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
