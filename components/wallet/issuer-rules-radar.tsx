@@ -154,7 +154,7 @@ export function IssuerRulesRadar({ summary, onSelectTab }: IssuerRulesRadarProps
             <Button
               variant="outline"
               size="sm"
-              onClick={() => onSelectTab("cards")}
+              onClick={() => onSelectTab("inventory")}
               className="h-8 gap-1.5 text-xs text-muted-foreground hover:text-foreground"
             >
               <span>Manage Cards</span>
@@ -393,9 +393,9 @@ export function IssuerVelocitySummaryWidget({
         {/* Chase 5/24 Quick Bar */}
         <div className="rounded-xl border bg-muted/30 p-3 space-y-2">
           <div className="flex items-center justify-between text-xs">
-            <span className="font-semibold text-foreground">Chase 5/24 Rule</span>
+            <span className="font-semibold text-foreground">Chase 5/24 Slot Pacing</span>
             <span className="font-mono font-bold text-foreground">
-              {chase524.currentCount ?? 0} / {chase524.maxLimit ?? 5} Slots Used
+              {chase524.currentCount ?? 0} of {chase524.maxLimit ?? 5} Slots Used ({chase524.currentCount ?? 0} in 24 mos)
             </span>
           </div>
           <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
@@ -411,13 +411,16 @@ export function IssuerVelocitySummaryWidget({
               style={{ width: `${chase524.progressPercent}%` }}
             />
           </div>
-          <div className="flex justify-between text-[11px] text-muted-foreground">
-            <span>{chase524.slotsRemaining ?? 5} Chase slots available</span>
-            <span>
-              {chase524.unlockFormatted
-                ? `Next drop-off: ${chase524.unlockFormatted}`
-                : "No drop-off pending"}
-            </span>
+          <div className="flex items-center justify-between text-[11px] text-muted-foreground">
+            <span>{chase524.slotsRemaining ?? 5} Chase slot{chase524.slotsRemaining === 1 ? "" : "s"} open</span>
+            <button
+              type="button"
+              onClick={onNavigateToRadar}
+              className="inline-flex items-center gap-1 font-medium text-primary hover:underline transition-colors"
+            >
+              <span>{chase524.unlockFormatted ? `Next drop-off: ${chase524.unlockFormatted}` : "View Timeline"}</span>
+              <ArrowRight className="size-3" />
+            </button>
           </div>
         </div>
 

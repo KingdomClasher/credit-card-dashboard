@@ -296,7 +296,7 @@ export function CardInventoryList({
             Your Wallet is Empty
           </h4>
           <p className="mt-1 text-xs text-muted-foreground">
-            Add cards to track annual fees, Chase 5/24 status, and statement
+            Add cards to track annual fees, Chase 5/24 slot pacing (max 5 cards in 24 months), and statement
             credits.
           </p>
           <div className="mt-4 flex items-center justify-center gap-2">
@@ -355,14 +355,14 @@ export function CardInventoryList({
                         className="border-primary/20 bg-primary/10 text-[10px] font-medium text-primary"
                       >
                         <Shield className="mr-1 size-3" />
-                        5/24 Slot
+                        Counts toward 5/24
                       </Badge>
                     ) : (
                       <Badge
                         variant="outline"
                         className="text-[10px] text-muted-foreground"
                       >
-                        Aged Out (&gt;24m)
+                        Aged Out (&gt;24 mos)
                       </Badge>
                     )}
                   </div>
@@ -504,7 +504,7 @@ export function CardInventoryList({
                   <th className="px-4 py-3">Card Name</th>
                   <th className="px-3 py-3">Issuer</th>
                   <th className="px-3 py-3">Opened</th>
-                  <th className="px-3 py-3">5/24 Status</th>
+                  <th className="px-3 py-3">5/24 (24-Mo Window)</th>
                   <th className="px-3 py-3 text-right">Annual Fee</th>
                   <th className="px-3 py-3 text-right">Credit Limit</th>
                   <th className="px-3 py-3 text-right">Actions</th>
@@ -533,7 +533,7 @@ export function CardInventoryList({
                         )}
                       </td>
                       <td className="px-3 py-3 text-muted-foreground">
-                        {catalog?.issuer || "—"}
+                        {catalog?.issuer || "-"}
                       </td>
                       <td className="px-3 py-3">
                         <div className="text-foreground">{card.openedDate}</div>
@@ -547,14 +547,14 @@ export function CardInventoryList({
                             variant="secondary"
                             className="bg-primary/10 text-[10px] font-medium text-primary"
                           >
-                            Counts (5/24)
+                            Counts (&lt;24 mos)
                           </Badge>
                         ) : (
                           <Badge
                             variant="outline"
                             className="text-[10px] text-muted-foreground"
                           >
-                            Aged Out
+                            Aged Out (&gt;24 mos)
                           </Badge>
                         )}
                       </td>
