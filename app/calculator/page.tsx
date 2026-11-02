@@ -4,7 +4,7 @@ import { CreditCard } from "@/types/card"
 import { CalculatorView } from "@/components/calculator/calculator-view"
 
 export const metadata: Metadata = {
-  title: "Interactive Rewards & Net Fee Calculator | Credit Card Dashboard",
+  title: "Net Value & Rewards Calculator | Credit Card Dashboard",
   description:
     "Model your monthly spending across 9 categories, toggle valuation modes, and calculate true net holding costs with our statement credit analyzer.",
 }
