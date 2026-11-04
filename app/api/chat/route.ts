@@ -2,6 +2,7 @@ import { groq } from "@ai-sdk/groq"
 import { streamText } from "ai"
 
 export const runtime = "nodejs"
+export const maxDuration = 60
 
 const SYSTEM_PROMPT = `You are the Expert AI Credit Card Advisor for the Credit Card Dashboard application.
 You possess world-class financial knowledge of personal credit cards, reward multiplier math, issuer underwriting rules, and loyalty point arbitrage.

@@ -16,10 +16,10 @@ export function Footer() {
             </div>
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
               <span className="font-heading font-semibold text-foreground">
-                CardPacing
+                Credit Card Dashboard
               </span>
               <span className="text-[11px] text-muted-foreground">
-                Credit Card Portfolio Suite
+                Portfolio & Rewards Suite
               </span>
             </div>
           </div>
@@ -56,10 +56,10 @@ export function Footer() {
         {/* Bottom line / subtext */}
         <div className="mt-4 flex flex-col items-center justify-between gap-2 border-t border-border/20 pt-4 text-center text-[11px] text-muted-foreground sm:flex-row sm:text-left">
           <p>
-            CardPacing is an independent utility. Not affiliated with Chase, Amex, or any bank. 100% private client-side local storage.
+            Credit Card Dashboard is an independent utility. Not affiliated with Chase, Amex, or any bank. 100% private client-side local storage.
           </p>
           <p className="shrink-0" suppressHydrationWarning>
-            © {currentYear} CardPacing. All rights reserved.
+            © {currentYear} Credit Card Dashboard. All rights reserved.
           </p>
         </div>
       </div>

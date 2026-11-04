@@ -450,14 +450,20 @@ export function IssuerVelocitySummaryWidget({
                       {rule.bankName}
                     </span>
                   </div>
-                  <div className="text-right font-mono text-xs font-semibold text-amber-600 dark:text-amber-400 shrink-0">
+                  <div
+                    className="text-right font-mono text-xs font-semibold text-amber-600 dark:text-amber-400 shrink-0"
+                    suppressHydrationWarning
+                  >
                     {rule.daysRemaining && rule.daysRemaining <= 90
                       ? `${rule.daysRemaining}d left`
                       : rule.monthsRemaining
                       ? `${rule.monthsRemaining}mo left`
                       : "In Cooldown"}
                     {rule.unlockFormatted && (
-                      <div className="text-[10px] font-sans text-muted-foreground font-normal">
+                      <div
+                        className="text-[10px] font-sans text-muted-foreground font-normal"
+                        suppressHydrationWarning
+                      >
                         {rule.unlockFormatted}
                       </div>
                     )}
